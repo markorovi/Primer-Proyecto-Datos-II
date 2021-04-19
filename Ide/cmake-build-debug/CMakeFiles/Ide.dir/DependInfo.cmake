@@ -4,10 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/marco/Marco/Primer-Proyecto-Datos-II/Ide/cmake-build-debug/Ide_autogen/mocs_compilation.cpp" "/home/marco/Marco/Primer-Proyecto-Datos-II/Ide/cmake-build-debug/CMakeFiles/Ide.dir/Ide_autogen/mocs_compilation.cpp.o"
-  "/home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.cpp" "/home/marco/Marco/Primer-Proyecto-Datos-II/Ide/cmake-build-debug/CMakeFiles/Ide.dir/home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.cpp.o"
-  "/home/marco/Marco/Primer-Proyecto-Datos-II/Ide/main.cpp" "/home/marco/Marco/Primer-Proyecto-Datos-II/Ide/cmake-build-debug/CMakeFiles/Ide.dir/main.cpp.o"
-  "/home/marco/Marco/Primer-Proyecto-Datos-II/Ide/mainwindow.cpp" "/home/marco/Marco/Primer-Proyecto-Datos-II/Ide/cmake-build-debug/CMakeFiles/Ide.dir/mainwindow.cpp.o"
+  "/home/joel/Qt_proyects/Ide/cmake-build-debug/Ide_autogen/mocs_compilation.cpp" "/home/joel/Qt_proyects/Ide/cmake-build-debug/CMakeFiles/Ide.dir/Ide_autogen/mocs_compilation.cpp.o"
+  "/home/joel/Qt_proyects/Ide/main.cpp" "/home/joel/Qt_proyects/Ide/cmake-build-debug/CMakeFiles/Ide.dir/main.cpp.o"
+  "/home/joel/Qt_proyects/Ide/mainwindow.cpp" "/home/joel/Qt_proyects/Ide/cmake-build-debug/CMakeFiles/Ide.dir/mainwindow.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
