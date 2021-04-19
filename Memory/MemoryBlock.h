@@ -8,7 +8,6 @@
 #define IDE_FIRST_ALLOCATION_H
 
 
-
 class MemoryBlock {
 private:
 
