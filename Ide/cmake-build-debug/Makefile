@@ -59,19 +59,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/marco/Marco/CLion/clion-2020.3.2/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/joel/Descargas/clion-2020.3.2/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/marco/Marco/CLion/clion-2020.3.2/bin/cmake/linux/bin/cmake -E rm -f
+RM = /home/joel/Descargas/clion-2020.3.2/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/marco/Marco/Primer-Proyecto-Datos-II/Ide
+CMAKE_SOURCE_DIR = /home/joel/Qt_proyects/Ide
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/marco/Marco/Primer-Proyecto-Datos-II/Ide/cmake-build-debug
+CMAKE_BINARY_DIR = /home/joel/Qt_proyects/Ide/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,7 +79,7 @@ CMAKE_BINARY_DIR = /home/marco/Marco/Primer-Proyecto-Datos-II/Ide/cmake-build-de
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/marco/Marco/CLion/clion-2020.3.2/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/joel/Descargas/clion-2020.3.2/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -90,7 +90,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/marco/Marco/CLion/clion-2020.3.2/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/joel/Descargas/clion-2020.3.2/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -100,9 +100,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/marco/Marco/Primer-Proyecto-Datos-II/Ide/cmake-build-debug/CMakeFiles /home/marco/Marco/Primer-Proyecto-Datos-II/Ide/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/joel/Qt_proyects/Ide/cmake-build-debug/CMakeFiles /home/joel/Qt_proyects/Ide/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/marco/Marco/Primer-Proyecto-Datos-II/Ide/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/joel/Qt_proyects/Ide/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -183,33 +183,6 @@ Ide_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ide.dir/build.make CMakeFiles/Ide.dir/Ide_autogen/mocs_compilation.cpp.s
 .PHONY : Ide_autogen/mocs_compilation.cpp.s
 
-home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.o: home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.cpp.o
-
-.PHONY : home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.o
-
-# target to build an object file
-home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ide.dir/build.make CMakeFiles/Ide.dir/home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.cpp.o
-.PHONY : home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.cpp.o
-
-home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.i: home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.cpp.i
-
-.PHONY : home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.i
-
-# target to preprocess a source file
-home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ide.dir/build.make CMakeFiles/Ide.dir/home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.cpp.i
-.PHONY : home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.cpp.i
-
-home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.s: home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.cpp.s
-
-.PHONY : home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.s
-
-# target to generate assembly for a file
-home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ide.dir/build.make CMakeFiles/Ide.dir/home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.cpp.s
-.PHONY : home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.cpp.s
-
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -277,9 +250,6 @@ help:
 	@echo "... Ide_autogen/mocs_compilation.o"
 	@echo "... Ide_autogen/mocs_compilation.i"
 	@echo "... Ide_autogen/mocs_compilation.s"
-	@echo "... home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.o"
-	@echo "... home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.i"
-	@echo "... home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
