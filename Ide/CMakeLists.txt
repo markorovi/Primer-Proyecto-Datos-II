@@ -32,7 +32,7 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
-)
+        ../Memory/MemoryBlock.cpp ../Memory/MemoryBlock.h)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(Ide
