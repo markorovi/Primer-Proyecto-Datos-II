@@ -111,8 +111,12 @@ CMakeFiles/Ide.dir/Ide_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux
 CMakeFiles/Ide.dir/Ide_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgetsglobal.h
 CMakeFiles/Ide.dir/Ide_autogen/mocs_compilation.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h
 
+CMakeFiles/Ide.dir/home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.cpp.o: /home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.cpp
+CMakeFiles/Ide.dir/home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.cpp.o: /home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.h
+
 CMakeFiles/Ide.dir/main.cpp.o: ../main.cpp
 CMakeFiles/Ide.dir/main.cpp.o: ../mainwindow.h
+CMakeFiles/Ide.dir/main.cpp.o: /home/marco/Marco/Primer-Proyecto-Datos-II/Memory/MemoryBlock.h
 CMakeFiles/Ide.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h
 CMakeFiles/Ide.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h
 CMakeFiles/Ide.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic.h
