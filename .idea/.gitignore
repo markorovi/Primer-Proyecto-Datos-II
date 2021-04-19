@@ -142,4 +142,3 @@ CMakeLists.txt.user*
 # Flags for Clang Code Model
 *.cxxflags
 *.cflags
-
