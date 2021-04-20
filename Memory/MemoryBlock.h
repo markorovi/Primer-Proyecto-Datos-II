@@ -10,9 +10,8 @@
 
 class MemoryBlock {
 private:
-
-public:
     std::vector<char> ToUse;
+public:
     MemoryBlock();
     void First_Resize();
     void Using_Memory(int to_use);
