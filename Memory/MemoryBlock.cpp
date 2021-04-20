@@ -4,7 +4,6 @@
 
 #include "MemoryBlock.h"
 
-
 MemoryBlock::MemoryBlock(){
     this->First_Resize();
 }
