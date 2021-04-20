@@ -1,0 +1,5 @@
+/home/joel/Qt_proyects/build-Ide-Desktop_Qt_6_0_3_GCC_64bit-Debug/CMakeFiles/rebuild_cache.dir
+/home/joel/Qt_proyects/build-Ide-Desktop_Qt_6_0_3_GCC_64bit-Debug/CMakeFiles/edit_cache.dir
+/home/joel/Qt_proyects/build-Ide-Desktop_Qt_6_0_3_GCC_64bit-Debug/CMakeFiles/Ide.dir
+/home/joel/Qt_proyects/build-Ide-Desktop_Qt_6_0_3_GCC_64bit-Debug/CMakeFiles/Ide_autogen_timestamp_deps.dir
+/home/joel/Qt_proyects/build-Ide-Desktop_Qt_6_0_3_GCC_64bit-Debug/CMakeFiles/Ide_autogen.dir
