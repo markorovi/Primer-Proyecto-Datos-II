@@ -54,19 +54,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/joel/Descargas/clion-2020.3.2/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/marco/Marco/CLion/clion-2020.3.2/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/joel/Descargas/clion-2020.3.2/bin/cmake/linux/bin/cmake -E rm -f
+RM = /home/marco/Marco/CLion/clion-2020.3.2/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/joel/Qt_proyects/Ide
+CMAKE_SOURCE_DIR = /home/marco/Marco/Primer-Proyecto-Datos-II/Ide
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/joel/Qt_proyects/Ide/cmake-build-debug
+CMAKE_BINARY_DIR = /home/marco/Marco/Primer-Proyecto-Datos-II/Ide/cmake-build-debug
 
 # Utility rule file for Ide_autogen.
 
@@ -74,8 +74,8 @@ CMAKE_BINARY_DIR = /home/joel/Qt_proyects/Ide/cmake-build-debug
 include CMakeFiles/Ide_autogen.dir/progress.make
 
 CMakeFiles/Ide_autogen:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/joel/Qt_proyects/Ide/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target Ide"
-	/home/joel/Descargas/clion-2020.3.2/bin/cmake/linux/bin/cmake -E cmake_autogen /home/joel/Qt_proyects/Ide/cmake-build-debug/CMakeFiles/Ide_autogen.dir/AutogenInfo.json Debug
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/marco/Marco/Primer-Proyecto-Datos-II/Ide/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target Ide"
+	/home/marco/Marco/CLion/clion-2020.3.2/bin/cmake/linux/bin/cmake -E cmake_autogen /home/marco/Marco/Primer-Proyecto-Datos-II/Ide/cmake-build-debug/CMakeFiles/Ide_autogen.dir/AutogenInfo.json Debug
 
 Ide_autogen: CMakeFiles/Ide_autogen
 Ide_autogen: CMakeFiles/Ide_autogen.dir/build.make
@@ -92,6 +92,6 @@ CMakeFiles/Ide_autogen.dir/clean:
 .PHONY : CMakeFiles/Ide_autogen.dir/clean
 
 CMakeFiles/Ide_autogen.dir/depend:
-	cd /home/joel/Qt_proyects/Ide/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/joel/Qt_proyects/Ide /home/joel/Qt_proyects/Ide /home/joel/Qt_proyects/Ide/cmake-build-debug /home/joel/Qt_proyects/Ide/cmake-build-debug /home/joel/Qt_proyects/Ide/cmake-build-debug/CMakeFiles/Ide_autogen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/marco/Marco/Primer-Proyecto-Datos-II/Ide/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/Marco/Primer-Proyecto-Datos-II/Ide /home/marco/Marco/Primer-Proyecto-Datos-II/Ide /home/marco/Marco/Primer-Proyecto-Datos-II/Ide/cmake-build-debug /home/marco/Marco/Primer-Proyecto-Datos-II/Ide/cmake-build-debug /home/marco/Marco/Primer-Proyecto-Datos-II/Ide/cmake-build-debug/CMakeFiles/Ide_autogen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Ide_autogen.dir/depend
 

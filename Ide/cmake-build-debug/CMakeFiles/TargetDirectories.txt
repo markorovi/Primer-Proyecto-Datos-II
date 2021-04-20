@@ -1,4 +1,4 @@
-/home/joel/Qt_proyects/Ide/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/joel/Qt_proyects/Ide/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/joel/Qt_proyects/Ide/cmake-build-debug/CMakeFiles/Ide.dir
-/home/joel/Qt_proyects/Ide/cmake-build-debug/CMakeFiles/Ide_autogen.dir
+/home/marco/Marco/Primer-Proyecto-Datos-II/Ide/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/marco/Marco/Primer-Proyecto-Datos-II/Ide/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/marco/Marco/Primer-Proyecto-Datos-II/Ide/cmake-build-debug/CMakeFiles/Ide.dir
+/home/marco/Marco/Primer-Proyecto-Datos-II/Ide/cmake-build-debug/CMakeFiles/Ide_autogen.dir
