@@ -10,13 +10,16 @@
 class Interpreter {
     public:
         Interpreter();
-
+        ~Interpreter();
         void readCode(QString);
+        QList<QStringList> getWords();
+
+        void interpretCode(int);
 
     private:
         QStringList keyWords;
         QStringList operators;
-
+        QList<QStringList> words;
 };
 
 

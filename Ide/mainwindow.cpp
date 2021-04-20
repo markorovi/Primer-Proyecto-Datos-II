@@ -7,6 +7,14 @@
 
 #include "Interpreter.h"
 
+
+#include <QFileDialog>
+#include <QMessageBox>
+#include <QTextStream>
+#include <QFile>
+
+
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -19,20 +27,10 @@ MainWindow::MainWindow(QWidget *parent)
     //Code Input
 
     QString code = ui->codeInput->toPlainText();
-    int linesCount = code.count("\n");
 
 
+    //Interpreter
 
-    for (int i=0; i<linesCount; i++) {
-        ui->labelNumberLine->setText(ui->labelNumberLine->text() + "\n" + QString().setNum(i+2));
-    }
-
-    //qDebug()<<ui->labelNumberLine->text();
-
-
-    //Interprete
-    Interpreter interpreter = Interpreter();
-    interpreter.readCode(code);
 
 
 
@@ -48,7 +46,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->ramLiveView->setColumnWidth(2,90);
     ui->ramLiveView->setColumnWidth(3,100);
 
-    for (int i =0; i<10; i++)
+    for (int i =0; i<5; i++)
     {
         setValuesRamLiveView("0x999","10","a",2);
         setValuesRamLiveView("0x998","11","b",1);
@@ -79,4 +77,102 @@ void MainWindow::setValuesRamLiveView(QString memoryDirection, QString value,  Q
     ui->ramLiveView->setItem(ui->ramLiveView->rowCount()-1, 2, new QTableWidgetItem(label));
     ui->ramLiveView->setItem(ui->ramLiveView->rowCount()-1, 3, new QTableWidgetItem(QString::number(referenceCount)));
 
+}
+
+void MainWindow::on_actionOpen_triggered()
+{
+    QFile file;
+    QTextStream io;
+
+    QString filename = QFileDialog::getOpenFileName(this, "Abrir");
+    file.setFileName(filename);
+
+    if(filename.isEmpty()){
+        return;
+    }
+
+    file.open(QIODevice::ReadOnly | QIODevice::Text);
+
+    if (!file.isOpen()){
+        QMessageBox::critical(this, "Error", file.errorString());
+        return;
+    }
+
+    io.setDevice(&file);
+    ui->codeInput->setPlainText(io.readAll());
+
+    file.close();
+
+
+}
+
+void MainWindow::on_actionSave_as_triggered()
+{
+    QFile file;
+    QTextStream io;
+    QString filename = QFileDialog::getSaveFileName(this,"Guardar");
+
+    file.setFileName(filename);
+
+    if(filename.isEmpty()){
+        return;
+    }
+
+    file.open(QIODevice::WriteOnly | QIODevice::Text);
+
+    if (!file.isOpen()){
+        QMessageBox::critical(this, "Error", file.errorString());
+        return;
+    }
+
+    io.setDevice(&file);
+    io<<ui->codeInput->toPlainText();
+
+    file.flush();
+    file.close();
+}
+
+void MainWindow::on_actionClose_triggered()
+{
+    close();
+}
+
+void MainWindow::on_actionRun_triggered()
+{
+    if(!running){
+        ui->terminalOutput->appendPlainText("\n>> The program is starting\n");
+        qDebug()<<"\n"<<"The program is starting\n";
+
+        running=true;
+        interpreter.readCode(ui->codeInput->toPlainText());
+        interpreter.interpretCode(line);
+        line++;
+    } else {
+        on_actionStop_triggered();
+        on_actionRun_triggered();
+    }
+}
+
+void MainWindow::on_actionStop_triggered()
+{
+    if(running){
+        running=false;
+        line=0;
+        interpreter=Interpreter();
+        ui->terminalOutput->appendPlainText("\n>> The program has unexpectedly finished\n");
+        qDebug()<<"\n"<<"The program has unexpectedly finished\n";
+    }
+}
+
+void MainWindow::on_actionNext_Line_triggered()
+{
+    if(running){
+        if(line<interpreter.getWords().size()){
+            interpreter.interpretCode(line);
+            line++;
+        } else {
+            on_actionStop_triggered();
+        }
+
+    }
 }

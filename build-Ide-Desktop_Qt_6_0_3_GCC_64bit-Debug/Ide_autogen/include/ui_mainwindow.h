@@ -40,7 +40,6 @@ public:
     QTableWidget *ramLiveView;
     QLabel *labelConsole;
     QLabel *labelLog;
-    QLabel *labelNumberLine;
     QPlainTextEdit *terminalOutput;
     QMenuBar *menubar;
     QMenu *menuVuild;
@@ -87,7 +86,7 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         codeInput = new QPlainTextEdit(centralwidget);
         codeInput->setObjectName(QString::fromUtf8("codeInput"));
-        codeInput->setGeometry(QRect(60, 10, 1431, 471));
+        codeInput->setGeometry(QRect(10, 10, 1481, 471));
         appLog = new QPlainTextEdit(centralwidget);
         appLog->setObjectName(QString::fromUtf8("appLog"));
         appLog->setGeometry(QRect(10, 720, 1481, 151));
@@ -103,10 +102,6 @@ public:
         labelLog->setObjectName(QString::fromUtf8("labelLog"));
         labelLog->setGeometry(QRect(10, 700, 67, 17));
         labelLog->setAlignment(Qt::AlignCenter);
-        labelNumberLine = new QLabel(centralwidget);
-        labelNumberLine->setObjectName(QString::fromUtf8("labelNumberLine"));
-        labelNumberLine->setGeometry(QRect(20, 15, 31, 471));
-        labelNumberLine->setAlignment(Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing);
         terminalOutput = new QPlainTextEdit(centralwidget);
         terminalOutput->setObjectName(QString::fromUtf8("terminalOutput"));
         terminalOutput->setGeometry(QRect(10, 530, 1481, 151));
@@ -171,18 +166,23 @@ public:
         actionNext_Line->setText(QCoreApplication::translate("MainWindow", "Next Line", nullptr));
         codeInput->setPlainText(QCoreApplication::translate("MainWindow", "\n"
 "\n"
-"cout << \"H ol a\" << \"Jaime HP\";\n"
+"cout << \"H o l a\" << \"aaaaaaaaaaaaaaaa\";\n"
 "\n"
 "int a = 3;\n"
 "\n"
+"{\n"
 "int b = 5;\n"
 "\n"
-"char = \"as  lol as de cf\"\n"
+"int c = a + b;\n"
+"}\n"
 "\n"
-"int suma = a + b;", nullptr));
+"char = \"xD\";\n"
+"\n"
+"int suma = a + b;\n"
+"\n"
+"reference<int> x = getaddr(a);", nullptr));
         labelConsole->setText(QCoreApplication::translate("MainWindow", "Console", nullptr));
         labelLog->setText(QCoreApplication::translate("MainWindow", "Log", nullptr));
-        labelNumberLine->setText(QCoreApplication::translate("MainWindow", "1", nullptr));
         terminalOutput->setPlainText(QCoreApplication::translate("MainWindow", ">>", nullptr));
         menuVuild->setTitle(QCoreApplication::translate("MainWindow", "Build", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));

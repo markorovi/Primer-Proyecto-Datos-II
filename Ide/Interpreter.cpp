@@ -24,12 +24,16 @@ Interpreter::Interpreter() {
 
 }
 
+Interpreter::~Interpreter(){
+
+}
+
 void Interpreter::readCode(QString code){
 
     QStringList lines = code.split("\n");
     lines.removeAll("");
 
-    QList<QStringList> words;
+
 
 
     for(int i=0; i<lines.size(); i++){
@@ -54,9 +58,39 @@ void Interpreter::readCode(QString code){
         }
    }
 
+   for(int i = 0; i<words.size(); i++){
+       for(int j = 0; j<words[i].size(); j++){
+           if(words[i][j].contains("reference")){
+               QStringList aux = words[i][j].split("<");
+               words[i][j]=aux[0];
+               words[i].insert(j+1, "<");
+               aux = aux[1].split(">");
+               words[i].insert(j+2, aux[0]);
+               words[i].insert(j+3, ">");
+           }
 
+           if(words[i][j].contains("getaddr")){
+               QStringList aux = words[i][j].split("(");
+               words[i][j]=aux[0];
+               words[i].insert(j+1, "(");
+               aux = aux[1].split(")");
+               words[i].insert(j+2, aux[0]);
+               words[i].insert(j+3, ")");
+           }
+       }
+   }
 
-    for (int i = 0; i<words.size(); i++){
+    /*for (int i = 0; i<words.size(); i++){
         qDebug()<<words[i];
+    }*/
+}
+
+QList<QStringList> Interpreter::getWords(){
+    return words;
+}
+
+void Interpreter::interpretCode(int line){
+    if (line<words.size()){
+        qDebug()<<words[line];
     }
 }

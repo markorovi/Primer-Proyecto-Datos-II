@@ -17,24 +17,30 @@
    <widget class="QPlainTextEdit" name="codeInput">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>10</x>
       <y>10</y>
-      <width>1431</width>
+      <width>1481</width>
       <height>471</height>
      </rect>
     </property>
     <property name="plainText">
      <string>
 
-cout &lt;&lt; &quot;H ol a&quot; &lt;&lt; &quot;Jaime HP&quot;;
+cout &lt;&lt; &quot;H o l a&quot; &lt;&lt; &quot;aaaaaaaaaaaaaaaa&quot;;
 
 int a = 3;
 
+{
 int b = 5;
 
-char = &quot;as  lol as de cf&quot;
+int c = a + b;
+}
 
-int suma = a + b;</string>
+char = &quot;xD&quot;;
+
+int suma = a + b;
+
+reference&lt;int&gt; x = getaddr(a);</string>
     </property>
    </widget>
    <widget class="QPlainTextEdit" name="appLog">
@@ -90,22 +96,6 @@ int suma = a + b;</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="labelNumberLine">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>15</y>
-      <width>31</width>
-      <height>471</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>1</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
     </property>
    </widget>
    <widget class="QPlainTextEdit" name="terminalOutput">
