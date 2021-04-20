@@ -9,7 +9,6 @@
 Ide/cmake-build-debug/*
 /Ide/cmake-build-debug/
 
-
 # Prerequisites
 *.d
 
