@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/joel/Qt_proyects/Ide/cmake-build-debug/Ide_autogen/mocs_compilation.cpp" "/home/joel/Qt_proyects/Ide/cmake-build-debug/CMakeFiles/Ide.dir/Ide_autogen/mocs_compilation.cpp.o"
+  "/home/joel/Qt_proyects/Ide/Interpreter.cpp" "/home/joel/Qt_proyects/Ide/cmake-build-debug/CMakeFiles/Ide.dir/Interpreter.cpp.o"
   "/home/joel/Qt_proyects/Ide/main.cpp" "/home/joel/Qt_proyects/Ide/cmake-build-debug/CMakeFiles/Ide.dir/main.cpp.o"
   "/home/joel/Qt_proyects/Ide/mainwindow.cpp" "/home/joel/Qt_proyects/Ide/cmake-build-debug/CMakeFiles/Ide.dir/mainwindow.cpp.o"
   )

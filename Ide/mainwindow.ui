@@ -24,73 +24,17 @@
      </rect>
     </property>
     <property name="plainText">
-     <string>int a = 3;
+     <string>
+
+cout &lt;&lt; &quot;H ol a&quot; &lt;&lt; &quot;Jaime HP&quot;;
+
+int a = 3;
 
 int b = 5;
 
-int suma = a + b;
+char = &quot;as  lol as de cf&quot;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</string>
+int suma = a + b;</string>
     </property>
    </widget>
    <widget class="QPlainTextEdit" name="appLog">

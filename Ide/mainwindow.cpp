@@ -5,6 +5,8 @@
 #include <QStandardItemModel>
 #include <QString>
 
+#include "Interpreter.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -27,6 +29,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     //qDebug()<<ui->labelNumberLine->text();
 
+
+    //Interprete
+    Interpreter interpreter = Interpreter();
+    interpreter.readCode(code);
 
 
 
