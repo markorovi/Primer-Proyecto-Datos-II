@@ -1,0 +1,77 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Ide",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Ide::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Ide-Debug-77d392fab55fa8c1a8cc.json",
+					"name" : "Ide",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Ide_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Ide_autogen-Debug-77f5c93ba7a8df165b8d.json",
+					"name" : "Ide_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Ide_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Ide_autogen_timestamp_deps-Debug-06241a9d34f6f6f77b87.json",
+					"name" : "Ide_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/joel/Qt_proyects/build-Ide-Desktop_Qt_6_0_3_GCC_64bit-Debug",
+		"source" : "/home/joel/Qt_proyects/Ide"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 2
+	}
+}
