@@ -19,6 +19,8 @@ Interpreter::Interpreter() {
     operators.append("*");
     operators.append("/");
     operators.append("=");
+    operators.append("getAddr");
+    operators.append("getValue");
 
 
 
@@ -53,7 +55,7 @@ void Interpreter::readCode(QString code){
 
             if (j==words[i].size()-1 && words[i][j].contains(";")){
                 words[i][j].remove(";");
-                words[i].append(".");
+                words[i].append("-endl");
             }
         }
    }
@@ -61,15 +63,16 @@ void Interpreter::readCode(QString code){
    for(int i = 0; i<words.size(); i++){
        for(int j = 0; j<words[i].size(); j++){
            if(words[i][j].contains("reference")){
+
                QStringList aux = words[i][j].split("<");
                words[i][j]=aux[0];
                words[i].insert(j+1, "<");
                aux = aux[1].split(">");
                words[i].insert(j+2, aux[0]);
                words[i].insert(j+3, ">");
-           }
 
-           if(words[i][j].contains("getaddr")){
+           } else if(words[i][j].contains("print") || words[i][j].contains("printf") || words[i][j].contains("getAddr") || words[i][j].contains("getValue")){
+
                QStringList aux = words[i][j].split("(");
                words[i][j]=aux[0];
                words[i].insert(j+1, "(");
@@ -80,9 +83,13 @@ void Interpreter::readCode(QString code){
        }
    }
 
-    /*for (int i = 0; i<words.size(); i++){
-        qDebug()<<words[i];
-    }*/
+   for (int i =0; i<words.size(); i++){
+       for(int j=0; j<words[i].size(); j++){
+           if(words[i][j].contains("\t")){
+               words[i][j].replace("\t", "");
+           }
+       }
+   }
 }
 
 QList<QStringList> Interpreter::getWords(){
@@ -92,5 +99,11 @@ QList<QStringList> Interpreter::getWords(){
 void Interpreter::interpretCode(int line){
     if (line<words.size()){
         qDebug()<<words[line];
+    }
+}
+
+void Interpreter::showCode(){
+    for (int i = 0; i<words.size(); i++){
+        qDebug()<<words[i];
     }
 }

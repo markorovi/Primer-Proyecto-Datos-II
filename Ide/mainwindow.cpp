@@ -30,6 +30,9 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     //Interpreter
+    interpreter.readCode(code);
+    interpreter.showCode();
+    interpreter = Interpreter();
 
 
 

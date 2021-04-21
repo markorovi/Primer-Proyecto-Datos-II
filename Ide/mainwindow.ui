@@ -25,22 +25,32 @@
     </property>
     <property name="plainText">
      <string>
+struct Punto
+{
+	int x;
+	int y;
+}
+
+
+print(&quot;Hola mundo&quot;);
 
 cout &lt;&lt; &quot;H o l a&quot; &lt;&lt; &quot;aaaaaaaaaaaaaaaa&quot;;
 
 int a = 3;
 
 {
-int b = 5;
+	int b = 5;
 
-int c = a + b;
+	int c = a + b;
 }
 
 char = &quot;xD&quot;;
 
 int suma = a + b;
 
-reference&lt;int&gt; x = getaddr(a);</string>
+reference&lt;int&gt; x = getAddr(suma);
+
+a = getValue(x);</string>
     </property>
    </widget>
    <widget class="QPlainTextEdit" name="appLog">

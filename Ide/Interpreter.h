@@ -15,6 +15,7 @@ class Interpreter {
         QList<QStringList> getWords();
 
         void interpretCode(int);
+        void showCode();
 
     private:
         QStringList keyWords;
