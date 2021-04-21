@@ -165,32 +165,7 @@ public:
         actionStop->setText(QCoreApplication::translate("MainWindow", "Stop", nullptr));
         actionNext_Line->setText(QCoreApplication::translate("MainWindow", "Next Line", nullptr));
         codeInput->setPlainText(QCoreApplication::translate("MainWindow", "\n"
-"struct Punto\n"
-"{\n"
-"	int x;\n"
-"	int y;\n"
-"}\n"
-"\n"
-"\n"
-"print(\"Hola mundo\");\n"
-"\n"
-"cout << \"H o l a\" << \"aaaaaaaaaaaaaaaa\";\n"
-"\n"
-"int a = 3;\n"
-"\n"
-"{\n"
-"	int b = 5;\n"
-"\n"
-"	int c = a + b;\n"
-"}\n"
-"\n"
-"char = \"xD\";\n"
-"\n"
-"int suma = a + b;\n"
-"\n"
-"reference<int> x = getAddr(suma);\n"
-"\n"
-"a = getValue(x);", nullptr));
+"int a = 2;", nullptr));
         labelConsole->setText(QCoreApplication::translate("MainWindow", "Console", nullptr));
         labelLog->setText(QCoreApplication::translate("MainWindow", "Log", nullptr));
         terminalOutput->setPlainText(QCoreApplication::translate("MainWindow", ">>", nullptr));

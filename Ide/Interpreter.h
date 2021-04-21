@@ -13,9 +13,13 @@ class Interpreter {
         ~Interpreter();
         void readCode(QString);
         QList<QStringList> getWords();
-
+        QString whatIs(QString);
         void interpretCode(int);
         void showCode();
+
+        bool isExisting(QString);
+        bool isNumber(QString);
+        bool isChar(QString);
 
     private:
         QStringList keyWords;
