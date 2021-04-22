@@ -34,8 +34,6 @@ MainWindow::MainWindow(QWidget *parent)
     //interpreter.showCode();
     //interpreter = Interpreter();
 
-
-
     //Live Ram View
 
     ui->ramLiveView->setColumnCount(4);

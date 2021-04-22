@@ -16,6 +16,24 @@ QStandardItemModel
 QString
 -
 
+/home/joel/Qt_proyects/Ide/cmake-build-debug/Ide_autogen/EWIEGA46WW/moc_mainwindow.cpp
+../../../mainwindow.h
+/home/joel/Qt_proyects/Ide/mainwindow.h
+QtCore/qbytearray.h
+-
+QtCore/qmetatype.h
+-
+
+/home/joel/Qt_proyects/Ide/cmake-build-debug/Ide_autogen/mocs_compilation.cpp
+EWIEGA46WW/moc_mainwindow.cpp
+/home/joel/Qt_proyects/Ide/cmake-build-debug/Ide_autogen/EWIEGA46WW/moc_mainwindow.cpp
+
+/home/joel/Qt_proyects/Ide/main.cpp
+mainwindow.h
+/home/joel/Qt_proyects/Ide/mainwindow.h
+QApplication
+-
+
 /home/joel/Qt_proyects/Ide/mainwindow.cpp
 mainwindow.h
 /home/joel/Qt_proyects/Ide/mainwindow.h
@@ -27,14 +45,34 @@ QStandardItemModel
 -
 QString
 -
+Interpreter.h
+/home/joel/Qt_proyects/Ide/Interpreter.h
+QFileDialog
+-
+QMessageBox
+-
+QTextStream
+-
+QFile
+-
 
 /home/joel/Qt_proyects/Ide/mainwindow.h
+Interpreter.h
+/home/joel/Qt_proyects/Ide/Interpreter.h
 QMainWindow
 -
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QFile
+qfile.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QString
 qstring.h
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QTextStream
+qtextstream.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant
 qvariant.h
@@ -204,6 +242,16 @@ map
 utility
 -
 
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qdir.h
+QtCore/qstring.h
+-
+QtCore/qfileinfo.h
+-
+QtCore/qstringlist.h
+-
+QtCore/qshareddata.h
+-
+
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qeventloop.h
 QtCore/qobject.h
 -
@@ -220,6 +268,16 @@ stdio.h
 QtCore/qiodevice.h
 -
 QtCore/qstring.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfileinfo.h
+QtCore/qfile.h
+-
+QtCore/qlist.h
+-
+QtCore/qshareddata.h
+-
+QtCore/qmetatype.h
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qflags.h
@@ -1288,6 +1346,10 @@ qaction.h
 qapplication.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h
 
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFileDialog
+qfiledialog.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qfiledialog.h
+
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView
 qheaderview.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h
@@ -1307,6 +1369,10 @@ qmenu.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMenuBar
 qmenubar.h
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenubar.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QMessageBox
+qmessagebox.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPlainTextEdit
 qplaintextedit.h
@@ -1418,6 +1484,24 @@ QtWidgets/qtwidgetsglobal.h
 QtWidgets/qwidget.h
 -
 
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qwidget.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qfiledialog.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtCore/qdir.h
+-
+QtCore/qstring.h
+-
+QtCore/qurl.h
+-
+QtWidgets/qdialog.h
+-
+
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h
 QtWidgets/qtwidgetsglobal.h
 -
@@ -1460,6 +1544,12 @@ QtWidgets/qaction.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qmenu.h
+-
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qdialog.h
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qplaintextedit.h

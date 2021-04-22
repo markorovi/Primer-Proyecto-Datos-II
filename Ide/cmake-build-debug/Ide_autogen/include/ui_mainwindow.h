@@ -40,7 +40,6 @@ public:
     QTableWidget *ramLiveView;
     QLabel *labelConsole;
     QLabel *labelLog;
-    QLabel *labelNumberLine;
     QPlainTextEdit *terminalOutput;
     QMenuBar *menubar;
     QMenu *menuVuild;
@@ -87,7 +86,7 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         codeInput = new QPlainTextEdit(centralwidget);
         codeInput->setObjectName(QString::fromUtf8("codeInput"));
-        codeInput->setGeometry(QRect(60, 10, 1431, 471));
+        codeInput->setGeometry(QRect(10, 10, 1481, 471));
         appLog = new QPlainTextEdit(centralwidget);
         appLog->setObjectName(QString::fromUtf8("appLog"));
         appLog->setGeometry(QRect(10, 720, 1481, 151));
@@ -103,10 +102,6 @@ public:
         labelLog->setObjectName(QString::fromUtf8("labelLog"));
         labelLog->setGeometry(QRect(10, 700, 67, 17));
         labelLog->setAlignment(Qt::AlignCenter);
-        labelNumberLine = new QLabel(centralwidget);
-        labelNumberLine->setObjectName(QString::fromUtf8("labelNumberLine"));
-        labelNumberLine->setGeometry(QRect(20, 15, 31, 471));
-        labelNumberLine->setAlignment(Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing);
         terminalOutput = new QPlainTextEdit(centralwidget);
         terminalOutput->setObjectName(QString::fromUtf8("terminalOutput"));
         terminalOutput->setGeometry(QRect(10, 530, 1481, 151));
@@ -169,15 +164,10 @@ public:
 #endif // QT_NO_SHORTCUT
         actionStop->setText(QApplication::translate("MainWindow", "Stop", nullptr));
         actionNext_Line->setText(QApplication::translate("MainWindow", "Next Line", nullptr));
-        codeInput->setPlainText(QApplication::translate("MainWindow", "int a = 3;\n"
-"\n"
-"int b = 5;\n"
-"\n"
-"int suma = a + b;\n"
-"", nullptr));
+        codeInput->setPlainText(QApplication::translate("MainWindow", "\n"
+"int a = 2;", nullptr));
         labelConsole->setText(QApplication::translate("MainWindow", "Console", nullptr));
         labelLog->setText(QApplication::translate("MainWindow", "Log", nullptr));
-        labelNumberLine->setText(QApplication::translate("MainWindow", "1", nullptr));
         terminalOutput->setPlainText(QApplication::translate("MainWindow", ">>", nullptr));
         menuVuild->setTitle(QApplication::translate("MainWindow", "Build", nullptr));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", nullptr));
