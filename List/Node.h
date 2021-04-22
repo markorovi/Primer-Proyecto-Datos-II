@@ -13,6 +13,7 @@ private:
     std::string type;
     Node* next;
     int position;
+    std::string name;
 public:
     void SetPosition(int value);
     int GetPosition();
@@ -20,6 +21,8 @@ public:
     void* GetAddress();
     void SetType(std::string type);
     std::string GetType();
+    void SetName(std::string name);
+    std::string GetName();
     void SetNext(Node* node);
     Node* GetNext();
 };

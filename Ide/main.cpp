@@ -3,6 +3,8 @@
 #include <iostream>
 #include "../Sockets/Client.h"
 #include "../Sockets/Server.h"
+#include "../Sockets/Parser.h"
+#include "../Memory/Memory.h""
 
 int main(int argc, char *argv[])
 {
@@ -25,21 +27,26 @@ int main(int argc, char *argv[])
 //        test->Start();
 //    }
         //Generating and parsing QJsonDocument
-        QJsonDocument doc;
-        QJsonObject obj;
-        obj["test"] = "respuesta";
-        obj["test1"] = "respuesta1";
-        obj["test2"] = "respuesta2";
-        obj["test3"] = "respuesta3";
-        doc.setObject(obj);
-        QString strJson(doc.toJson(QJsonDocument::Compact)); //QJsonDocument to QString
-        std::string test =  strJson.toUtf8().constData(); //QString to string
-        const char * prueba= test.c_str(); //String to char (to be able to send it through sockets)
 
-        //Getting data from de char received on the socket
-        std::string final = static_cast<std::string>(prueba); //Char to string
-        QString test2 = QString::fromUtf8(test.c_str()); //String to QString
-        QJsonDocument doc2 = QJsonDocument::fromJson(test2.toUtf8()); //QString to QJsonDocument
-        std::string respuesta = doc2.object().value(QString("test")).toString().toUtf8().constData(); //Getting the value of "test" on a string
-        std::cout<<respuesta;
+//        QJsonDocument doc;
+//        doc.setObject(Parser::CreateJsonObj_NoAddress("int", "a", "22")); //Genera el documento con los rasgos de dentro
+//        std::string prueba= Parser::ReturnChar(doc); //String to char (to be able to send it through sockets) //Lo pasa a string
+//
+//        const char * prueba1 = prueba.c_str(); //Lo de la derecha de la desigualdad es como iria dentro del socket
+
+//        QJsonDocument doc2 = Parser::ReturnJson(prueba1); //Devolver lo que llego por el socket a json
+//        std::cout<<Parser::ReturnStringValueFromJson(doc, "name"); //Obtener un valor de json
+
+    Memory::get_instance()->Need_Memory("int", "11", "hola");
+    Memory::get_instance()->Need_Memory("int", "22", "hola1");
+    Memory::get_instance()->Need_Memory("int", "33", "hola2");
+    Memory::get_instance()->Need_Memory("int", "44", "hola3");
+    Memory::get_instance()->Need_Memory("int", "55", "hola4");
+    Memory::get_instance()->Need_Memory("int", "66", "hola5");
+    Memory::get_instance()->Show();
+    Memory::get_instance()->Freeing_Memory("hola");
+    Memory::get_instance()->Show();
+    Memory::get_instance()->Need_Memory("int", "77", "hola6");
+    Memory::get_instance()->Show();
+
 }

@@ -26,25 +26,26 @@ void Linked_List::print_list(Node *head) {
     cout << "Data in memory: ";
     for ( ; head; head = head->GetNext()){
         if (head->GetType() == "int"){
-            cout << *(int*)head->GetAddress() <<  "("  << head->GetAddress()  << ")" << "[" << head->GetPosition() << "]" <<"->";
+            cout << head->GetName() <<":" <<*(int*)head->GetAddress() <<  "("  << head->GetAddress()  << ")" << "[" << head->GetPosition() << "]" <<"->";
         } else if (head->GetType()=="char"){
-            cout << *(char*)head->GetAddress() <<  "("  << head->GetAddress()  << ")"<< "[" << head->GetPosition() << "]"  <<"->";
+            cout << head->GetName() <<":" <<*(char*)head->GetAddress() <<  "("  << head->GetAddress()  << ")"<< "[" << head->GetPosition() << "]"  <<"->";
         } else if (head->GetType()=="long"){
-            cout << *(long*)head->GetAddress() <<  "("  << head->GetAddress()  << ")"<< "[" << head->GetPosition() << "]"  <<"->";
+            cout << head->GetName() <<":" <<*(long*)head->GetAddress() <<  "("  << head->GetAddress()  << ")"<< "[" << head->GetPosition() << "]"  <<"->";
         } else if (head->GetType()=="double"){
-            cout << *(double*)head->GetAddress() <<  "("  << head->GetAddress()  << ")"<< "[" << head->GetPosition() << "]"  <<"->";
+            cout << head->GetName() <<":" <<*(double*)head->GetAddress() <<  "("  << head->GetAddress()  << ")"<< "[" << head->GetPosition() << "]"  <<"->";
         } else if (head->GetType()=="float"){
-            cout << *(float*)head->GetAddress() <<  "("  << head->GetAddress()  << ")"<< "[" << head->GetPosition() << "]"  <<"->";
+            cout << head->GetName() <<":" <<*(float*)head->GetAddress() <<  "("  << head->GetAddress()  << ")"<< "[" << head->GetPosition() << "]"  <<"->";
         }
     }
     cout << "\n\n";
 }
 
-void Linked_List::add_node(void* address, string type, int position) {
+void Linked_List::add_node(void* address, string type, int position, std::string name) {
     Node* tmp = new Node;
     tmp->SetAddress(address);
     tmp->SetType(type);
     tmp->SetPosition(position);
+    tmp->SetName(name);
     tmp->SetNext(nullptr);
 
     if(head == nullptr){
@@ -56,12 +57,12 @@ void Linked_List::add_node(void* address, string type, int position) {
     }
 }
 
-int Linked_List::delete_node(void* address) {
+int Linked_List::delete_node(std::string name) {
     int to_return = -1;
 
     if (this->GetHead() == nullptr) {
         cout << "Not existing list or position our of range given when deleting a node" << "\n";
-    } else if (reinterpret_cast<int *>(this->GetHead()->GetAddress()) == reinterpret_cast<int *>(address)) {
+    } else if (this->GetHead()->GetName() == name) {
         to_return = this->GetHead()->GetPosition();
 
         Node *tmp = this->GetHead()->GetNext();
@@ -71,8 +72,7 @@ int Linked_List::delete_node(void* address) {
     } else {
         Node *tmp = this->GetHead();
         for (int i = 0; i < this->lenght(); i++) {
-
-            if (reinterpret_cast<int *>(tmp->GetAddress()) == reinterpret_cast<int *>(address)) {
+            if (tmp->GetNext()->GetName() == name) {
                 to_return = tmp->GetNext()->GetPosition();
                 Node *to_connect = tmp->GetNext()->GetNext();
                 tmp->GetNext()->SetNext(nullptr);

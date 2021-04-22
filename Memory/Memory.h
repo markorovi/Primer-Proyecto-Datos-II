@@ -19,11 +19,11 @@ public:
     double *head = (double *) malloc(1310720);
     Linked_List InUse;
     static Memory *get_instance();
-    void Using_Memory(std::string type, std::string i);
-    void Reciclying_Memory(std::string type, std::string i, int position);
-    void Freeing_Memory(void* to_free);
+    void Using_Memory(std::string type, std::string i,  std::string name);
+    void Reciclying_Memory(std::string type, std::string i, int position, std::string name);
+    void Freeing_Memory(std::string name);
     void Show();
-    void Need_Memory(std::string type, std::string i);
+    void Need_Memory(std::string type, std::string i,  std::string name);
 
 };
 
