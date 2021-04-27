@@ -148,7 +148,7 @@ void MainWindow::on_actionRun_triggered()
         running=true;
         interpreter.readCode(ui->codeInput->toPlainText());
         interpreter.interpretCode(line);
-        Client::SetFlag(true);
+
         test->Start();
         line++;
     } else {
@@ -173,7 +173,7 @@ void MainWindow::on_actionNext_Line_triggered()
     if(running){
         if(line<interpreter.getWords().size()){
             interpreter.interpretCode(line);
-            Client::SetFlag(true);
+
             test->Start();
             line++;
         } else {
