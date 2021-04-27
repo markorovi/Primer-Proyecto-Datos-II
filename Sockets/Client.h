@@ -9,6 +9,8 @@
 #include <arpa/inet.h>
 #include <string.h>
 #include <string>
+#include "Parser.h"
+
 #ifndef IDE_CLIENT_H
 #define IDE_CLIENT_H
 

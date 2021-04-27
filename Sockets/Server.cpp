@@ -1,7 +1,9 @@
 //
 // Created by marco on 4/20/21.
 //
-
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QString>
 #include "Server.h"
 
 void Server::Initialize() {
@@ -63,7 +65,8 @@ void Server::Start() {
             std::cout << "Client disconnected " << std::endl;
             break;
         }
-
+        QJsonDocument doc2 = Parser::ReturnJson(std::string(this->buf, 0, bytesReceived).c_str()); //Devolver lo que llego por el socket a json
+        std::cout<<Parser::ReturnStringValueFromJson(doc2, "toDo"); //Obtener un valor de json
 //        QJsonDocument doc;
 //        QJsonObject obj;
 //        obj["test"] = "respuesta";

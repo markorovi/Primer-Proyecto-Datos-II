@@ -18,6 +18,7 @@ public:
     void add_node(void* address, std::string type, int position, std::string name);
     int delete_node(std::string name);
     void print_list(Node* head);
+    int return_listPostion(Node* head, int value);
     int lenght();
     void add_espace(Node *p);
 };

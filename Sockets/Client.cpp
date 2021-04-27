@@ -1,7 +1,9 @@
 //
 // Created by marco on 4/20/21.
 //
-
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QString>
 #include "Client.h"
 
 
@@ -16,11 +18,15 @@ void Client::Initialize() {
 
 void Client::Start() {
     while (true){
-        std::cout << "> ";
-        getline(std::cin, this->userInput);
+        //std::cout << "> ";
+        //getline(std::cin, this->userInput);
 
-//		Send to server
-        int sendRes = send(this->sock, this->userInput.c_str(), this->userInput.size() + 1, 0);
+        if(false){
+            QJsonDocument doc;
+            doc.setObject(Parser::CreateJsonObj_NoAddress("int", "a", "22")); //Genera el documento con los rasgos de dentro
+            std::string prueba= Parser::ReturnChar(doc); //String to char (to be able to send it through sockets) //Lo pasa a string
+            int sendRes = send(this->sock, prueba.c_str(), prueba.size() + 1, 0);
+        }
 
 
 //		Wait for response
@@ -31,5 +37,4 @@ void Client::Start() {
         std::cout << "SERVER> " << std::string(this->buf, bytesReceived) << "\r\n";
 
     }
-    close(this->sock);
 }

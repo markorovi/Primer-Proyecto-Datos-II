@@ -40,6 +40,23 @@ void Linked_List::print_list(Node *head) {
     cout << "\n\n";
 }
 
+int Linked_List::return_listPostion(Node *head, int value) {
+    int closest = 104857600;
+    if (this->lenght() > 0){
+        if (this->lenght() == 1 and head->GetPosition() - value > 0) {
+            closest = head->GetPosition();
+        } else {
+            for ( ; head; head = head->GetNext()){
+                if (head->GetPosition() - value > 0 and head->GetPosition() - value < closest){
+                    closest = head->GetPosition();
+                }
+            }
+        }
+    }
+
+    return closest;
+}
+
 void Linked_List::add_node(void* address, string type, int position, std::string name) {
     Node* tmp = new Node;
     tmp->SetAddress(address);

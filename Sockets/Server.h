@@ -12,6 +12,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonValue>
+#include "Parser.h"
 #ifndef IDE_SERVER_H
 #define IDE_SERVER_H
 
