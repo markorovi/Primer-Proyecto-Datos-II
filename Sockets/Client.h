@@ -17,15 +17,14 @@
 
 class Client {
 private:
-    int sock = socket(AF_INET, SOCK_STREAM, 0);
-    int port = 54000;
-    std::string ipAddress = "127.0.0.1";
-    sockaddr_in hint;
     char buf[4096];
-    std::string userInput;
+    static QJsonDocument received;
 public:
-    void Initialize();
+    static QJsonDocument getReceived();
+
+public:
     void Start();
+    static void SetFlag(bool value);
 };
 
 

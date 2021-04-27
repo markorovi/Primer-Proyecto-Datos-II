@@ -13,8 +13,10 @@ public:
 static std::string ReturnChar(QJsonDocument document);
 static std::string ReturnStringValueFromJson(QJsonDocument document, std::string value);
 static QJsonDocument ReturnJson(const char* inbox);
+static QJsonDocument ReturnJsonFromStr(std::string text);
 static QJsonObject CreateJsonObj_NoAddress(std::string type, std::string name, std::string value);
 static QJsonObject CreateJsonObj_Address(std::string type, std::string name, std::string value, std::string address);
+static QJsonObject Nothing();
 };
 
 

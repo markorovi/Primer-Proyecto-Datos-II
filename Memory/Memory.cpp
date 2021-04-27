@@ -124,3 +124,10 @@ void Memory::Need_Memory(std::string type, std::string i, std::string name) {
 
     }
 }
+ Linked_List Memory::getInUse()  {
+    return InUse;
+}
+
+char *Memory::getHead() const {
+    return head;
+}

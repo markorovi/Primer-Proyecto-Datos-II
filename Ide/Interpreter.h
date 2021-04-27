@@ -30,6 +30,7 @@ class Interpreter {
         void showInTerminal(QString);
         void showInAppLog(QString);
     private:
+        bool flag = false;
         QPlainTextEdit *terminal;
         QPlainTextEdit *appLog;
         QStringList keyWords;

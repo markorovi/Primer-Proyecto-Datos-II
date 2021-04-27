@@ -3,6 +3,7 @@
 
 #include "Interpreter.h"
 #include <QMainWindow>
+#include "../Sockets/Client.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,10 +19,17 @@ public:
 
     void setValuesRamLiveView(QString , QString, QString, int);
 
+
 private:
     int line=0;
     bool running=false;
     Interpreter interpreter = Interpreter();
+    static std::string json;
+    Client *test = new Client;
+public:
+    static std::string getJson();
+    static void setJson(std::string toSet);
+
 
 private slots:
     void on_actionOpen_triggered();

@@ -16,6 +16,11 @@ QJsonObject Parser::CreateJsonObj_NoAddress(std::string type, std::string name, 
     return obj;
 }
 
+QJsonObject Parser::Nothing(){
+    QJsonObject obj;
+    obj["toDo"] = "nothing";
+    return obj;
+}
 
 QJsonObject Parser::CreateJsonObj_Address(std::string type, std::string name, std::string value, std::string address){
     QJsonObject obj;
@@ -38,6 +43,14 @@ std::string Parser::ReturnStringValueFromJson(QJsonDocument document, std::strin
 QJsonDocument Parser::ReturnJson(const char* inbox){
     std::string str = static_cast<std::string>(inbox); //Char to string
     QString Qstr = QString::fromUtf8(str.c_str()); //String to QString
+    QJsonDocument document = QJsonDocument::fromJson(Qstr.toUtf8()); //QString to QJsonDocument
+//    std::cout<<Parser::ReturnStringValueFromJson(document, "name");
+//    std::cout<<"teset"<<std::endl;
+    return document;
+}
+
+QJsonDocument Parser::ReturnJsonFromStr(std::string text){
+    QString Qstr = QString::fromUtf8(text.c_str()); //String to QString
     QJsonDocument document = QJsonDocument::fromJson(Qstr.toUtf8()); //QString to QJsonDocument
 //    std::cout<<Parser::ReturnStringValueFromJson(document, "name");
 //    std::cout<<"teset"<<std::endl;

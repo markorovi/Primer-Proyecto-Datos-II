@@ -6,14 +6,16 @@
 #include <QString>
 
 #include "Interpreter.h"
-
+#include "../Sockets/Client.h"
 
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QTextStream>
 #include <QFile>
+#include <QJsonDocument>
+#include <QJsonObject>
 
-
+std::string MainWindow::json = "";
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -28,8 +30,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     //Interpreter
     interpreter = Interpreter(ui->terminalOutput, ui->appLog);
-    interpreter.readCode(code);
-    interpreter.showCode();
+//    interpreter.readCode(code);
+//    interpreter.showCode();
 
 
     //Live Ram View
@@ -141,9 +143,13 @@ void MainWindow::on_actionRun_triggered()
         interpreter.showInTerminal("The program is starting\n");
         qDebug()<<"\n"<<"The program is starting\n";
 
+
+
         running=true;
         interpreter.readCode(ui->codeInput->toPlainText());
         interpreter.interpretCode(line);
+        Client::SetFlag(true);
+        test->Start();
         line++;
     } else {
         on_actionStop_triggered();
@@ -167,6 +173,8 @@ void MainWindow::on_actionNext_Line_triggered()
     if(running){
         if(line<interpreter.getWords().size()){
             interpreter.interpretCode(line);
+            Client::SetFlag(true);
+            test->Start();
             line++;
         } else {
             on_actionStop_triggered();
@@ -174,3 +182,12 @@ void MainWindow::on_actionNext_Line_triggered()
 
     }
 }
+
+std::string MainWindow::getJson() {
+    return json;
+}
+
+void MainWindow::setJson(std::string toSet) {
+    json = toSet;
+}
+

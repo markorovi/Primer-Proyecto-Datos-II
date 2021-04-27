@@ -4,37 +4,47 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QString>
+#include "../Ide/mainwindow.h"
 #include "Client.h"
+#include <unistd.h>
 
-
-void Client::Initialize() {
-    this->hint.sin_family = AF_INET;
-    this->hint.sin_port = htons(this->port);
-    inet_pton(AF_INET, this->ipAddress.c_str(), &this->hint.sin_addr);
-
-    int connectRes = connect(this->sock, (sockaddr*)&this->hint, sizeof(this->hint));
-}
-
+bool Client::flag = false;
 
 void Client::Start() {
-    while (true){
-        //std::cout << "> ";
-        //getline(std::cin, this->userInput);
+    int sock= socket(AF_INET, SOCK_STREAM, 0);
+    sockaddr_in hint;
+    hint.sin_family = AF_INET;
+    hint.sin_port = htons(54000);
+    inet_pton(AF_INET, "127.0.0.1", &hint.sin_addr);
 
-        if(false){
-            QJsonDocument doc;
-            doc.setObject(Parser::CreateJsonObj_NoAddress("int", "a", "22")); //Genera el documento con los rasgos de dentro
-            std::string prueba= Parser::ReturnChar(doc); //String to char (to be able to send it through sockets) //Lo pasa a string
-            int sendRes = send(this->sock, prueba.c_str(), prueba.size() + 1, 0);
-        }
+    int connectRes = connect(sock, (sockaddr*)&hint, sizeof(hint));
+
+
+    while (true){
+        QJsonDocument doc= Parser::ReturnJson(MainWindow::getJson().c_str()); //Genera el documento con los rasgos de dentro
+        std::string prueba= Parser::ReturnChar(doc); //String to char (to be able to send it through sockets) //Lo pasa a string
+        int sendRes = send(sock, prueba.c_str(), prueba.size() + 1, 0);
+        this->flag = false;
 
 
 //		Wait for response
         memset(this->buf, 0, 4096);
-        int bytesReceived = recv(this->sock, this->buf, 4096, 0);
+        int bytesReceived = recv(sock, this->buf, 4096, 0);
 
-//		Display response
-        std::cout << "SERVER> " << std::string(this->buf, bytesReceived) << "\r\n";
+        if (bytesReceived != -1){
+            QJsonDocument received = Parser::ReturnJsonFromStr(std::string(this->buf, bytesReceived));
+            //Parser::ReturnStringValueFromJson(received, "address");
+            break;
+        }
 
     }
+    close(sock);
+}
+
+void Client::SetFlag(bool value) {
+    flag = value;
+}
+
+QJsonDocument Client::getReceived() {
+    return received;
 }

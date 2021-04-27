@@ -19,13 +19,9 @@
 
 class Server {
 private:
-    int listening = socket(AF_INET, SOCK_STREAM, 0);
-    int clientSockect;
     char buf[4096];
-    sockaddr_in hint;
 public:
     void Start();
-    void Initialize();
 };
 
 
