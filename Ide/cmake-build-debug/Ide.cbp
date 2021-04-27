@@ -123,18 +123,6 @@
 		<Unit filename="/home/joel/Qt_proyects/Ide/cmake-build-debug/Ide_autogen/mocs_compilation.cpp">
 			<Option target="Ide"/>
 		</Unit>
-		<Unit filename="/home/joel/Qt_proyects/Ide/main.cpp">
-			<Option target="Ide"/>
-		</Unit>
-		<Unit filename="/home/joel/Qt_proyects/Ide/mainwindow.cpp">
-			<Option target="Ide"/>
-		</Unit>
-		<Unit filename="/home/joel/Qt_proyects/Ide/mainwindow.h">
-			<Option target="Ide"/>
-		</Unit>
-		<Unit filename="/home/joel/Qt_proyects/Ide/mainwindow.ui">
-			<Option target="Ide"/>
-		</Unit>
 		<Unit filename="/home/joel/Qt_proyects/Ide/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

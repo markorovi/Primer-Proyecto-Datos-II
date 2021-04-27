@@ -264,7 +264,16 @@ CMakeFiles/Ide.dir/main.cpp.o
  /home/joel/Qt_proyects/Ide/Interpreter.h
  /home/joel/Qt_proyects/Ide/main.cpp
  /home/joel/Qt_proyects/Ide/mainwindow.h
+ /home/joel/Qt_proyects/List/Linked_List.h
+ /home/joel/Qt_proyects/List/Node.h
+ /home/joel/Qt_proyects/Memory/Memory.h
+ /home/joel/Qt_proyects/Sockets/Client.h
+ /home/joel/Qt_proyects/Sockets/Parser.h
+ /home/joel/Qt_proyects/Sockets/Server.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QJsonDocument
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QJsonObject
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/QJsonValue
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QString
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QStringList
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h
@@ -298,6 +307,9 @@ CMakeFiles/Ide.dir/main.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qhashfunctions.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qiodevice.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qiterator.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qjsondocument.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qjsonobject.h
+ /usr/include/x86_64-linux-gnu/qt5/QtCore/qjsonvalue.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qline.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h
  /usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h

@@ -8,10 +8,10 @@
 
 int main(int argc, char *argv[])
 {
-//    QApplication a(argc, argv);
-//    MainWindow w;
-//    w.show();
-//    return a.exec();
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
+    return a.exec();
 
 //    int aux;
 //    std::cout<<"1, sever. 2 client"<<std::endl;
@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 //        QJsonDocument doc2 = Parser::ReturnJson(prueba1); //Devolver lo que llego por el socket a json
 //        std::cout<<Parser::ReturnStringValueFromJson(doc, "name"); //Obtener un valor de json
 
-    Memory::get_instance()->Need_Memory("int", "11", "hola");
+/*    Memory::get_instance()->Need_Memory("int", "11", "hola");
     Memory::get_instance()->Need_Memory("int", "22", "hola1");
     Memory::get_instance()->Need_Memory("int", "33", "hola2");
     Memory::get_instance()->Need_Memory("int", "44", "hola3");
@@ -47,6 +47,6 @@ int main(int argc, char *argv[])
     Memory::get_instance()->Freeing_Memory("hola");
     Memory::get_instance()->Show();
     Memory::get_instance()->Need_Memory("int", "77", "hola6");
-    Memory::get_instance()->Show();
+    Memory::get_instance()->Show();*/
 
 }

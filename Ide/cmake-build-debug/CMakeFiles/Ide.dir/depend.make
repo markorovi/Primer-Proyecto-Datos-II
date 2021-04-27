@@ -263,7 +263,16 @@ CMakeFiles/Ide.dir/Interpreter.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtWidget
 CMakeFiles/Ide.dir/main.cpp.o: ../Interpreter.h
 CMakeFiles/Ide.dir/main.cpp.o: ../main.cpp
 CMakeFiles/Ide.dir/main.cpp.o: ../mainwindow.h
+CMakeFiles/Ide.dir/main.cpp.o: /home/joel/Qt_proyects/List/Linked_List.h
+CMakeFiles/Ide.dir/main.cpp.o: /home/joel/Qt_proyects/List/Node.h
+CMakeFiles/Ide.dir/main.cpp.o: /home/joel/Qt_proyects/Memory/Memory.h
+CMakeFiles/Ide.dir/main.cpp.o: /home/joel/Qt_proyects/Sockets/Client.h
+CMakeFiles/Ide.dir/main.cpp.o: /home/joel/Qt_proyects/Sockets/Parser.h
+CMakeFiles/Ide.dir/main.cpp.o: /home/joel/Qt_proyects/Sockets/Server.h
 CMakeFiles/Ide.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug
+CMakeFiles/Ide.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QJsonDocument
+CMakeFiles/Ide.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QJsonObject
+CMakeFiles/Ide.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QJsonValue
 CMakeFiles/Ide.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QString
 CMakeFiles/Ide.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/QStringList
 CMakeFiles/Ide.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h
@@ -297,6 +306,9 @@ CMakeFiles/Ide.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qhash.h
 CMakeFiles/Ide.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qhashfunctions.h
 CMakeFiles/Ide.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qiodevice.h
 CMakeFiles/Ide.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qiterator.h
+CMakeFiles/Ide.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qjsondocument.h
+CMakeFiles/Ide.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qjsonobject.h
+CMakeFiles/Ide.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qjsonvalue.h
 CMakeFiles/Ide.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qline.h
 CMakeFiles/Ide.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h
 CMakeFiles/Ide.dir/main.cpp.o: /usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h
