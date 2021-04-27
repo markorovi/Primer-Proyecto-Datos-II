@@ -227,7 +227,7 @@ void Interpreter::interpretCode(int line) {
                             QString label = words[line][1];
                             QString Value = "null";
 
-                            doc.setObject(Parser::CreateJsonObj_NoAddress(type.toStdString(), label.toStdString(), NULL)); //Genera el documento con los rasgos de dentro
+                            doc.setObject(Parser::CreateJsonObj_NoAddress(type.toStdString(), label.toStdString(), "")); //Genera el documento con los rasgos de dentro
                             std::string Json= Parser::ReturnChar(doc); //String to char (to be able to send it through sockets) //Lo pasa a string
                             MainWindow::setJson(Json);
                             qDebug() << type << label << Value;
@@ -248,7 +248,7 @@ void Interpreter::interpretCode(int line) {
                                             QString label = words[line][1];
                                             QString Value = words[line][3];
 
-                                            doc.setObject(Parser::CreateJsonObj_NoAddress(type.toStdString(), label.toStdString(), NULL));
+                                            doc.setObject(Parser::CreateJsonObj_NoAddress(type.toStdString(), label.toStdString(), Value.toStdString()));
                                             std::string Json= Parser::ReturnChar(doc); //String to char (to be able to send it through sockets) //Lo pasa a string
                                             MainWindow::setJson(Json);
                                             qDebug() << type << label << Value;
