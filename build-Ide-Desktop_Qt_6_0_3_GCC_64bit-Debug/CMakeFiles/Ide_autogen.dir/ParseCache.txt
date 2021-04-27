@@ -3,7 +3,14 @@
  mmc:Q_OBJECT
  mdp:/home/joel/Qt_proyects/Ide/mainwindow.h
  mdp:/home/joel/Qt_proyects/build-Ide-Desktop_Qt_6_0_3_GCC_64bit-Debug/Ide_autogen/moc_predefs.h
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/QDebug
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/QList
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/QObject
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/QRect
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/QSize
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/QSizeF
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/QString
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/QStringList
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qabstractitemmodel.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qalgorithms.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qanystringview.h
@@ -25,6 +32,7 @@
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qcontainerinfo.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qcontainertools_impl.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qcontiguouscache.h
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qcoreevent.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qdatastream.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qdebug.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qflags.h
@@ -33,6 +41,7 @@
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qglobalstatic.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qhash.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qhashfunctions.h
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qiodevice.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qiodevicebase.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qiterable.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qiterator.h
@@ -52,6 +61,7 @@
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qobjectdefs_impl.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qpair.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qpoint.h
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qpointer.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qprocessordetection.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qproperty.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qpropertyprivate.h
@@ -79,38 +89,62 @@
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qtextstream.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qtmetamacros.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qtypeinfo.h
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qurl.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qutf8stringview.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qvariant.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qvarlengtharray.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtCore/qversiontagging.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/QStandardItemModel
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/QTransform
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qabstracttextdocumentlayout.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qbitmap.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qbrush.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qcolor.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qcursor.h
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qevent.h
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qeventpoint.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qfont.h
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qfontdatabase.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qfontinfo.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qfontmetrics.h
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qglyphrun.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qicon.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qimage.h
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qinputdevice.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qkeysequence.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qpaintdevice.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qpalette.h
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qpen.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qpixelformat.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qpixmap.h
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qpointingdevice.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qpolygon.h
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qrawfont.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qregion.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qrgb.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qrgba64.h
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qscreen.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qstandarditemmodel.h
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qtextcursor.h
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qtextdocument.h
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qtextformat.h
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qtextlayout.h
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qtextoption.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qtgui-config.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qtguiglobal.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qtransform.h
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qvector2d.h
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qvectornd.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtGui/qwindowdefs.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/QMainWindow
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/QPlainTextEdit
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/qabstractscrollarea.h
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/qframe.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/qmainwindow.h
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/qplaintextedit.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/qsizepolicy.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/qtabwidget.h
+ mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/qtextedit.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/qtwidgets-config.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/qtwidgetsglobal.h
  mdp:/home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/qwidget.h
@@ -361,6 +395,6 @@
  mdp:/usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h
 /home/joel/Qt_proyects/Ide/Interpreter.h
 /home/joel/Qt_proyects/Ide/main.cpp
+/home/joel/Qt_proyects/Ide/Interpreter.cpp
 /home/joel/Qt_proyects/Ide/mainwindow.cpp
  uic:./ui_mainwindow.h
-/home/joel/Qt_proyects/Ide/Interpreter.cpp

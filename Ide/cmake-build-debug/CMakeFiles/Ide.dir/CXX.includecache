@@ -15,6 +15,12 @@ QStandardItemModel
 -
 QString
 -
+QPlainTextEdit
+-
+QDebug
+-
+QStringList
+-
 
 /home/joel/Qt_proyects/Ide/cmake-build-debug/Ide_autogen/EWIEGA46WW/moc_mainwindow.cpp
 ../../../mainwindow.h
@@ -62,6 +68,10 @@ Interpreter.h
 QMainWindow
 -
 
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QDebug
+qdebug.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h
+
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QFile
 qfile.h
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h
@@ -69,6 +79,10 @@ qfile.h
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QString
 qstring.h
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QStringList
+qstringlist.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlist.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QTextStream
 qtextstream.h

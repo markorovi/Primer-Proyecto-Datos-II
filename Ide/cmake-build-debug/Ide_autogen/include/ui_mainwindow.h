@@ -165,10 +165,43 @@ public:
         actionStop->setText(QApplication::translate("MainWindow", "Stop", nullptr));
         actionNext_Line->setText(QApplication::translate("MainWindow", "Next Line", nullptr));
         codeInput->setPlainText(QApplication::translate("MainWindow", "\n"
-"int a = 2;", nullptr));
+"cout << \"Hola\";\n"
+"\n"
+"int a = 1 + 2;\n"
+"int b = 4 / 2;\n"
+"int c = 5 * 2;\n"
+"int d = 43 - 2;\n"
+"\n"
+"long e = 2 + 2;\n"
+"long f = 4000000 / 2;\n"
+"long g = 5432 * 2;\n"
+"long h = 43534 - 2423;\n"
+"\n"
+"float i = 1 + 2;\n"
+"float j = 4100 / 593;\n"
+"float m = 23 * 2;\n"
+"float n = 433 - 24;\n"
+"\n"
+"double l = 16.65 + 27.34;\n"
+"double o = 487.54 / 245.67;\n"
+"double p = 52.43 * 21.54;\n"
+"double q = 35431.3 - 2433.1;\n"
+"\n"
+"int r;\n"
+"float s;\n"
+"double t;\n"
+"long u;\n"
+"char v;\n"
+"\n"
+"int r = 1;\n"
+"float s = 1.3;\n"
+"double t = 1.554;\n"
+"long u = 1234455;\n"
+"char v = \"a\" + \"a\";\n"
+"", nullptr));
         labelConsole->setText(QApplication::translate("MainWindow", "Console", nullptr));
         labelLog->setText(QApplication::translate("MainWindow", "Log", nullptr));
-        terminalOutput->setPlainText(QApplication::translate("MainWindow", ">>", nullptr));
+        terminalOutput->setPlainText(QString());
         menuVuild->setTitle(QApplication::translate("MainWindow", "Build", nullptr));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", nullptr));
         toolBar->setWindowTitle(QApplication::translate("MainWindow", "toolBar", nullptr));

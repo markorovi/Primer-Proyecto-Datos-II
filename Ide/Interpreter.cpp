@@ -4,7 +4,32 @@
 
 #include "Interpreter.h"
 
+
+
 Interpreter::Interpreter() {
+
+    keyWords.append("int");
+    keyWords.append("long");
+    keyWords.append("char");
+    keyWords.append("float");
+    keyWords.append("double");
+    keyWords.append("struct");
+    keyWords.append("reference");
+
+    operators.append("+");
+    operators.append("-");
+    operators.append("*");
+    operators.append("/");
+    operators.append("equals");
+    operators.append("getAddr");
+    operators.append("getValue");
+
+
+}
+
+Interpreter::Interpreter(QPlainTextEdit * terminalOutput, QPlainTextEdit * _appLog) {
+    terminal=terminalOutput;
+    appLog=_appLog;
 
     keyWords.append("int");
     keyWords.append("long");
@@ -41,12 +66,13 @@ void Interpreter::readCode(QString code) {
     }
 
 
-    for (int i = 0; i < words.size(); i++) {
+    for (int i = 0; i < words.size()-1; i++) {
         for (int j = 0; j < words[i].size(); j++) {
             if (words[i][j].contains("\"") && words[i][j].count("\"") == 1) {
 
                 words[i][j] = words[i][j] + " " + words[i][j + 1];
-                words[i].remove(j + 1);
+                //words[i].remove(j + 1);
+                words[i].removeAt(j + 1);
                 j--;
             }
 
@@ -98,6 +124,22 @@ void Interpreter::readCode(QString code) {
             }
         }
     }
+
+
+    for (int i = 0; i < words.size(); i++) {
+        for (int j = 1; j < words[i].size()-1; j++) {
+            if (words[i][j] == "dot") {
+
+                words[i][j-1] = words[i][j-1] + "." + words[i][j + 1];
+
+                words[i].removeAt(j + 1);
+                words[i].removeAt(j);
+
+                j--;
+                j--;
+            }
+        }
+    }
 }
 
 QList<QStringList> Interpreter::getWords() {
@@ -122,7 +164,7 @@ QString Interpreter::whatIs(QString word) {
     } else if (word == "cout" || word == "print" || word == "printf") {
         strAux = "stdKey";
 
-    } else if (word == "(") {
+    } else if (word == "(" || word == "<<") {
         strAux = "bracketStart";
 
     } else if (word == ")") {
@@ -159,7 +201,7 @@ void Interpreter::interpretCode(int line) {
                 //Declarar Struct con el nombre de la variable
             } else {
                 //Error
-                qDebug() << "Error";
+                showInAppLog("Error");
             }
 
         } else {
@@ -191,8 +233,7 @@ void Interpreter::interpretCode(int line) {
                                 if (isNumber(words[line][3])) {
                                     //qDebug()<<"Número";
 
-                                    if ((words[line][0] == "int" || words[line][0] == "long" ||
-                                         words[line][0] == "float" || words[line][0] == "double")) {
+                                    if ((words[line][0] == "int" || words[line][0] == "long" ||words[line][0] == "float" || words[line][0] == "double")) {
                                         if (whatIs(words[line][4]) == "end") {
 
                                             QString type = words[line][0];
@@ -203,50 +244,37 @@ void Interpreter::interpretCode(int line) {
 
 
                                         } else if (whatIs(words[line][4]) == "operator") {
-                                            if (words[line][4] == "+" || words[line][4] == "-" ||
-                                                words[line][4] == "*" || words[line][4] == "/") {
+                                            if (words[line][4] == "+" || words[line][4] == "-" || words[line][4] == "*" || words[line][4] == "/") {
                                                 if (whatIs(words[line][5]) == "end") {
-                                                    qDebug() << "Error";
+                                                    showInAppLog("Error");
                                                     //Error
                                                 } else if (isNumber(words[line][5])) {
                                                     if (whatIs(words[line][6]) == "end") {
+
+                                                        QString type = words[line][0];
+                                                        QString label = words[line][1];
 
                                                         if (words[line][4] == "+") {
 
                                                             if (words[line][0] == "int") {
                                                                 //qDebug()<<"int declarado";
-                                                                QString type = words[line][0];
-                                                                QString label = words[line][1];
-                                                                QString Value = QString::number(
-                                                                        (words[line][3].toInt() +
-                                                                         words[line][5].toInt()));
+
+                                                                QString Value = QString::number((words[line][3].toInt() +words[line][5].toInt()));
                                                                 qDebug() << type << label << Value;
 
                                                             } else if (words[line][0] == "float") {
-                                                                //qDebug()<<"float declarado";
-                                                                QString type = words[line][0];
-                                                                QString label = words[line][1];
-                                                                QString Value = QString::number(
-                                                                        (words[line][3].toFloat() +
-                                                                         words[line][5].toFloat()));
+
+                                                                QString Value = QString::number((words[line][3].toFloat() + words[line][5].toFloat()));
                                                                 qDebug() << type << label << Value;
 
                                                             } else if (words[line][0] == "double") {
-                                                                //qDebug()<<"double declarado";
-                                                                QString type = words[line][0];
-                                                                QString label = words[line][1];
-                                                                QString Value = QString::number(
-                                                                        (words[line][3].toDouble() +
-                                                                         words[line][5].toDouble()));
+
+                                                                QString Value = QString::number((words[line][3].toDouble() + words[line][5].toDouble()));
                                                                 qDebug() << type << label << Value;
 
                                                             } else if (words[line][0] == "long") {
-                                                                //qDebug()<<"long declarado";
-                                                                QString type = words[line][0];
-                                                                QString label = words[line][1];
-                                                                QString Value = QString::number(
-                                                                        (words[line][3].toLong() +
-                                                                         words[line][5].toLong()));
+
+                                                                QString Value = QString::number((words[line][3].toLong() + words[line][5].toLong()));
                                                                 qDebug() << type << label << Value;
 
                                                             } else {
@@ -255,142 +283,95 @@ void Interpreter::interpretCode(int line) {
 
                                                         } else if (words[line][4] == "-") {
                                                             if (words[line][0] == "int") {
-                                                                //qDebug()<<"int declarado";
-                                                                QString type = words[line][0];
-                                                                QString label = words[line][1];
-                                                                QString Value = QString::number(
-                                                                        (words[line][3].toInt() -
-                                                                         words[line][5].toInt()));
+
+                                                                QString Value = QString::number((words[line][3].toInt() - words[line][5].toInt()));
                                                                 qDebug() << type << label << Value;
 
                                                             } else if (words[line][0] == "float") {
-                                                                //qDebug()<<"float declarado";
-                                                                QString type = words[line][0];
-                                                                QString label = words[line][1];
-                                                                QString Value = QString::number(
-                                                                        (words[line][3].toFloat() -
-                                                                         words[line][5].toFloat()));
+
+                                                                QString Value = QString::number((words[line][3].toFloat() - words[line][5].toFloat()));
                                                                 qDebug() << type << label << Value;
 
                                                             } else if (words[line][0] == "double") {
-                                                                //qDebug()<<"double declarado";
-                                                                QString type = words[line][0];
-                                                                QString label = words[line][1];
-                                                                QString Value = QString::number(
-                                                                        (words[line][3].toDouble() -
-                                                                         words[line][5].toDouble()));
+
+                                                                QString Value = QString::number((words[line][3].toDouble() - words[line][5].toDouble()));
                                                                 qDebug() << type << label << Value;
 
                                                             } else if (words[line][0] == "long") {
-                                                                //qDebug()<<"long declarado";
-                                                                QString type = words[line][0];
-                                                                QString label = words[line][1];
-                                                                QString Value = QString::number(
-                                                                        (words[line][3].toLong() -
-                                                                         words[line][5].toLong()));
+
+                                                                QString Value = QString::number((words[line][3].toLong() - words[line][5].toLong()));
                                                                 qDebug() << type << label << Value;
                                                             }
                                                         } else if (words[line][4] == "*") {
+
                                                             if (words[line][0] == "int") {
-                                                                //qDebug()<<"int declarado";
-                                                                QString type = words[line][0];
-                                                                QString label = words[line][1];
-                                                                QString Value = QString::number(
-                                                                        (words[line][3].toInt() *
-                                                                         words[line][5].toInt()));
+
+                                                                QString Value = QString::number((words[line][3].toInt() * words[line][5].toInt()));
                                                                 qDebug() << type << label << Value;
 
                                                             } else if (words[line][0] == "float") {
-                                                                //qDebug()<<"float declarado";
-                                                                QString type = words[line][0];
-                                                                QString label = words[line][1];
-                                                                QString Value = QString::number(
-                                                                        (words[line][3].toFloat() *
-                                                                         words[line][5].toFloat()));
+
+                                                                QString Value = QString::number((words[line][3].toFloat() *words[line][5].toFloat()));
                                                                 qDebug() << type << label << Value;
 
                                                             } else if (words[line][0] == "double") {
-                                                                //qDebug()<<"double declarado";
-                                                                QString type = words[line][0];
-                                                                QString label = words[line][1];
-                                                                QString Value = QString::number(
-                                                                        (words[line][3].toDouble() *
-                                                                         words[line][5].toDouble()));
+
+                                                                QString Value = QString::number((words[line][3].toDouble() *words[line][5].toDouble()));
                                                                 qDebug() << type << label << Value;
 
                                                             } else if (words[line][0] == "long") {
-                                                                //qDebug()<<"long declarado";
-                                                                QString type = words[line][0];
-                                                                QString label = words[line][1];
-                                                                QString Value = QString::number(
-                                                                        (words[line][3].toLong() *
-                                                                         words[line][5].toLong()));
+
+                                                                QString Value = QString::number((words[line][3].toLong() *words[line][5].toLong()));
                                                                 qDebug() << type << label << Value;
                                                             }
                                                         } else if (words[line][4] == "/") {
                                                             if (words[line][0] == "int") {
                                                                 if (words[line][5].toInt() != 0) {
-                                                                    //qDebug()<<"int declarado";
-                                                                    QString type = words[line][0];
-                                                                    QString label = words[line][1];
-                                                                    QString Value = QString::number(
-                                                                            (words[line][3].toInt() /
-                                                                             words[line][5].toInt()));
+
+                                                                    QString Value = QString::number((words[line][3].toInt() /words[line][5].toInt()));
                                                                     qDebug() << type << label << Value;
                                                                 }
                                                             } else if (words[line][0] == "float") {
                                                                 if (words[line][5].toFloat() != 0) {
-                                                                    //qDebug()<<"float declarado";
-                                                                    QString type = words[line][0];
-                                                                    QString label = words[line][1];
-                                                                    QString Value = QString::number(
-                                                                            (words[line][3].toFloat() /
-                                                                             words[line][5].toFloat()));
+
+                                                                    QString Value = QString::number((words[line][3].toFloat() /words[line][5].toFloat()));
                                                                     qDebug() << type << label << Value;
                                                                 }
                                                             } else if (words[line][0] == "double") {
                                                                 if (words[line][5].toDouble() != 0) {
-                                                                    //qDebug()<<"double declarado";
-                                                                    QString type = words[line][0];
-                                                                    QString label = words[line][1];
-                                                                    QString Value = QString::number(
-                                                                            (words[line][3].toDouble() /
-                                                                             words[line][5].toDouble()));
+
+                                                                    QString Value = QString::number((words[line][3].toDouble() /words[line][5].toDouble()));
                                                                     qDebug() << type << label << Value;
                                                                 }
                                                             } else if (words[line][0] == "long") {
                                                                 if (words[line][5].toLong() != 0) {
-                                                                    //qDebug()<<"long declarado";
-                                                                    QString type = words[line][0];
-                                                                    QString label = words[line][1];
-                                                                    QString Value = QString::number(
-                                                                            (words[line][3].toLong() /
-                                                                             words[line][5].toLong()));
+
+                                                                    QString Value = QString::number((words[line][3].toLong() /words[line][5].toLong()));
                                                                     qDebug() << type << label << Value;
                                                                 }
                                                             } else {
                                                                 //Error
-                                                                qDebug() << "Error";
+                                                                showInAppLog("Error");
                                                             }
 
                                                         } else {
                                                             //Error
-                                                            qDebug() << "Error";
+                                                            showInAppLog("Error");
                                                         }
                                                     } else {
                                                         //Error
-                                                        qDebug() << "Error";
+                                                        showInAppLog("Error");
                                                     }
                                                 } else {
                                                     //Error
-                                                    qDebug() << "Error";
+                                                    showInAppLog("Error");
                                                 }
 
                                             } else {
-
+                                                showInAppLog("Error");
                                             }
                                         } else {
-                                            qDebug() << "Error";
+                                            showInAppLog("Error");
                                         }
                                     } else if (isChar(words[line][3])) {
                                         if (words[line][0] == "char") {
@@ -419,63 +400,45 @@ void Interpreter::interpretCode(int line) {
                                                             qDebug() << type << label << Value;
 
                                                         } else {
-                                                            qDebug() << "Error";
+                                                            showInAppLog("Error");
                                                         }
                                                     } else {
-                                                        qDebug() << "Error";
+                                                        showInAppLog("Error");
                                                     }
 
                                                 } else {
-                                                    qDebug() << "Error";
+                                                    showInAppLog("Error");
                                                 }
 
                                             } else {
                                                 //Error
-                                                qDebug() << "Error";
+                                                showInAppLog("Error");
                                             }
                                         } else {
-                                            qDebug() << "Error";
+                                            showInAppLog("Error");
                                         }
                                     } else if (words[line][3].contains("\"")) {
                                         //Error
-                                        qDebug() << "Error";
+                                        showInAppLog("Error");
 
                                     } else { //Variable guardada en memoria
                                         //Buscar variable en memoria
                                         qDebug() << "Find variable";
                                     }
+                                } else {
+                                    //Error
+                                    showInAppLog("Error");
                                 }
 
                             } else {
                                 //Error
-                                qDebug() << "Error";
+                                showInAppLog("Error");
                             }
 
                         } else {
                             //Error
-                            qDebug() << "Error";
+                            showInAppLog("Error");
                         }
-
-
-                        /*if(isExisting(words[line][3])){
-                        //if(words[line][0]=="int"){
-
-
-                        } else if(words[line][0]=="long"){
-
-                        } else if(words[line][0]=="char"){
-
-                        } else if(words[line][0]=="float"){
-
-                        } else if(words[line][0]=="double"){
-
-                        } else if(words[line][0]=="struct"){
-
-                        } else if(words[line][0]=="reference"){
-
-                        } else {
-                            //Error
-                        }*/
 
                     } else if (whatIs(words[line][0]) == "variable") {
 
@@ -486,17 +449,32 @@ void Interpreter::interpretCode(int line) {
 
                     } else {
                         //Error
-                        qDebug() << "Error";
+                        showInAppLog("Error");
                     }
 
+                } else if((whatIs(words[line][0]) == "stdKey")) {
+                    if((whatIs(words[line][1]) == "bracketStart")){
+                        if(words[line][1]=="<<"){
+                            if(whatIs(words[line][2])=="variable"){
+                                if(whatIs(words[line][3])=="end"){
+                                    showInTerminal(words[line][2]);
+                                } else {
+                                    showInAppLog("Error");
+                                }
+                            } else{
+                                showInAppLog("Error");
+                            }
+                        } else if(words[line][1]=="("){
+
+                        }
+                    } else {
+                        showInAppLog("Error");
+                    }
                 } else {
                     //Error
-                    qDebug() << "Error";
+                    showInAppLog("Error");
                 }
-
             }
-
-
         }
     }
 }
@@ -546,3 +524,18 @@ bool Interpreter::isChar(QString value) {
     return aux;
 }
 
+void Interpreter::setTerminal(QPlainTextEdit *terminalOutput){
+    terminal=terminalOutput;
+}
+
+void Interpreter::setAppLog(QPlainTextEdit *newAppLog){
+    appLog=newAppLog;
+}
+
+void Interpreter::showInTerminal(QString msg){
+    terminal->appendPlainText(">> " + msg);
+}
+
+void Interpreter::showInAppLog(QString msg){
+    appLog->appendPlainText(">> " + msg);
+}

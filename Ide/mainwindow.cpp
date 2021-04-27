@@ -22,17 +22,15 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     setWindowTitle("C! - IDE");
 
-
-
     //Code Input
 
     QString code = ui->codeInput->toPlainText();
 
-
     //Interpreter
-    //interpreter.readCode(code);
-    //interpreter.showCode();
-    //interpreter = Interpreter();
+    interpreter = Interpreter(ui->terminalOutput, ui->appLog);
+    interpreter.readCode(code);
+    interpreter.showCode();
+
 
     //Live Ram View
 
@@ -140,7 +138,7 @@ void MainWindow::on_actionClose_triggered()
 void MainWindow::on_actionRun_triggered()
 {
     if(!running){
-        ui->terminalOutput->appendPlainText("\n>> The program is starting\n");
+        interpreter.showInTerminal("The program is starting\n");
         qDebug()<<"\n"<<"The program is starting\n";
 
         running=true;
@@ -158,8 +156,8 @@ void MainWindow::on_actionStop_triggered()
     if(running){
         running=false;
         line=0;
-        interpreter=Interpreter();
-        ui->terminalOutput->appendPlainText("\n>> The program has unexpectedly finished\n");
+        interpreter=Interpreter(ui->terminalOutput, ui->appLog);
+        interpreter.showInTerminal("The program has unexpectedly finished\n");
         qDebug()<<"\n"<<"The program has unexpectedly finished\n";
     }
 }
