@@ -22,24 +22,6 @@ QDebug
 QStringList
 -
 
-/home/joel/Qt_proyects/Ide/cmake-build-debug/Ide_autogen/EWIEGA46WW/moc_mainwindow.cpp
-../../../mainwindow.h
-/home/joel/Qt_proyects/Ide/mainwindow.h
-QtCore/qbytearray.h
--
-QtCore/qmetatype.h
--
-
-/home/joel/Qt_proyects/Ide/cmake-build-debug/Ide_autogen/mocs_compilation.cpp
-EWIEGA46WW/moc_mainwindow.cpp
-/home/joel/Qt_proyects/Ide/cmake-build-debug/Ide_autogen/EWIEGA46WW/moc_mainwindow.cpp
-
-/home/joel/Qt_proyects/Ide/main.cpp
-mainwindow.h
-/home/joel/Qt_proyects/Ide/mainwindow.h
-QApplication
--
-
 /home/joel/Qt_proyects/Ide/mainwindow.cpp
 mainwindow.h
 /home/joel/Qt_proyects/Ide/mainwindow.h

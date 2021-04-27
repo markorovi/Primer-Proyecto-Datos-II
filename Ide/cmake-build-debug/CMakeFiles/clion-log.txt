@@ -1,4 +1,13 @@
 /home/joel/Descargas/clion-2020.3.2/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/joel/Qt_proyects/Ide
 -- Configuring done
+CMake Error at CMakeLists.txt:48 (add_executable):
+  Cannot find source file:
+
+    ../Memory/Memory.cpp
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .m .M .mm .h .hh .h++ .hm
+  .hpp .hxx .in .txx
+
+
 -- Generating done
--- Build files have been written to: /home/joel/Qt_proyects/Ide/cmake-build-debug
+CMake Generate step failed.  Build files cannot be regenerated correctly.
