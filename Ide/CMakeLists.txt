@@ -32,8 +32,9 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
-        Interpreter.cpp Interpreter.h)
-
+        Interpreter.cpp Interpreter.h
+        ../Memory/Memory.cpp ../Memory/Memory.h ../List/Linked_List.cpp ../List/Linked_List.h ../List/Node.cpp ../List/Node.h ../Sockets/Server.cpp ../Sockets/Server.h ../Sockets/Client.cpp ../Sockets/Client.h ../Sockets/Parser.cpp ../Sockets/Parser.h)
+        
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(Ide
         ${PROJECT_SOURCES}
