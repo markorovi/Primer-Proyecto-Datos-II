@@ -24,7 +24,6 @@ public:
 
 public:
     void Start();
-    static void SetFlag(bool value);
 };
 
 

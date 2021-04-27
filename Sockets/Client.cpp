@@ -8,7 +8,7 @@
 #include "Client.h"
 #include <unistd.h>
 
-bool Client::flag = false;
+
 
 void Client::Start() {
     int sock= socket(AF_INET, SOCK_STREAM, 0);
@@ -24,7 +24,7 @@ void Client::Start() {
         QJsonDocument doc= Parser::ReturnJson(MainWindow::getJson().c_str()); //Genera el documento con los rasgos de dentro
         std::string prueba= Parser::ReturnChar(doc); //String to char (to be able to send it through sockets) //Lo pasa a string
         int sendRes = send(sock, prueba.c_str(), prueba.size() + 1, 0);
-        this->flag = false;
+
 
 
 //		Wait for response
@@ -41,9 +41,7 @@ void Client::Start() {
     close(sock);
 }
 
-void Client::SetFlag(bool value) {
-    flag = value;
-}
+
 
 QJsonDocument Client::getReceived() {
     return received;
