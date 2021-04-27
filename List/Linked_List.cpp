@@ -39,6 +39,40 @@ void Linked_List::print_list(Node *head) {
     }
     cout << "\n\n";
 }
+bool Linked_List::exists(std::string name, Node *head) {
+    bool flag = false;
+    if (this->lenght() > 0){
+        for ( ; head; head = head->GetNext()){
+            if (head->GetName() == name){
+                flag = true;
+            }
+        }
+    }
+    return flag;
+}
+
+void * Linked_List::returnAddress(std::string name, Node *head) {
+    if (this->lenght() > 0){
+        for ( ; head; head = head->GetNext()){
+            if (head->GetName() == name){
+                return head->GetAddress();
+            }
+        }
+    }
+}
+
+std::string Linked_List::returnType(std::string name, Node *head) {
+    if (this->lenght() > 0){
+        for ( ; head; head = head->GetNext()){
+            if (head->GetName() == name){
+                return head->GetType();
+            }
+        }
+    }
+}
+
+
+
 
 int Linked_List::return_listPostion(Node *head, int value) {
     int closest = 104857600;

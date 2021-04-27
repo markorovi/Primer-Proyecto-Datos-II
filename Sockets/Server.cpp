@@ -60,11 +60,21 @@ void Server::Start() {
         QJsonDocument toReturn;
         if (Parser::ReturnStringValueFromJson(doc, "toDo") == "assign"){
             Memory::get_instance()->Need_Memory(Parser::ReturnStringValueFromJson(doc, "type"), Parser::ReturnStringValueFromJson(doc, "value"), Parser::ReturnStringValueFromJson(doc, "name"));
-            void *address = Memory::get_instance()->getInUse().GetHead()->GetAddress();
-            std::stringstream ss;
-            ss << address;
-            std::string strAddress = ss.str();
-            toReturn.setObject(Parser::CreateJsonObj_Address(Parser::ReturnStringValueFromJson(doc, "type"), Parser::ReturnStringValueFromJson(doc, "name"), Parser::ReturnStringValueFromJson(doc, "value"), strAddress));
+            if(Memory::get_instance()->getInUse().exists(Parser::ReturnStringValueFromJson(doc, "name"), Memory::get_instance()->getInUse().GetHead())){
+                void *address = Memory::get_instance()->getInUse().returnAddress(Parser::ReturnStringValueFromJson(doc, "name"), Memory::get_instance()->getInUse().GetHead());
+                std::stringstream ss;
+                ss << address;
+                std::string strAddress = ss.str();
+                toReturn.setObject(Parser::CreateJsonObj_Address(Parser::ReturnStringValueFromJson(doc, "type"), Parser::ReturnStringValueFromJson(doc, "name"), Parser::ReturnStringValueFromJson(doc, "value"), strAddress));
+
+            } else {
+                void *address = Memory::get_instance()->getInUse().GetHead()->GetAddress();
+                std::stringstream ss;
+                ss << address;
+                std::string strAddress = ss.str();
+                toReturn.setObject(Parser::CreateJsonObj_Address(Parser::ReturnStringValueFromJson(doc, "type"), Parser::ReturnStringValueFromJson(doc, "name"), Parser::ReturnStringValueFromJson(doc, "value"), strAddress));
+
+            }
         } else if (Parser::ReturnStringValueFromJson(doc, "toDo") == "nothing"){
             toReturn.setObject(Parser::Nothing());
         }

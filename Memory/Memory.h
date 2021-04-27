@@ -26,6 +26,7 @@ public:
     void Reciclying_Memory(std::string type, std::string i, int position, std::string name);
     void Freeing_Memory(std::string name);
     void Show();
+    void Rewrite(void * address, std::string type, std::string value);
     void Need_Memory(std::string type, std::string i,  std::string name);
 
 };

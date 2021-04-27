@@ -26,49 +26,109 @@ void Memory::Show() {
 
 void Memory::Using_Memory(std::string type, std::string i,  std::string name) {
 
-    if (type == "int"){
-        *reinterpret_cast<int *>(&this->head[this->counter]) = stoi(i);
-        this->InUse.add_node(&this->head[this->counter], "int", this->counter, name);
-        this->counter+= 4;
-    } else if (type=="char"){
-        *reinterpret_cast<char *>(&this->head[this->counter]) = i[0];
-        this->InUse.add_node(&this->head[this->counter], "char", this->counter, name);
-        this->counter+= 1;
-    } else if (type=="long"){
-        *reinterpret_cast<long *>(&this->head[this->counter]) = stol(i);
-        this->InUse.add_node(&this->head[this->counter], "long", this->counter, name);
-        this->counter+= 8;
-    } else if (type=="double"){
-        *reinterpret_cast<double *>(&this->head[this->counter]) = stod(i);
-        this->InUse.add_node(&this->head[this->counter], "double", this->counter, name);
-        this->counter+= 8;
-    } else if (type=="float"){
-        *reinterpret_cast<float *>(&this->head[this->counter]) = stof(i);
-        this->InUse.add_node(&this->head[this->counter], "float", this->counter, name);
-        this->counter+= 4;
+    if (i == ""){
+        if (type == "int"){
+            *reinterpret_cast<int *>(&this->head[this->counter]);
+            this->InUse.add_node(&this->head[this->counter], "int", this->counter, name);
+            this->counter+= 4;
+        } else if (type=="char"){
+            *reinterpret_cast<char *>(&this->head[this->counter]);
+            this->InUse.add_node(&this->head[this->counter], "char", this->counter, name);
+            this->counter+= 1;
+        } else if (type=="long"){
+            *reinterpret_cast<long *>(&this->head[this->counter]);
+            this->InUse.add_node(&this->head[this->counter], "long", this->counter, name);
+            this->counter+= 8;
+        } else if (type=="double"){
+            *reinterpret_cast<double *>(&this->head[this->counter]);
+            this->InUse.add_node(&this->head[this->counter], "double", this->counter, name);
+            this->counter+= 8;
+        } else if (type=="float"){
+            *reinterpret_cast<float *>(&this->head[this->counter]);
+            this->InUse.add_node(&this->head[this->counter], "float", this->counter, name);
+            this->counter+= 4;
+        }
+    }else {
+        if (type == "int"){
+            *reinterpret_cast<int *>(&this->head[this->counter]) = stoi(i);
+            this->InUse.add_node(&this->head[this->counter], "int", this->counter, name);
+            this->counter+= 4;
+        } else if (type=="char"){
+            *reinterpret_cast<char *>(&this->head[this->counter]) = i[0];
+            this->InUse.add_node(&this->head[this->counter], "char", this->counter, name);
+            this->counter+= 1;
+        } else if (type=="long"){
+            *reinterpret_cast<long *>(&this->head[this->counter]) = stol(i);
+            this->InUse.add_node(&this->head[this->counter], "long", this->counter, name);
+            this->counter+= 8;
+        } else if (type=="double"){
+            *reinterpret_cast<double *>(&this->head[this->counter]) = stod(i);
+            this->InUse.add_node(&this->head[this->counter], "double", this->counter, name);
+            this->counter+= 8;
+        } else if (type=="float"){
+            *reinterpret_cast<float *>(&this->head[this->counter]) = stof(i);
+            this->InUse.add_node(&this->head[this->counter], "float", this->counter, name);
+            this->counter+= 4;
+        }
     }
+
 }
 
 void Memory::Reciclying_Memory(std::string type, std::string i, int position, std::string name)  {
 
-    if (type == "int"){
-        *reinterpret_cast<int *>(&this->head[position]) = stoi(i);
-        this->InUse.add_node(&this->head[position], "int", position, name);
-    } else if (type=="char"){
-        *reinterpret_cast<char *>(&this->head[position]) = i[0];
-        this->InUse.add_node(&this->head[position], "char", position, name);
-    } else if (type=="long"){
-        *reinterpret_cast<long *>(&this->head[position]) = stol(i);
-        this->InUse.add_node(&this->head[position], "long", position, name);
-    } else if (type=="double"){
-        *reinterpret_cast<double *>(&this->head[position]) = stod(i);
-        this->InUse.add_node(&this->head[position], "double", position, name);
-    } else if (type=="float"){
-        *reinterpret_cast<float *>(&this->head[position]) = stof(i);
-        this->InUse.add_node(&this->head[position], "float", position, name);
+    if (i == ""){
+        if (type == "int"){
+            *reinterpret_cast<int *>(&this->head[position]);
+            this->InUse.add_node(&this->head[position], "int", position, name);
+        } else if (type=="char"){
+            *reinterpret_cast<char *>(&this->head[position]);
+            this->InUse.add_node(&this->head[position], "char", position, name);
+        } else if (type=="long"){
+            *reinterpret_cast<long *>(&this->head[position]);
+            this->InUse.add_node(&this->head[position], "long", position, name);
+        } else if (type=="double"){
+            *reinterpret_cast<double *>(&this->head[position]);
+            this->InUse.add_node(&this->head[position], "double", position, name);
+        } else if (type=="float"){
+            *reinterpret_cast<float *>(&this->head[position]);
+            this->InUse.add_node(&this->head[position], "float", position, name);
+        }
+    } else{
+        if (type == "int"){
+            *reinterpret_cast<int *>(&this->head[position]) = stoi(i);
+            this->InUse.add_node(&this->head[position], "int", position, name);
+        } else if (type=="char"){
+            *reinterpret_cast<char *>(&this->head[position]) = i[0];
+            this->InUse.add_node(&this->head[position], "char", position, name);
+        } else if (type=="long"){
+            *reinterpret_cast<long *>(&this->head[position]) = stol(i);
+            this->InUse.add_node(&this->head[position], "long", position, name);
+        } else if (type=="double"){
+            *reinterpret_cast<double *>(&this->head[position]) = stod(i);
+            this->InUse.add_node(&this->head[position], "double", position, name);
+        } else if (type=="float"){
+            *reinterpret_cast<float *>(&this->head[position]) = stof(i);
+            this->InUse.add_node(&this->head[position], "float", position, name);
+        }
     }
+
     //this->counter++;
 }
+void Memory::Rewrite(void * address, std::string type, std::string value) {
+    std::cout<<address<< ", "<< type << ", " << value<<std::endl;
+    if (type == "int"){
+        *reinterpret_cast<int *>(&address) = stoi(value);
+    } else if (type=="char"){
+        *reinterpret_cast<char *>(&address) = value[0];
+    } else if (type=="long"){
+        *reinterpret_cast<long *>(&address) = stol(value);
+    } else if (type=="double"){
+        *reinterpret_cast<double *>(&address) = stod(value);
+    } else if (type=="float"){
+        *reinterpret_cast<float *>(&address) = stof(value);
+    }
+}
+
 
 void Memory::Freeing_Memory(std::string name) {
    int position = this->InUse.delete_node(name);
@@ -81,7 +141,13 @@ void Memory::Freeing_Memory(std::string name) {
 
 void Memory::Need_Memory(std::string type, std::string i, std::string name) {
     if (this->to_recicle.empty()){
-        this->Using_Memory(type, i, name);
+        if (this->InUse.exists(name, Memory::InUse.GetHead())){
+            this->Rewrite(this->InUse.returnAddress(name, Memory::InUse.GetHead()), this->InUse.returnType(name, Memory::InUse.GetHead()), i);
+
+        }else if (!this->InUse.exists(name, Memory::InUse.GetHead())){
+            this->Using_Memory(type, i, name);
+            std::cout<<"aqui 1"<<std::endl;
+        }
     } else{
         bool flag = false;
         for (std::vector<int>::iterator it = this->to_recicle.begin(); it != this->to_recicle.end(); ++it){
@@ -119,6 +185,7 @@ void Memory::Need_Memory(std::string type, std::string i, std::string name) {
         }
         if (!flag){
             this->Using_Memory(type, i, name);
+
         }
     std::cout<<"\n\n"<< std::endl;
 

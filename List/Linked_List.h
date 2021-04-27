@@ -20,6 +20,9 @@ public:
     void print_list(Node* head);
     int return_listPostion(Node* head, int value);
     int lenght();
+    bool exists(std::string name,  Node *head);
+    std::string returnType(std::string name, Node *head);
+    void * returnAddress(std::string name, Node *head);
     void add_espace(Node *p);
 };
 

@@ -41,19 +41,19 @@ MainWindow::MainWindow(QWidget *parent)
     l<<"Direccion"<<"Valor"<<"Etiqueta"<<"Referencias";
     ui->ramLiveView->setHorizontalHeaderLabels(l);
 
-    ui->ramLiveView->setColumnWidth(0,100);
+    ui->ramLiveView->setColumnWidth(0,150);
     ui->ramLiveView->setColumnWidth(1,60);
     ui->ramLiveView->setColumnWidth(2,90);
     ui->ramLiveView->setColumnWidth(3,100);
 
-    for (int i =0; i<5; i++)
-    {
-        setValuesRamLiveView("0x999","10","a",2);
-        setValuesRamLiveView("0x998","11","b",1);
-        setValuesRamLiveView("0x997","12","c",4);
-        setValuesRamLiveView("0x996","13","d",3);
-        setValuesRamLiveView("0x995","14","e",6);
-    }
+//    for (int i =0; i<5; i++)
+//    {
+//        setValuesRamLiveView("0x999","10","a",2);
+//        setValuesRamLiveView("0x998","11","b",1);
+//        setValuesRamLiveView("0x997","12","c",4);
+//        setValuesRamLiveView("0x996","13","d",3);
+//        setValuesRamLiveView("0x995","14","e",6);
+//    }
 
     //Elimina las filas de la tabla
     //ui->ramLiveView->setRowCount(0);
@@ -151,6 +151,9 @@ void MainWindow::on_actionRun_triggered()
 
         test->Start();
         line++;
+        setValuesRamLiveView(QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "address")),
+                             QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "value")),
+                             QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "name")),0);
     } else {
         on_actionStop_triggered();
         on_actionRun_triggered();
@@ -176,11 +179,15 @@ void MainWindow::on_actionNext_Line_triggered()
 
             test->Start();
             line++;
+            setValuesRamLiveView(QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "address")),
+                                 QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "value")),
+                                 QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "name")),0);
         } else {
             on_actionStop_triggered();
         }
 
     }
+
 }
 
 std::string MainWindow::getJson() {

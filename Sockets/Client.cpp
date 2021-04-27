@@ -8,7 +8,7 @@
 #include "Client.h"
 #include <unistd.h>
 
-
+QJsonDocument Client::received = QJsonDocument();
 
 void Client::Start() {
     int sock= socket(AF_INET, SOCK_STREAM, 0);
@@ -32,7 +32,7 @@ void Client::Start() {
         int bytesReceived = recv(sock, this->buf, 4096, 0);
 
         if (bytesReceived != -1){
-            QJsonDocument received = Parser::ReturnJsonFromStr(std::string(this->buf, bytesReceived));
+            received = Parser::ReturnJsonFromStr(std::string(this->buf, bytesReceived));
             //Parser::ReturnStringValueFromJson(received, "address");
             break;
         }
@@ -40,7 +40,6 @@ void Client::Start() {
     }
     close(sock);
 }
-
 
 
 QJsonDocument Client::getReceived() {
