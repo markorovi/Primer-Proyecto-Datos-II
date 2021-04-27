@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Ide_autogen.dir/ParseCache.txt"
   "Ide_autogen"
   "CMakeFiles/Ide.dir/Ide_autogen/mocs_compilation.cpp.o"
+  "CMakeFiles/Ide.dir/Interpreter.cpp.o"
   "CMakeFiles/Ide.dir/main.cpp.o"
   "CMakeFiles/Ide.dir/mainwindow.cpp.o"
   "Ide"

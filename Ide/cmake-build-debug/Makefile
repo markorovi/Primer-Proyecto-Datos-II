@@ -183,6 +183,33 @@ Ide_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ide.dir/build.make CMakeFiles/Ide.dir/Ide_autogen/mocs_compilation.cpp.s
 .PHONY : Ide_autogen/mocs_compilation.cpp.s
 
+Interpreter.o: Interpreter.cpp.o
+
+.PHONY : Interpreter.o
+
+# target to build an object file
+Interpreter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ide.dir/build.make CMakeFiles/Ide.dir/Interpreter.cpp.o
+.PHONY : Interpreter.cpp.o
+
+Interpreter.i: Interpreter.cpp.i
+
+.PHONY : Interpreter.i
+
+# target to preprocess a source file
+Interpreter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ide.dir/build.make CMakeFiles/Ide.dir/Interpreter.cpp.i
+.PHONY : Interpreter.cpp.i
+
+Interpreter.s: Interpreter.cpp.s
+
+.PHONY : Interpreter.s
+
+# target to generate assembly for a file
+Interpreter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ide.dir/build.make CMakeFiles/Ide.dir/Interpreter.cpp.s
+.PHONY : Interpreter.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -250,6 +277,9 @@ help:
 	@echo "... Ide_autogen/mocs_compilation.o"
 	@echo "... Ide_autogen/mocs_compilation.i"
 	@echo "... Ide_autogen/mocs_compilation.s"
+	@echo "... Interpreter.o"
+	@echo "... Interpreter.i"
+	@echo "... Interpreter.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

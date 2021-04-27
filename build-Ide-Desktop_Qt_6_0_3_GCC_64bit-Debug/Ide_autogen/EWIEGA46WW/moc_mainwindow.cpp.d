@@ -1,5 +1,14 @@
 /home/joel/Qt_proyects/build-Ide-Desktop_Qt_6_0_3_GCC_64bit-Debug/Ide_autogen/EWIEGA46WW/moc_mainwindow.cpp: /home/joel/Qt_proyects/Ide/mainwindow.h \
   /home/joel/Qt_proyects/build-Ide-Desktop_Qt_6_0_3_GCC_64bit-Debug/Ide_autogen/moc_predefs.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtCore/QDebug \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtCore/QList \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtCore/QObject \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtCore/QRect \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtCore/QSize \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtCore/QSizeF \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtCore/QString \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtCore/QStringList \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qabstractitemmodel.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qalgorithms.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qanystringview.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qarraydata.h \
@@ -19,18 +28,24 @@
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qcontainerfwd.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qcontainerinfo.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qcontainertools_impl.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qcontiguouscache.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qcoreevent.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qdatastream.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qdebug.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qflags.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qgenericatomic.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qglobal.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qglobalstatic.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qhash.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qhashfunctions.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qiodevice.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qiodevicebase.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qiterable.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qiterator.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qline.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qlist.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qlogging.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qmap.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qmargins.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qmath.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qmetacontainer.h \
@@ -43,18 +58,22 @@
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qobjectdefs_impl.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qpair.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qpoint.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qpointer.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qprocessordetection.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qproperty.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qpropertyprivate.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qrect.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qrefcount.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qscopedpointer.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qset.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qshareddata.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qshareddata_impl.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qsharedpointer.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qsharedpointer_impl.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qsize.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qstring.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qstringalgorithms.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qstringconverter.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qstringlist.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qstringliteral.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qstringmatcher.h \
@@ -64,40 +83,69 @@
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qsystemdetection.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qtaggedpointer.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qtcore-config.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qtextstream.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qtmetamacros.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qtypeinfo.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qurl.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qutf8stringview.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qvariant.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qvarlengtharray.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qversiontagging.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtGui/QStandardItemModel \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtGui/QTransform \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qabstracttextdocumentlayout.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qbitmap.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qbrush.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qcolor.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qcursor.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qevent.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qeventpoint.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qfont.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qfontdatabase.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qfontinfo.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qfontmetrics.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qglyphrun.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qicon.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qimage.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qinputdevice.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qkeysequence.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qpaintdevice.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qpalette.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qpen.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qpixelformat.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qpixmap.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qpointingdevice.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qpolygon.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qrawfont.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qregion.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qrgb.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qrgba64.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qscreen.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qstandarditemmodel.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qtextcursor.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qtextdocument.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qtextformat.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qtextlayout.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qtextoption.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qtgui-config.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qtguiglobal.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qtransform.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qvector2d.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qvectornd.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qwindowdefs.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/QMainWindow \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/QPlainTextEdit \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/qframe.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/qmainwindow.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/qplaintextedit.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/qsizepolicy.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/qtabwidget.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/qtextedit.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/qtwidgets-config.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/qwidget.h \
+  /home/joel/Qt_proyects/Ide/Interpreter.h \
   /usr/include/alloca.h \
   /usr/include/assert.h \
   /usr/include/c++/9/algorithm \
@@ -257,6 +305,7 @@
   /usr/include/sched.h \
   /usr/include/stdc-predef.h \
   /usr/include/stdint.h \
+  /usr/include/stdio.h \
   /usr/include/stdlib.h \
   /usr/include/string.h \
   /usr/include/strings.h \
@@ -282,9 +331,11 @@
   /usr/include/x86_64-linux-gnu/bits/setjmp.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -293,14 +344,18 @@
   /usr/include/x86_64-linux-gnu/bits/types.h \
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \

@@ -114,6 +114,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/joel/Qt_proyects/Ide/Interpreter.cpp">
+			<Option target="Ide"/>
+		</Unit>
+		<Unit filename="/home/joel/Qt_proyects/Ide/Interpreter.h">
+			<Option target="Ide"/>
+		</Unit>
 		<Unit filename="/home/joel/Qt_proyects/Ide/cmake-build-debug/Ide_autogen/mocs_compilation.cpp">
 			<Option target="Ide"/>
 		</Unit>
