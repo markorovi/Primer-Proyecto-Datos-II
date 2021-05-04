@@ -20,6 +20,13 @@ QJsonObject Parser::CreateJsonObj_NoAddress(std::string type, std::string name, 
     return obj;
 }
 
+QJsonObject Parser::CreateJsonObj_Free(std::string name){
+    QJsonObject obj;
+    obj["toDo"] = "free";
+    obj["name"] = name.c_str();
+    return obj;
+}
+
 /// Se encarga de generar un QJsonDocument el cual sera utilizado como un simple mensaje vacio que sera enviado al servidor cuando este no debe de realizar nada
 /// \return QJsonObject
 QJsonObject Parser::Nothing(){

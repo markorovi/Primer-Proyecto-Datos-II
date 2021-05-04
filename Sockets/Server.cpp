@@ -65,6 +65,9 @@ void Server::Start() {
                 std::string strAddress = ss.str();
                 toReturn.setObject(Parser::CreateJsonObj_Address(Parser::ReturnStringValueFromJson(doc, "type"), Parser::ReturnStringValueFromJson(doc, "name"), Parser::ReturnStringValueFromJson(doc, "value"), strAddress));
             }
+        } else if (Parser::ReturnStringValueFromJson(doc, "toDo") == "free") {
+            Memory::get_instance()->Freeing_Memory(Parser::ReturnStringValueFromJson(doc, "name"));
+            toReturn.setObject(Parser::Nothing());
         } else if (Parser::ReturnStringValueFromJson(doc, "toDo") == "nothing"){
             toReturn.setObject(Parser::Nothing());
         }
