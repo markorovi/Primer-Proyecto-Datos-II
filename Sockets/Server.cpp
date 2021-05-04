@@ -50,6 +50,7 @@ void Server::Start() {
         QJsonDocument doc = Parser::ReturnJson(std::string(this->buf, 0, bytesReceived).c_str()); //Devolver lo que llego por el socket a json
         QJsonDocument toReturn;
         if (Parser::ReturnStringValueFromJson(doc, "toDo") == "assign"){
+            std::cout<<Parser::ReturnStringValueFromJson(doc, "toDo")<<std::endl;
             Memory::get_instance()->Need_Memory(Parser::ReturnStringValueFromJson(doc, "type"), Parser::ReturnStringValueFromJson(doc, "value"), Parser::ReturnStringValueFromJson(doc, "name"));
             if(Memory::get_instance()->getInUse().exists(Parser::ReturnStringValueFromJson(doc, "name"), Memory::get_instance()->getInUse().GetHead())){
                 void *address = Memory::get_instance()->getInUse().returnAddress(Parser::ReturnStringValueFromJson(doc, "name"), Memory::get_instance()->getInUse().GetHead());

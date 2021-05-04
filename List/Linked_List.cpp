@@ -80,6 +80,17 @@ void * Linked_List::returnAddress(std::string name, Node *head) {
     }
 }
 
+
+int Linked_List::returnPostion(std::string name, Node *head) {
+    if (this->lenght() > 0){
+        for ( ; head; head = head->GetNext()){
+            if (head->GetName() == name){
+                return head->GetPosition();
+            }
+        }
+    }
+}
+
 /// Se encarga de retornar el tipo de una variable almacenada en la lista enlazada
 /// \param name std::string Variable a buscar
 /// \param head Node* Cabeza de la lista que se desea recorrer
@@ -140,12 +151,12 @@ void Linked_List::add_node(void* address, string type, int position, std::string
 /// Se encarga de eliminar un nodo de la lista en base al nombre de la variable que almacena
 /// \param name std::string Variable a buscar
 /// \return int
-int Linked_List::delete_node(std::string name) {
+int Linked_List::delete_node(int position) {
     int to_return = -1;
 
     if (this->GetHead() == nullptr) {
         cout << "Not existing list or position our of range given when deleting a node" << "\n";
-    } else if (this->GetHead()->GetName() == name) {
+    } else if (this->GetHead()->GetPosition() == position) {
         to_return = this->GetHead()->GetPosition();
 
         Node *tmp = this->GetHead()->GetNext();
@@ -155,7 +166,7 @@ int Linked_List::delete_node(std::string name) {
     } else {
         Node *tmp = this->GetHead();
         for (int i = 0; i < this->lenght(); i++) {
-            if (tmp->GetNext()->GetName() == name) {
+            if (tmp->GetNext()->GetPosition() == position) {
                 to_return = tmp->GetNext()->GetPosition();
                 Node *to_connect = tmp->GetNext()->GetNext();
                 tmp->GetNext()->SetNext(nullptr);

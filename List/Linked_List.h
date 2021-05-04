@@ -16,13 +16,14 @@ public:
     Node* GetHead();
     Linked_List();
     void add_node(void* address, std::string type, int position, std::string name);
-    int delete_node(std::string name);
+    int delete_node(int position);
     void print_list(Node* head);
     int return_listPostion(Node* head, int value);
     int lenght();
     bool exists(std::string name,  Node *head);
     std::string returnType(std::string name, Node *head);
     void * returnAddress(std::string name, Node *head);
+    int returnPostion(std::string name, Node *head);
 };
 
 #endif //IDE_LINKED_LIST_H

@@ -150,7 +150,8 @@ void Memory::Rewrite(void * address, std::string type, std::string value) {
 /// \param name std::string Nombre de la variable a liberar
 void Memory::Freeing_Memory(std::string name) {
     std::cout<<"Se liberó memoria:"<<name<<std::endl;
-   int position = this->InUse.delete_node(name);
+   int position = this->InUse.returnPostion(name, this->InUse.GetHead());
+   this->InUse.delete_node(position);
    if (position != -1){
        this->to_recicle.push_back(position);
    } else{
@@ -172,44 +173,17 @@ void Memory::Need_Memory(std::string type, std::string i, std::string name) {
             std::cout<<"aqui 1"<<std::endl;
         }
     } else{
-        bool flag = false;
-        for (std::vector<int>::iterator it = this->to_recicle.begin(); it != this->to_recicle.end(); ++it){
-            int closest = this->InUse.return_listPostion(this->InUse.GetHead(), *it);
-            std::cout << closest<< "--"<<std::endl;
-            if (closest != NULL){
-                std::cout<<type;
-                if (type == "int" and closest >= 4){
-                    this->Reciclying_Memory(type, i, closest-4, name);
-                    this->to_recicle.erase(it);
-                    flag = true;
-                    break;
-                } else if (type=="char" and closest >= 1){
-                    this->Reciclying_Memory(type, i, closest-1, name);
-                    this->to_recicle.erase(it);
-                    flag = true;
-                    break;
-                } else if (type=="long" and closest >= 8){
-                    this->Reciclying_Memory(type, i, closest-8, name);
-                    this->to_recicle.erase(it);
-                    flag = true;
-                    break;
-                } else if (type=="double" and closest >= 8){
-                    this->Reciclying_Memory(type, i, closest-8, name);
-                    this->to_recicle.erase(it);
-                    flag = true;
-                    break;
-                } else if (type=="float" and closest >= 4){
-                    this->Reciclying_Memory(type, i, closest-4, name);
-                    this->to_recicle.erase(it);
-                    flag = true;
-                    break;
-                }
-            }
-        }
-        if (!flag){
-            this->Using_Memory(type, i, name);
+        this->counter = this->to_recicle.front();
+        this->to_recicle.clear();
 
+        if (this->InUse.exists(name, Memory::InUse.GetHead())){
+            this->Rewrite(this->InUse.returnAddress(name, Memory::InUse.GetHead()), this->InUse.returnType(name, Memory::InUse.GetHead()), i);
+
+        }else if (!this->InUse.exists(name, Memory::InUse.GetHead())){
+            this->Using_Memory(type, i, name);
+            std::cout<<"aqui 1"<<std::endl;
         }
+
     std::cout<<"\n\n"<< std::endl;
 
     }
