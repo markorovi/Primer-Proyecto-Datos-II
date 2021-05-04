@@ -91,6 +91,16 @@ int Linked_List::returnPostion(std::string name, Node *head) {
     }
 }
 
+std::string Linked_List::returnValue(std::string name, Node *head) {
+    if (this->lenght() > 0){
+        for ( ; head; head = head->GetNext()){
+            if (head->GetName() == name){
+                return *(std::string*)head->GetAddress(); //lasdhgoiargoiqbvolirviuaoigjhalkjsdfhlkjashbgoiariguy
+            }
+        }
+    }
+}
+
 /// Se encarga de retornar el tipo de una variable almacenada en la lista enlazada
 /// \param name std::string Variable a buscar
 /// \param head Node* Cabeza de la lista que se desea recorrer

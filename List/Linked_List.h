@@ -24,6 +24,8 @@ public:
     std::string returnType(std::string name, Node *head);
     void * returnAddress(std::string name, Node *head);
     int returnPostion(std::string name, Node *head);
+    std::string returnValue(std::string name, Node *head);
+
 };
 
 #endif //IDE_LINKED_LIST_H

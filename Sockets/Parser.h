@@ -17,6 +17,8 @@ static QJsonDocument ReturnJsonFromStr(std::string text);
 static QJsonObject CreateJsonObj_Free(std::string name);
 static QJsonObject CreateJsonObj_NoAddress(std::string type, std::string name, std::string value);
 static QJsonObject CreateJsonObj_Address(std::string type, std::string name, std::string value, std::string address);
+static QJsonObject CreateJsonObj_Asking(std::string name);
+static QJsonObject CreateJsonObj_Value(std::string name);
 static QJsonObject Nothing();
 };
 

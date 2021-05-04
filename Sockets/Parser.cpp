@@ -27,6 +27,13 @@ QJsonObject Parser::CreateJsonObj_Free(std::string name){
     return obj;
 }
 
+QJsonObject Parser::CreateJsonObj_Asking(std::string name){
+    QJsonObject obj;
+    obj["toDo"] = "asking";
+    obj["name"] = name.c_str();
+    return obj;
+}
+
 /// Se encarga de generar un QJsonDocument el cual sera utilizado como un simple mensaje vacio que sera enviado al servidor cuando este no debe de realizar nada
 /// \return QJsonObject
 QJsonObject Parser::Nothing(){
@@ -34,6 +41,14 @@ QJsonObject Parser::Nothing(){
     obj["toDo"] = "nothing";
     return obj;
 }
+
+
+QJsonObject Parser::CreateJsonObj_Value(std::string name) {
+    QJsonObject obj;
+    obj["value"] = name.c_str();
+    return obj;
+}
+
 
 /// Se encarga de generar un QJsonDocument el cual sera utilizado para cuando se reenviara al cliente el como la variable que se deseaba guardar se guardo
 /// \param type std::string El tipo de la variable
