@@ -70,13 +70,39 @@ MainWindow::~MainWindow()
 
 void MainWindow::setValuesRamLiveView(QString memoryDirection, QString value,  QString label, int referenceCount)
 {
-    ui->ramLiveView->insertRow(ui->ramLiveView->rowCount());
 
-    ui->ramLiveView->setItem(ui->ramLiveView->rowCount()-1, 0, new QTableWidgetItem(memoryDirection));
-    ui->ramLiveView->setItem(ui->ramLiveView->rowCount()-1, 1, new QTableWidgetItem(value));
-    ui->ramLiveView->setItem(ui->ramLiveView->rowCount()-1, 2, new QTableWidgetItem(label));
-    ui->ramLiveView->setItem(ui->ramLiveView->rowCount()-1, 3, new QTableWidgetItem(QString::number(referenceCount)));
+    int aux = -1;
+//    qDebug()<<ui->ramLiveView->rowCount();
 
+    for(int i = 0; i<ui->ramLiveView->rowCount(); i++){
+        //qDebug()<<"El elemento"<<i<<"es:"<<ui->ramLiveView->item(i,2)->text();
+        //qDebug()<<"Last: "<<ui->ramLiveView->item(ui->ramLiveView->rowCount()-1,2)->text();
+        if (ui->ramLiveView->item(i,2)->text()==label){
+            aux=i;
+//            qDebug()<<aux;
+        }
+
+//        if(ui->ramLiveView->item(ui->ramLiveView->rowCount()-1,2)->text()==label) {
+//            aux = ui->ramLiveView->rowCount()-1;
+//            qDebug()<<"hola";
+//        }
+    }
+
+
+    if(aux==-1){
+        ui->ramLiveView->insertRow(ui->ramLiveView->rowCount());
+
+        ui->ramLiveView->setItem(ui->ramLiveView->rowCount()-1, 0, new QTableWidgetItem(memoryDirection));
+        ui->ramLiveView->setItem(ui->ramLiveView->rowCount()-1, 1, new QTableWidgetItem(value));
+        ui->ramLiveView->setItem(ui->ramLiveView->rowCount()-1, 2, new QTableWidgetItem(label));
+        ui->ramLiveView->setItem(ui->ramLiveView->rowCount()-1, 3, new QTableWidgetItem(QString::number(referenceCount)));
+
+    } else {
+        ui->ramLiveView->setItem(aux, 0, new QTableWidgetItem(memoryDirection));
+        ui->ramLiveView->setItem(aux, 1, new QTableWidgetItem(value));
+        ui->ramLiveView->setItem(aux, 2, new QTableWidgetItem(label));
+        ui->ramLiveView->setItem(aux, 3, new QTableWidgetItem(QString::number(referenceCount)));
+    }
 }
 
 void MainWindow::on_actionOpen_triggered()
@@ -139,21 +165,24 @@ void MainWindow::on_actionClose_triggered()
 
 void MainWindow::on_actionRun_triggered()
 {
+//    qDebug()<<"Line:"<<line;
     if(!running){
+        line=0;
         interpreter.showInTerminal("The program is starting\n");
         qDebug()<<"\n"<<"The program is starting\n";
 
-
-
+        ui->ramLiveView->removeRow(0);
         running=true;
         interpreter.readCode(ui->codeInput->toPlainText());
         interpreter.interpretCode(line);
 
         test->Start();
         line++;
-        setValuesRamLiveView(QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "address")),
-                             QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "value")),
-                             QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "name")),0);
+        if(interpreter.isScope()){
+            setValuesRamLiveView(QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "address")),
+                                 QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "value")),
+                                 QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "name")),0);
+        }
     } else {
         on_actionStop_triggered();
         on_actionRun_triggered();
@@ -166,6 +195,8 @@ void MainWindow::on_actionStop_triggered()
         running=false;
         line=0;
         interpreter=Interpreter(ui->terminalOutput, ui->appLog);
+
+        ui->ramLiveView->setRowCount(0);
         interpreter.showInTerminal("The program has unexpectedly finished\n");
         qDebug()<<"\n"<<"The program has unexpectedly finished\n";
     }
@@ -173,15 +204,20 @@ void MainWindow::on_actionStop_triggered()
 
 void MainWindow::on_actionNext_Line_triggered()
 {
+    //qDebug()<<"Actual line:"<<line;
     if(running){
         if(line<interpreter.getWords().size()){
             interpreter.interpretCode(line);
 
             test->Start();
             line++;
-            setValuesRamLiveView(QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "address")),
-                                 QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "value")),
-                                 QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "name")),0);
+
+            if(interpreter.isScope()){
+                setValuesRamLiveView(QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "address")),
+                                     QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "value")),
+                                     QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "name")),0);
+            }
+
         } else {
             on_actionStop_triggered();
         }

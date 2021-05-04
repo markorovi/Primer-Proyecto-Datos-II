@@ -29,13 +29,20 @@ class Interpreter {
         void setAppLog(QPlainTextEdit*);
         void showInTerminal(QString);
         void showInAppLog(QString);
+        void freeScope();
     private:
-        bool flag = false;
+
+        bool inScope= false;
+        QStringList scopeLabels;
+
         QPlainTextEdit *terminal;
         QPlainTextEdit *appLog;
         QStringList keyWords;
         QStringList operators;
         QList<QStringList> words;
+        bool scope = true;
+public:
+    bool isScope() const;
 };
 
 
