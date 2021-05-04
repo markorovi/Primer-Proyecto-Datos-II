@@ -94,8 +94,22 @@ int Linked_List::returnPostion(std::string name, Node *head) {
 std::string Linked_List::returnValue(std::string name, Node *head) {
     if (this->lenght() > 0){
         for ( ; head; head = head->GetNext()){
-            if (head->GetName() == name){
-                return *(std::string*)head->GetAddress(); //lasdhgoiargoiqbvolirviuaoigjhalkjsdfhlkjashbgoiariguy
+            if (head->GetType() == "int" and head->GetName() == name){
+                int toReturn = *(int*)head->GetAddress();
+                return to_string(toReturn);
+            } else if (head->GetType()=="char" and head->GetName() == name){
+                char toReturn = *(char*)head->GetAddress();
+                std::string s;
+                return s += toReturn;
+            } else if (head->GetType()=="long" and head->GetName() == name){
+                long toReturn = (long)head->GetAddress();
+                return to_string(toReturn);
+            } else if (head->GetType()=="double" and head->GetName() == name){
+                double toReturn = *(double*)head->GetAddress();
+                return to_string(toReturn);
+            } else if (head->GetType()=="float" and head->GetName() == name) {
+                float toReturn = *(float*)head->GetAddress();
+                return to_string(toReturn);
             }
         }
     }

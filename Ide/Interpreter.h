@@ -49,6 +49,11 @@ private:
     QStringList auxStructs;
     bool scope = true;
     bool inStruct = false;
+    Client *client;
+public:
+    void setClient(Client *client);
+
+    QString getValue(QString aux);
 };
 
 

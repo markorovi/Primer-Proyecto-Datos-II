@@ -25,22 +25,16 @@
     </property>
     <property name="plainText">
      <string>
-cout &lt;&lt; &quot;Hola&quot;;
+cout &lt;&lt; &quot;Hola mundo&quot;;
 
-{
-int a = 1 + 2;
-int b = 4 / 2;
-int c = 5 * 2;
-int d = 43 - 2;
+int h = 6;
 
-}
-
-int x = 3;
+int x = h;
 int y = 4;
 int b = 1;
 
 
-cout &lt;&lt; &quot;Hola de nuevo&quot;;</string>
+</string>
     </property>
    </widget>
    <widget class="QPlainTextEdit" name="appLog">
@@ -165,7 +159,7 @@ cout &lt;&lt; &quot;Hola de nuevo&quot;;</string>
   <action name="actionOpen">
    <property name="icon">
     <iconset>
-     <normaloff>../../Descargas/iconfinder_folder-open-storage-file-organize_3209339.png</normaloff>../../Descargas/iconfinder_folder-open-storage-file-organize_3209339.png</iconset>
+     <normaloff>../Imagenes/iconfinder_folder-open-storage-file-organize_3209339.png</normaloff>../Imagenes/iconfinder_folder-open-storage-file-organize_3209339.png</iconset>
    </property>
    <property name="text">
     <string>Open</string>
@@ -177,7 +171,7 @@ cout &lt;&lt; &quot;Hola de nuevo&quot;;</string>
   <action name="actionSave_as">
    <property name="icon">
     <iconset>
-     <normaloff>../../Descargas/iconfinder_158-Save_2123968.png</normaloff>../../Descargas/iconfinder_158-Save_2123968.png</iconset>
+     <normaloff>../Imagenes/iconfinder_158-Save_2123968.png</normaloff>../Imagenes/iconfinder_158-Save_2123968.png</iconset>
    </property>
    <property name="text">
     <string>Save as...</string>
@@ -189,7 +183,7 @@ cout &lt;&lt; &quot;Hola de nuevo&quot;;</string>
   <action name="actionClose">
    <property name="icon">
     <iconset>
-     <normaloff>../../Descargas/iconfinder_circle_close_cancel_exit_quit_delete_4831037.png</normaloff>../../Descargas/iconfinder_circle_close_cancel_exit_quit_delete_4831037.png</iconset>
+     <normaloff>../Imagenes/iconfinder_circle_close_cancel_exit_quit_delete_4831037.png</normaloff>../Imagenes/iconfinder_circle_close_cancel_exit_quit_delete_4831037.png</iconset>
    </property>
    <property name="text">
     <string>Close</string>
@@ -201,7 +195,7 @@ cout &lt;&lt; &quot;Hola de nuevo&quot;;</string>
   <action name="actionRun">
    <property name="icon">
     <iconset>
-     <normaloff>../../Descargas/iconfinder_icon-play_211876.png</normaloff>../../Descargas/iconfinder_icon-play_211876.png</iconset>
+     <normaloff>../Imagenes/iconfinder_icon-play_211876.png</normaloff>../Imagenes/iconfinder_icon-play_211876.png</iconset>
    </property>
    <property name="text">
     <string>Run</string>
@@ -213,7 +207,7 @@ cout &lt;&lt; &quot;Hola de nuevo&quot;;</string>
   <action name="actionStop">
    <property name="icon">
     <iconset>
-     <normaloff>../../Descargas/iconfinder_interface-solid-multimedia-stop-button-1_6127256.png</normaloff>../../Descargas/iconfinder_interface-solid-multimedia-stop-button-1_6127256.png</iconset>
+     <normaloff>../Imagenes/iconfinder_interface-solid-multimedia-stop-button-1_6127256.png</normaloff>../Imagenes/iconfinder_interface-solid-multimedia-stop-button-1_6127256.png</iconset>
    </property>
    <property name="text">
     <string>Stop</string>
@@ -222,7 +216,7 @@ cout &lt;&lt; &quot;Hola de nuevo&quot;;</string>
   <action name="actionNext_Line">
    <property name="icon">
     <iconset>
-     <normaloff>../../Descargas/iconfinder_right_4_1_4829859.png</normaloff>../../Descargas/iconfinder_right_4_1_4829859.png</iconset>
+     <normaloff>../Imagenes/iconfinder_right_4_1_4829859.png</normaloff>../Imagenes/iconfinder_right_4_1_4829859.png</iconset>
    </property>
    <property name="text">
     <string>Next Line</string>

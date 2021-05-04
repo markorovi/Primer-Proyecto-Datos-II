@@ -55,32 +55,32 @@ public:
         actionOpen = new QAction(MainWindow);
         actionOpen->setObjectName(QString::fromUtf8("actionOpen"));
         QIcon icon;
-        icon.addFile(QString::fromUtf8("../../Descargas/iconfinder_folder-open-storage-file-organize_3209339.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QString::fromUtf8("../Imagenes/iconfinder_folder-open-storage-file-organize_3209339.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionOpen->setIcon(icon);
         actionSave_as = new QAction(MainWindow);
         actionSave_as->setObjectName(QString::fromUtf8("actionSave_as"));
         QIcon icon1;
-        icon1.addFile(QString::fromUtf8("../../Descargas/iconfinder_158-Save_2123968.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QString::fromUtf8("../Imagenes/iconfinder_158-Save_2123968.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionSave_as->setIcon(icon1);
         actionClose = new QAction(MainWindow);
         actionClose->setObjectName(QString::fromUtf8("actionClose"));
         QIcon icon2;
-        icon2.addFile(QString::fromUtf8("../../Descargas/iconfinder_circle_close_cancel_exit_quit_delete_4831037.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon2.addFile(QString::fromUtf8("../Imagenes/iconfinder_circle_close_cancel_exit_quit_delete_4831037.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionClose->setIcon(icon2);
         actionRun = new QAction(MainWindow);
         actionRun->setObjectName(QString::fromUtf8("actionRun"));
         QIcon icon3;
-        icon3.addFile(QString::fromUtf8("../../Descargas/iconfinder_icon-play_211876.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon3.addFile(QString::fromUtf8("../Imagenes/iconfinder_icon-play_211876.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionRun->setIcon(icon3);
         actionStop = new QAction(MainWindow);
         actionStop->setObjectName(QString::fromUtf8("actionStop"));
         QIcon icon4;
-        icon4.addFile(QString::fromUtf8("../../Descargas/iconfinder_interface-solid-multimedia-stop-button-1_6127256.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon4.addFile(QString::fromUtf8("../Imagenes/iconfinder_interface-solid-multimedia-stop-button-1_6127256.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionStop->setIcon(icon4);
         actionNext_Line = new QAction(MainWindow);
         actionNext_Line->setObjectName(QString::fromUtf8("actionNext_Line"));
         QIcon icon5;
-        icon5.addFile(QString::fromUtf8("../../Descargas/iconfinder_right_4_1_4829859.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon5.addFile(QString::fromUtf8("../Imagenes/iconfinder_right_4_1_4829859.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionNext_Line->setIcon(icon5);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
@@ -165,22 +165,16 @@ public:
         actionStop->setText(QCoreApplication::translate("MainWindow", "Stop", nullptr));
         actionNext_Line->setText(QCoreApplication::translate("MainWindow", "Next Line", nullptr));
         codeInput->setPlainText(QCoreApplication::translate("MainWindow", "\n"
-"cout << \"Hola\";\n"
+"cout << \"Hola mundo\";\n"
 "\n"
-"{\n"
-"int a = 1 + 2;\n"
-"int b = 4 / 2;\n"
-"int c = 5 * 2;\n"
-"int d = 43 - 2;\n"
+"int h = 6;\n"
 "\n"
-"}\n"
-"\n"
-"int x = 3;\n"
+"int x = h;\n"
 "int y = 4;\n"
 "int b = 1;\n"
 "\n"
 "\n"
-"cout << \"Hola de nuevo\";", nullptr));
+"", nullptr));
         labelConsole->setText(QCoreApplication::translate("MainWindow", "Console", nullptr));
         labelLog->setText(QCoreApplication::translate("MainWindow", "Log", nullptr));
         terminalOutput->setPlainText(QString());

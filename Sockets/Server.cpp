@@ -72,8 +72,10 @@ void Server::Start() {
         } else if (Parser::ReturnStringValueFromJson(doc, "toDo") == "nothing"){
             toReturn.setObject(Parser::Nothing());
         } else if(Parser::ReturnStringValueFromJson(doc, "toDo") == "asking") {
+            std::cout<<Parser::ReturnStringValueFromJson(doc, "name")<<std::endl;
             std::string value = Memory::get_instance()->getInUse().returnValue(Parser::ReturnStringValueFromJson(doc, "name"), Memory::get_instance()->getInUse().GetHead());
             toReturn.setObject(Parser::CreateJsonObj_Value(value));
+            //std::cout<<"VALOR: " + value<<std::endl;
         }
         std::cout<<Parser::ReturnChar(toReturn).c_str()<<std::endl;
         send(clientSockect, Parser::ReturnChar(toReturn).c_str(), Parser::ReturnChar(toReturn).size() + 1, 0);

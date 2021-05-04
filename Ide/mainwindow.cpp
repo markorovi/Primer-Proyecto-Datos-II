@@ -30,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     //Interpreter
     interpreter = Interpreter(ui->terminalOutput, ui->appLog);
+    interpreter.setClient(test);
 //    interpreter.readCode(code);
 //    interpreter.showCode();
 
@@ -198,6 +199,7 @@ void MainWindow::on_actionStop_triggered()
         running=false;
         line=0;
         interpreter=Interpreter(ui->terminalOutput, ui->appLog);
+        interpreter.setClient(test);
 
         ui->ramLiveView->setRowCount(0);
         interpreter.showInTerminal("The program has unexpectedly finished\n");
