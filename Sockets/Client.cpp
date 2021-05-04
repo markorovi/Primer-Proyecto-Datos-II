@@ -10,6 +10,7 @@
 
 QJsonDocument Client::received = QJsonDocument();
 
+///Se encarga de levantar el socket y realizar la recepcion/envio de mensajes
 void Client::Start() {
     int sock= socket(AF_INET, SOCK_STREAM, 0);
     sockaddr_in hint;
@@ -19,29 +20,24 @@ void Client::Start() {
 
     int connectRes = connect(sock, (sockaddr*)&hint, sizeof(hint));
 
-
     while (true){
         QJsonDocument doc= Parser::ReturnJson(MainWindow::getJson().c_str()); //Genera el documento con los rasgos de dentro
         std::string prueba= Parser::ReturnChar(doc); //String to char (to be able to send it through sockets) //Lo pasa a string
         int sendRes = send(sock, prueba.c_str(), prueba.size() + 1, 0);
 
-
-
-//		Wait for response
         memset(this->buf, 0, 4096);
         int bytesReceived = recv(sock, this->buf, 4096, 0);
 
         if (bytesReceived != -1){
             received = Parser::ReturnJsonFromStr(std::string(this->buf, bytesReceived));
-            //Parser::ReturnStringValueFromJson(received, "address");
             break;
         }
-
     }
     close(sock);
 }
 
-
+/// Getter para la informacion que se obtiene del socket
+/// \return QJsonDocument
 QJsonDocument Client::getReceived() {
     return received;
 }

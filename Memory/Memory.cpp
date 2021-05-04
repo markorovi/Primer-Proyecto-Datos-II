@@ -6,6 +6,8 @@
 
 Memory* Memory::instance = nullptr;
 
+/// Singleton para la memoria
+/// \return Memory*
 Memory * Memory::get_instance() {
     if (instance == nullptr){
         instance = new Memory;
@@ -13,6 +15,7 @@ Memory * Memory::get_instance() {
     return instance;
 }
 
+///Se encarga de mostrar la lista de las posiciones que se pueden reciclar
 void Memory::Show() {
     this->InUse.print_list(this->InUse.GetHead());
     std::cout << "Positions to recicle: ";
@@ -24,6 +27,10 @@ void Memory::Show() {
     std::cout<<"\n\n";
 }
 
+/// Se encarga de reservar un espacio en el offset para la nueva variable
+/// \param type std::string El tipo de la variable
+/// \param i std::string Lo que la variable almacenara
+/// \param name std::string El nombre de la variable
 void Memory::Using_Memory(std::string type, std::string i,  std::string name) {
 
     if (i == ""){
@@ -74,6 +81,11 @@ void Memory::Using_Memory(std::string type, std::string i,  std::string name) {
 
 }
 
+/// Se encarga de reutilizar una posicion en el offset de memoria a ser posible
+/// \param type std::string El tipo de la variable
+/// \param i std::string Lo que la variable almacenara
+/// \param position int Posicion la cual acapara la variabl en el offset
+/// \param name std::string El nombre de la variable
 void Memory::Reciclying_Memory(std::string type, std::string i, int position, std::string name)  {
 
     if (i == ""){
@@ -114,6 +126,11 @@ void Memory::Reciclying_Memory(std::string type, std::string i, int position, st
 
     //this->counter++;
 }
+
+/// Se encarga de sobreescribir una variable si esta ya existe
+/// \param address void* Variable a sobreescribir
+/// \param type std::string Tipo de la variable
+/// \param value std::string Nuevo valor que la direccion almacenara
 void Memory::Rewrite(void * address, std::string type, std::string value) {
     std::cout<<address<< ", "<< type << ", " << value<<std::endl;
     if (type == "int"){
@@ -129,7 +146,8 @@ void Memory::Rewrite(void * address, std::string type, std::string value) {
     }
 }
 
-
+/// Se encarga de liberar un espacio en memoria
+/// \param name std::string Nombre de la variable a liberar
 void Memory::Freeing_Memory(std::string name) {
    int position = this->InUse.delete_node(name);
    if (position != -1){
@@ -139,6 +157,10 @@ void Memory::Freeing_Memory(std::string name) {
    }
 }
 
+/// Solicita memoria, lo que puede resultar en una sobreescritura, una nueva direccion o en el reciclaje de una variable que ya no esta en uso
+/// \param type std::string Tipo de la variable
+/// \param i std::string Valor a almacenar
+/// \param name std::string Nombre de la variable
 void Memory::Need_Memory(std::string type, std::string i, std::string name) {
     if (this->to_recicle.empty()){
         if (this->InUse.exists(name, Memory::InUse.GetHead())){
@@ -191,10 +213,14 @@ void Memory::Need_Memory(std::string type, std::string i, std::string name) {
 
     }
 }
+
+/// Getter para la lista en la que se encuentran los espacios de memoria en uso
+/// \return Linked_List
  Linked_List Memory::getInUse()  {
     return InUse;
 }
-
+/// Getter para la cabeza del offset
+/// \return char*
 char *Memory::getHead() const {
     return head;
 }

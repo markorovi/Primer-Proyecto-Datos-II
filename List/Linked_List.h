@@ -23,7 +23,6 @@ public:
     bool exists(std::string name,  Node *head);
     std::string returnType(std::string name, Node *head);
     void * returnAddress(std::string name, Node *head);
-    void add_espace(Node *p);
 };
 
 #endif //IDE_LINKED_LIST_H
