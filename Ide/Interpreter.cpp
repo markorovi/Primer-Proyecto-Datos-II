@@ -144,6 +144,16 @@ void Interpreter::readCode(QString code) {
             }
         }
     }
+    int lastAux = words.size()-1;
+
+    words.last()[words.last().size()-1].remove(";");
+    words.last().append("-endl");
+
+
+    qDebug()<<"\n\n";
+    showCode();
+    qDebug()<<"\n\n";
+
 }
 
 QList<QStringList> Interpreter::getWords() {
@@ -200,6 +210,9 @@ void Interpreter::interpretCode(int line) {
             if (whatIs(words[line][0]) == "startScope") {
                 if(inScope){
                     showInAppLog("Error");
+                } else if(inStruct){
+                    showInAppLog("Error");
+
                 } else{
                     inScope= true;
                     scope= false;
@@ -217,6 +230,10 @@ void Interpreter::interpretCode(int line) {
                     doc.setObject(Parser::Nothing());
                     std::string json = Parser::ReturnChar(doc);
                     MainWindow::setJson(json);
+
+                } else if(inStruct){
+                    inStruct = false;
+
                 } else{
                     showInAppLog("Error");
                 }
@@ -224,13 +241,16 @@ void Interpreter::interpretCode(int line) {
             } else {
                 showInAppLog("Error");
             }
-        } else if (words[line].size() == 2) {
-            if (words[line][0] == "struct" && whatIs(words[line][1]) == "variable") {
-                //Declarar Struct con el nombre de la variable
-            } else {
-                //Error
-                showInAppLog("Error");
+        } else if (words[line].size() == 3 && words[line][0] == "struct" && whatIs(words[line][1]) == "variable" && whatIs(words[line][2])=="endScope") {
+
+            if (inStruct) {
+                showInAppLog("Error: No se permite hacer concatenación de structs");
+            } else if(inScope){
+                showInAppLog("Error: No se permite hacer concatenación de structs con scopes");
+            }else{
+                inStruct = true;
             }
+
 
         } else {
             //qDebug()<<"Starting...";
@@ -281,6 +301,9 @@ void Interpreter::interpretCode(int line) {
 
                                             if(inScope){
                                                 scopeLabels.append(label);
+                                            } else if(inStruct){
+
+                                                //structs[0].append(label);
                                             }
 
 

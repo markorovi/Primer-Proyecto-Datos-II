@@ -31,31 +31,24 @@ class Interpreter {
         void showInTerminal(QString);
         void showInAppLog(QString);
         void freeScope();
-    private:
-        bool freeingScope = false;
-public:
-    void setFreeingScope(bool freeingScope);
-
-public:
-    bool isFreeingScope() const;
+        void setFreeingScope(bool freeingScope);
+        bool isFreeingScope() const;
+        const QStringList &getScopeLabels() const;
+        bool isScope() const;
 
 private:
+    bool freeingScope = false;
     bool inScope= false;
-        QStringList scopeLabels;
-public:
-    const QStringList &getScopeLabels() const;
-
-private:
-
+    QStringList scopeLabels;
     QPlainTextEdit *terminal;
-        QPlainTextEdit *appLog;
-        QStringList keyWords;
-        QStringList operators;
-        QList<QStringList> words;
-        bool scope = true;
-
-public:
-    bool isScope() const;
+    QPlainTextEdit *appLog;
+    QStringList keyWords;
+    QStringList operators;
+    QList<QStringList> words;
+    QList<QStringList> structs;
+    QStringList auxStructs;
+    bool scope = true;
+    bool inStruct = false;
 };
 
 

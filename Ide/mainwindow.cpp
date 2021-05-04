@@ -235,6 +235,15 @@ void MainWindow::on_actionNext_Line_triggered()
                     doc.setObject(Parser::CreateJsonObj_Free(interpreter.getScopeLabels()[i].toStdString()));
                     std::string json = Parser::ReturnChar(doc);
                     MainWindow::setJson(json);
+
+                    for (int j=0;j<ui->ramLiveView->rowCount();j++){
+                        //qDebug()<<"Mensaje de prueba tabla de Ram: "<<ui->ramLiveView->item(j,2)->text();
+                        if(ui->ramLiveView->item(j,2)->text()==interpreter.getScopeLabels()[i]){
+                            ui->ramLiveView->removeRow(j);
+                        }
+
+                    }
+
                     test->Start();
                     usleep(10000);
                 }
