@@ -437,6 +437,6 @@
  mdp:/usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h
 /home/joel/Qt_proyects/Ide/Interpreter.h
 /home/joel/Qt_proyects/Ide/main.cpp
+/home/joel/Qt_proyects/Ide/Interpreter.cpp
 /home/joel/Qt_proyects/Ide/mainwindow.cpp
  uic:./ui_mainwindow.h
-/home/joel/Qt_proyects/Ide/Interpreter.cpp

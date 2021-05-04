@@ -30,7 +30,8 @@ cout &lt;&lt; &quot;Hola mundo&quot;;
 int h = 6;
 
 int x = h;
-int y = 4;
+
+int y = x + h;
 int b = 1;
 
 
