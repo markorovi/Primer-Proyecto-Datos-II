@@ -9,6 +9,7 @@
 #include <QPlainTextEdit>
 #include <QDebug>
 #include <QStringList>
+#include "../Sockets/Client.h"
 
 class Interpreter {
     public:
@@ -31,16 +32,28 @@ class Interpreter {
         void showInAppLog(QString);
         void freeScope();
     private:
+        bool freeingScope = false;
+public:
+    void setFreeingScope(bool freeingScope);
 
-        bool inScope= false;
+public:
+    bool isFreeingScope() const;
+
+private:
+    bool inScope= false;
         QStringList scopeLabels;
+public:
+    const QStringList &getScopeLabels() const;
 
-        QPlainTextEdit *terminal;
+private:
+
+    QPlainTextEdit *terminal;
         QPlainTextEdit *appLog;
         QStringList keyWords;
         QStringList operators;
         QList<QStringList> words;
         bool scope = true;
+
 public:
     bool isScope() const;
 };

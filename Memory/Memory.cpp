@@ -149,6 +149,7 @@ void Memory::Rewrite(void * address, std::string type, std::string value) {
 /// Se encarga de liberar un espacio en memoria
 /// \param name std::string Nombre de la variable a liberar
 void Memory::Freeing_Memory(std::string name) {
+    std::cout<<"Se liberó memoria:"<<name<<std::endl;
    int position = this->InUse.delete_node(name);
    if (position != -1){
        this->to_recicle.push_back(position);

@@ -193,7 +193,7 @@ QString Interpreter::whatIs(QString word) {
 void Interpreter::interpretCode(int line) {
     //qDebug()<<words[line]<<"\n";
     QJsonDocument doc;
-
+    freeingScope= false;
     if (line < words.size()) {
         scope= true;
         if (words[line].size() == 1) {
@@ -204,13 +204,19 @@ void Interpreter::interpretCode(int line) {
                     inScope= true;
                     scope= false;
                     showInAppLog("Un Scope ha sido abierto");
+                    doc.setObject(Parser::Nothing());
+                    std::string json = Parser::ReturnChar(doc);
+                    MainWindow::setJson(json);
                 }
 
             } else if (whatIs(words[line][0]) == "endScope") {
                 if(inScope){
                     inScope = false;
-                    freeScope(); //Usar Garbage Collector
+                    freeingScope= true;
                     showInAppLog("Un Scope ha sido cerrado");
+                    doc.setObject(Parser::Nothing());
+                    std::string json = Parser::ReturnChar(doc);
+                    MainWindow::setJson(json);
                 } else{
                     showInAppLog("Error");
                 }
@@ -683,11 +689,22 @@ void Interpreter::showInAppLog(QString msg){
 }
 
 void Interpreter::freeScope() {
-    for(int i = 0; i<scopeLabels.size(); i++){
-        // liberar memoria con el garbage collector
-    }
+    freeingScope= true;
 }
 
 bool Interpreter::isScope() const {
     return scope;
 }
+
+bool Interpreter::isFreeingScope() const {
+    return freeingScope;
+}
+
+const QStringList &Interpreter::getScopeLabels() const {
+    return scopeLabels;
+}
+
+void Interpreter::setFreeingScope(bool freeingScope) {
+    Interpreter::freeingScope = freeingScope;
+}
+

@@ -29,9 +29,11 @@
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qcontainerinfo.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qcontainertools_impl.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qcontiguouscache.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qcoreapplication.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qcoreevent.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qdatastream.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qdebug.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qeventloop.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qflags.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qgenericatomic.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qglobal.h \
@@ -44,6 +46,7 @@
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qiterator.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qline.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qlist.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qlocale.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qlogging.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qmap.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtCore/qmargins.h \
@@ -105,9 +108,11 @@
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qfontinfo.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qfontmetrics.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qglyphrun.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qguiapplication.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qicon.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qimage.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qinputdevice.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qinputmethod.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qkeysequence.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qpaintdevice.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qpalette.h \
@@ -133,9 +138,11 @@
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qvector2d.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qvectornd.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtGui/qwindowdefs.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/QApplication \
   /home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/QMainWindow \
   /home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/QPlainTextEdit \
   /home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+  /home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/qapplication.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/qframe.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/qmainwindow.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/qplaintextedit.h \
@@ -146,7 +153,14 @@
   /home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
   /home/joel/Qt/6.0.3/gcc_64/include/QtWidgets/qwidget.h \
   /home/joel/Qt_proyects/Ide/Interpreter.h \
+  /home/joel/Qt_proyects/Sockets/Client.h \
+  /home/joel/Qt_proyects/Sockets/Parser.h \
   /usr/include/alloca.h \
+  /usr/include/arpa/inet.h \
+  /usr/include/asm-generic/bitsperlong.h \
+  /usr/include/asm-generic/posix_types.h \
+  /usr/include/asm-generic/socket.h \
+  /usr/include/asm-generic/sockios.h \
   /usr/include/assert.h \
   /usr/include/c++/9/algorithm \
   /usr/include/c++/9/array \
@@ -258,6 +272,7 @@
   /usr/include/c++/9/initializer_list \
   /usr/include/c++/9/ios \
   /usr/include/c++/9/iosfwd \
+  /usr/include/c++/9/iostream \
   /usr/include/c++/9/istream \
   /usr/include/c++/9/iterator \
   /usr/include/c++/9/limits \
@@ -300,8 +315,13 @@
   /usr/include/features.h \
   /usr/include/limits.h \
   /usr/include/linux/limits.h \
+  /usr/include/linux/posix_types.h \
+  /usr/include/linux/stddef.h \
   /usr/include/locale.h \
+  /usr/include/netdb.h \
+  /usr/include/netinet/in.h \
   /usr/include/pthread.h \
+  /usr/include/rpc/netdb.h \
   /usr/include/sched.h \
   /usr/include/stdc-predef.h \
   /usr/include/stdint.h \
@@ -310,25 +330,41 @@
   /usr/include/string.h \
   /usr/include/strings.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
+  /usr/include/x86_64-linux-gnu/asm/bitsperlong.h \
+  /usr/include/x86_64-linux-gnu/asm/posix_types.h \
+  /usr/include/x86_64-linux-gnu/asm/posix_types_64.h \
+  /usr/include/x86_64-linux-gnu/asm/socket.h \
+  /usr/include/x86_64-linux-gnu/asm/sockios.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
+  /usr/include/x86_64-linux-gnu/bits/in.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/netdb.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
   /usr/include/x86_64-linux-gnu/bits/sched.h \
   /usr/include/x86_64-linux-gnu/bits/select.h \
   /usr/include/x86_64-linux-gnu/bits/setjmp.h \
+  /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
+  /usr/include/x86_64-linux-gnu/bits/socket.h \
+  /usr/include/x86_64-linux-gnu/bits/socket_type.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
@@ -349,14 +385,18 @@
   /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
@@ -367,6 +407,7 @@
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -387,6 +428,7 @@
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
+  /usr/include/x86_64-linux-gnu/sys/socket.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h

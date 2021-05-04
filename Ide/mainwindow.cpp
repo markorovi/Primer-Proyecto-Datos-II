@@ -165,8 +165,10 @@ void MainWindow::on_actionClose_triggered()
 
 void MainWindow::on_actionRun_triggered()
 {
+
 //    qDebug()<<"Line:"<<line;
     if(!running){
+
         line=0;
         interpreter.showInTerminal("The program is starting\n");
         qDebug()<<"\n"<<"The program is starting\n";
@@ -175,6 +177,7 @@ void MainWindow::on_actionRun_triggered()
         running=true;
         interpreter.readCode(ui->codeInput->toPlainText());
         interpreter.interpretCode(line);
+
 
         test->Start();
         line++;
@@ -204,21 +207,44 @@ void MainWindow::on_actionStop_triggered()
 
 void MainWindow::on_actionNext_Line_triggered()
 {
+    //interpreter.showInAppLog("El programa se está ejecutando");
     //qDebug()<<"Actual line:"<<line;
     if(running){
+
         if(line<interpreter.getWords().size()){
+
+            interpreter.showInAppLog("El programa está leyendo las instrucciones");
             interpreter.interpretCode(line);
 
             test->Start();
+            usleep(10000);
             line++;
 
-            if(interpreter.isScope()){
+
+
+            if(!interpreter.isFreeingScope()){
                 setValuesRamLiveView(QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "address")),
                                      QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "value")),
                                      QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "name")),0);
             }
 
+            if(interpreter.isFreeingScope()) {
+                QJsonDocument doc;
+                for (int i = 0; i < interpreter.getScopeLabels().size(); i++) {
+                    // liberar memoria con el garbage collector
+                    doc.setObject(Parser::CreateJsonObj_Free(interpreter.getScopeLabels()[i].toStdString()));
+                    std::string json = Parser::ReturnChar(doc);
+                    MainWindow::setJson(json);
+                    test->Start();
+                    usleep(10000);
+                }
+                qDebug("Liberando memoria");
+                doc.setObject(Parser::Nothing());
+                interpreter.setFreeingScope(false);
+            }
+
         } else {
+            interpreter.showInAppLog("Hmmmmmm... algo está mal");
             on_actionStop_triggered();
         }
 
