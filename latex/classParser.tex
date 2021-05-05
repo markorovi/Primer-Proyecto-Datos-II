@@ -1,0 +1,437 @@
+\hypertarget{classParser}{}\doxysection{Parser Class Reference}
+\label{classParser}\index{Parser@{Parser}}
+
+
+{\ttfamily \#include $<$Parser.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \mbox{\hyperlink{classParser_a14c84fbe6631aae8f29fe69e8f1c7706}{Return\+Char}} (Q\+Json\+Document document)
+\begin{DoxyCompactList}\small\item\em Se encarga de convertir un Q\+Json\+Document a un std\+::string. \end{DoxyCompactList}\item 
+static std\+::string \mbox{\hyperlink{classParser_a5cd53f410523f743237e478db376ea33}{Return\+String\+Value\+From\+Json}} (Q\+Json\+Document document, std\+::string value)
+\begin{DoxyCompactList}\small\item\em Se encarga de obtener un valor especifico de un Q\+Json\+Document. \end{DoxyCompactList}\item 
+static Q\+Json\+Document \mbox{\hyperlink{classParser_a1998f6e94de23ab34fbe3b2bdf2cded4}{Return\+Json}} (const \mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} $\ast$inbox)
+\begin{DoxyCompactList}\small\item\em Se encarga de convertir un conjuto de chars en el Q\+Json\+Documt. \end{DoxyCompactList}\item 
+static Q\+Json\+Document \mbox{\hyperlink{classParser_ab6ed3164ec614ad75a7d6fd914b98dae}{Return\+Json\+From\+Str}} (std\+::string text)
+\begin{DoxyCompactList}\small\item\em Se encarga de convertir un std\+::string a un Q\+Json\+Document. \end{DoxyCompactList}\item 
+static Q\+Json\+Object \mbox{\hyperlink{classParser_a0439252cd3b897b87aa7658b2a240f74}{Create\+Json\+Obj\+\_\+\+Free}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Generar Q\+Json\+Document el cual sera utilizado para cuando se desee liberar memoria. \end{DoxyCompactList}\item 
+static Q\+Json\+Object \mbox{\hyperlink{classParser_af53736e35463c4d936a0a9f6bf030ab6}{Create\+Json\+Obj\+\_\+\+No\+Address}} (std\+::string type, std\+::string name, std\+::string value)
+\begin{DoxyCompactList}\small\item\em Se encarga de generar un Q\+Json\+Document el cual sera utilizado para cuando se desear agregar variables a memoria. \end{DoxyCompactList}\item 
+static Q\+Json\+Object \mbox{\hyperlink{classParser_a9da5466387ebe39bcbf945006e4dc8ad}{Create\+Json\+Obj\+\_\+\+Address}} (std\+::string type, std\+::string name, std\+::string value, std\+::string address)
+\begin{DoxyCompactList}\small\item\em Se encarga de generar un Q\+Json\+Document el cual sera utilizado para cuando se reenviara al cliente el como la variable que se deseaba guardar se guardo. \end{DoxyCompactList}\item 
+static Q\+Json\+Object \mbox{\hyperlink{classParser_a4e937049d783e07daf10526dd3934695}{Create\+Json\+Obj\+\_\+\+Asking}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Generar Q\+Json\+Document el cual sera utilizado para cuando se solitice lo que contiene una variable. \end{DoxyCompactList}\item 
+static Q\+Json\+Object \mbox{\hyperlink{classParser_a5fa2808a27e74f6c8c6d389542b25aef}{Create\+Json\+Obj\+\_\+what\+Type}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Se encarga de generar un Q\+Json\+Document el cual le permitira al cliente solicitar de que tipo de dato es una variable almacenada. \end{DoxyCompactList}\item 
+static Q\+Json\+Object \mbox{\hyperlink{classParser_aff2bd851b26e34b071a1aa59b16060de}{Create\+Json\+Obj\+\_\+\+Returns\+Data}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Se encarga de generar un Q\+Json\+Document el cual sera utilizado para reenviar los datos de una variable al cliente. \end{DoxyCompactList}\item 
+static Q\+Json\+Object \mbox{\hyperlink{classParser_a9c3a73ebdf6aa10c7629b0913cbca8b4}{Create\+Json\+Obj\+\_\+\+New\+Struct\+Object}} (std\+::string name, std\+::string integers, std\+::string doubles, std\+::string longs, std\+::string floats, std\+::string chars)
+\begin{DoxyCompactList}\small\item\em Se encarga de generar un Q\+Json\+Document el cual el servidor utilizara para generar los espacios en memoria del struct. \end{DoxyCompactList}\item 
+static Q\+Json\+Object \mbox{\hyperlink{classParser_a1ce7fbbbda83aae459851a367d180360}{Create\+Json\+Obj\+\_\+\+Fill\+Struct}} (std\+::string type, std\+::string to\+Modify, std\+::string name)
+\begin{DoxyCompactList}\small\item\em Se encarga de generar un Q\+Json\+Document el cual se encargara de asignarle los valores especificos a los atribustos de cada struct. \end{DoxyCompactList}\item 
+static Q\+Json\+Object \mbox{\hyperlink{classParser_ae0570b8f6a294a416149ea17fc6ff25b}{Create\+Json\+Obj\+\_\+\+Modify\+Struct}} (std\+::string type, std\+::string to\+Modify, std\+::string value, std\+::string name)
+\begin{DoxyCompactList}\small\item\em Se encarga de generar un Q\+Json\+Document el cual el servidor utilizara para sobreescribir la informacion en los espacios de memoria de los atributos de un struct especifico. \end{DoxyCompactList}\item 
+static Q\+Json\+Object \mbox{\hyperlink{classParser_a4aa29cfde32ee36245da82ac5a11f126}{Create\+Json\+Obj\+\_\+is\+Attribute}} (std\+::string name, std\+::string attribute)
+\begin{DoxyCompactList}\small\item\em Genera un Q\+Json\+Document que le preguntara al servidor si una variable es un atributo de un struct. \end{DoxyCompactList}\item 
+static Q\+Json\+Object \mbox{\hyperlink{classParser_a175a76a4539f2ce2707285e56ec09129}{Nothing}} ()
+\begin{DoxyCompactList}\small\item\em Se encarga de generar un Q\+Json\+Document el cual sera utilizado como un simple mensaje vacio que sera enviado al servidor cuando este no debe de realizar nada. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 11 of file Parser.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classParser_a9da5466387ebe39bcbf945006e4dc8ad}\label{classParser_a9da5466387ebe39bcbf945006e4dc8ad}} 
+\index{Parser@{Parser}!CreateJsonObj\_Address@{CreateJsonObj\_Address}}
+\index{CreateJsonObj\_Address@{CreateJsonObj\_Address}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{CreateJsonObj\_Address()}{CreateJsonObj\_Address()}}
+{\footnotesize\ttfamily Q\+Json\+Object Parser\+::\+Create\+Json\+Obj\+\_\+\+Address (\begin{DoxyParamCaption}\item[{std\+::string}]{type,  }\item[{std\+::string}]{name,  }\item[{std\+::string}]{value,  }\item[{std\+::string}]{address }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Se encarga de generar un Q\+Json\+Document el cual sera utilizado para cuando se reenviara al cliente el como la variable que se deseaba guardar se guardo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & El tipo de la variable \\
+\hline
+{\em name} & El nombre de la vairable \\
+\hline
+{\em value} & El valor que la variable almacenara \\
+\hline
+{\em address} & La direccion de memoria \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Q\+Json\+Object 
+\end{DoxyReturn}
+
+
+Definition at line 44 of file Parser.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 0
+\mbox{\Hypertarget{classParser_a4e937049d783e07daf10526dd3934695}\label{classParser_a4e937049d783e07daf10526dd3934695}} 
+\index{Parser@{Parser}!CreateJsonObj\_Asking@{CreateJsonObj\_Asking}}
+\index{CreateJsonObj\_Asking@{CreateJsonObj\_Asking}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{CreateJsonObj\_Asking()}{CreateJsonObj\_Asking()}}
+{\footnotesize\ttfamily Q\+Json\+Object Parser\+::\+Create\+Json\+Obj\+\_\+\+Asking (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generar Q\+Json\+Document el cual sera utilizado para cuando se solitice lo que contiene una variable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Nombre de la variable que se desea buscar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Q\+Json\+Object 
+\end{DoxyReturn}
+
+
+Definition at line 25 of file Parser.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{classParser_a1ce7fbbbda83aae459851a367d180360}\label{classParser_a1ce7fbbbda83aae459851a367d180360}} 
+\index{Parser@{Parser}!CreateJsonObj\_FillStruct@{CreateJsonObj\_FillStruct}}
+\index{CreateJsonObj\_FillStruct@{CreateJsonObj\_FillStruct}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{CreateJsonObj\_FillStruct()}{CreateJsonObj\_FillStruct()}}
+{\footnotesize\ttfamily Q\+Json\+Object Parser\+::\+Create\+Json\+Obj\+\_\+\+Fill\+Struct (\begin{DoxyParamCaption}\item[{std\+::string}]{type,  }\item[{std\+::string}]{to\+Modify,  }\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Se encarga de generar un Q\+Json\+Document el cual se encargara de asignarle los valores especificos a los atribustos de cada struct. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Tipo de dato a manipular \\
+\hline
+{\em to\+Modify} & Nombre del struct al que pertenece el atributo \\
+\hline
+{\em name} & Nombre del atributo a modificar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 90 of file Parser.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{classParser_a0439252cd3b897b87aa7658b2a240f74}\label{classParser_a0439252cd3b897b87aa7658b2a240f74}} 
+\index{Parser@{Parser}!CreateJsonObj\_Free@{CreateJsonObj\_Free}}
+\index{CreateJsonObj\_Free@{CreateJsonObj\_Free}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{CreateJsonObj\_Free()}{CreateJsonObj\_Free()}}
+{\footnotesize\ttfamily Q\+Json\+Object Parser\+::\+Create\+Json\+Obj\+\_\+\+Free (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generar Q\+Json\+Document el cual sera utilizado para cuando se desee liberar memoria. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Nombre de la variable que se desea liberar @return\+Q\+Json\+Object \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 18 of file Parser.\+cpp.
+
+\mbox{\Hypertarget{classParser_a4aa29cfde32ee36245da82ac5a11f126}\label{classParser_a4aa29cfde32ee36245da82ac5a11f126}} 
+\index{Parser@{Parser}!CreateJsonObj\_isAttribute@{CreateJsonObj\_isAttribute}}
+\index{CreateJsonObj\_isAttribute@{CreateJsonObj\_isAttribute}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{CreateJsonObj\_isAttribute()}{CreateJsonObj\_isAttribute()}}
+{\footnotesize\ttfamily Q\+Json\+Object Parser\+::\+Create\+Json\+Obj\+\_\+is\+Attribute (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{attribute }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Genera un Q\+Json\+Document que le preguntara al servidor si una variable es un atributo de un struct. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Nombre del struct a buscar \\
+\hline
+{\em attribute} & Nombre de la variable a buscar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 116 of file Parser.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{classParser_ae0570b8f6a294a416149ea17fc6ff25b}\label{classParser_ae0570b8f6a294a416149ea17fc6ff25b}} 
+\index{Parser@{Parser}!CreateJsonObj\_ModifyStruct@{CreateJsonObj\_ModifyStruct}}
+\index{CreateJsonObj\_ModifyStruct@{CreateJsonObj\_ModifyStruct}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{CreateJsonObj\_ModifyStruct()}{CreateJsonObj\_ModifyStruct()}}
+{\footnotesize\ttfamily Q\+Json\+Object Parser\+::\+Create\+Json\+Obj\+\_\+\+Modify\+Struct (\begin{DoxyParamCaption}\item[{std\+::string}]{type,  }\item[{std\+::string}]{to\+Modify,  }\item[{std\+::string}]{value,  }\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Se encarga de generar un Q\+Json\+Document el cual el servidor utilizara para sobreescribir la informacion en los espacios de memoria de los atributos de un struct especifico. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Tipo de dato a manipular \\
+\hline
+{\em to\+Modify} & Struct el cual se va a manipular \\
+\hline
+{\em value} & Dato que se sobreescribira \\
+\hline
+{\em name} & Nombre del atriburo a sobreescribir \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Q\+Json\+Document 
+\end{DoxyReturn}
+
+
+Definition at line 99 of file Parser.\+cpp.
+
+\mbox{\Hypertarget{classParser_a9c3a73ebdf6aa10c7629b0913cbca8b4}\label{classParser_a9c3a73ebdf6aa10c7629b0913cbca8b4}} 
+\index{Parser@{Parser}!CreateJsonObj\_NewStructObject@{CreateJsonObj\_NewStructObject}}
+\index{CreateJsonObj\_NewStructObject@{CreateJsonObj\_NewStructObject}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{CreateJsonObj\_NewStructObject()}{CreateJsonObj\_NewStructObject()}}
+{\footnotesize\ttfamily Q\+Json\+Object Parser\+::\+Create\+Json\+Obj\+\_\+\+New\+Struct\+Object (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{integers,  }\item[{std\+::string}]{doubles,  }\item[{std\+::string}]{longs,  }\item[{std\+::string}]{floats,  }\item[{std\+::string}]{chars }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Se encarga de generar un Q\+Json\+Document el cual el servidor utilizara para generar los espacios en memoria del struct. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Nombre del struct que se esta generando \\
+\hline
+{\em integers} & Cantidad de ints \\
+\hline
+{\em doubles} & Cantidad de doubles \\
+\hline
+{\em longs} & Cantidad de longs \\
+\hline
+{\em floats} & Cantidad de floats \\
+\hline
+{\em chars} & Cantidad de chars \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Q\+Json\+Document 
+\end{DoxyReturn}
+
+
+Definition at line 76 of file Parser.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{classParser_af53736e35463c4d936a0a9f6bf030ab6}\label{classParser_af53736e35463c4d936a0a9f6bf030ab6}} 
+\index{Parser@{Parser}!CreateJsonObj\_NoAddress@{CreateJsonObj\_NoAddress}}
+\index{CreateJsonObj\_NoAddress@{CreateJsonObj\_NoAddress}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{CreateJsonObj\_NoAddress()}{CreateJsonObj\_NoAddress()}}
+{\footnotesize\ttfamily Q\+Json\+Object Parser\+::\+Create\+Json\+Obj\+\_\+\+No\+Address (\begin{DoxyParamCaption}\item[{std\+::string}]{type,  }\item[{std\+::string}]{name,  }\item[{std\+::string}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Se encarga de generar un Q\+Json\+Document el cual sera utilizado para cuando se desear agregar variables a memoria. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & El tipo de la variable \\
+\hline
+{\em name} & El nombre de la vairable \\
+\hline
+{\em value} & El valor que la variable almacenara \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Q\+Json\+Object 
+\end{DoxyReturn}
+
+
+Definition at line 9 of file Parser.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{classParser_aff2bd851b26e34b071a1aa59b16060de}\label{classParser_aff2bd851b26e34b071a1aa59b16060de}} 
+\index{Parser@{Parser}!CreateJsonObj\_ReturnsData@{CreateJsonObj\_ReturnsData}}
+\index{CreateJsonObj\_ReturnsData@{CreateJsonObj\_ReturnsData}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{CreateJsonObj\_ReturnsData()}{CreateJsonObj\_ReturnsData()}}
+{\footnotesize\ttfamily Q\+Json\+Object Parser\+::\+Create\+Json\+Obj\+\_\+\+Returns\+Data (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Se encarga de generar un Q\+Json\+Document el cual sera utilizado para reenviar los datos de una variable al cliente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Nombre de la variable a buscar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 38 of file Parser.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{classParser_a5fa2808a27e74f6c8c6d389542b25aef}\label{classParser_a5fa2808a27e74f6c8c6d389542b25aef}} 
+\index{Parser@{Parser}!CreateJsonObj\_whatType@{CreateJsonObj\_whatType}}
+\index{CreateJsonObj\_whatType@{CreateJsonObj\_whatType}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{CreateJsonObj\_whatType()}{CreateJsonObj\_whatType()}}
+{\footnotesize\ttfamily Q\+Json\+Object Parser\+::\+Create\+Json\+Obj\+\_\+what\+Type (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Se encarga de generar un Q\+Json\+Document el cual le permitira al cliente solicitar de que tipo de dato es una variable almacenada. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Nombre de la variable a buscar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Q\+Json\+Document 
+\end{DoxyReturn}
+
+
+Definition at line 109 of file Parser.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{classParser_a175a76a4539f2ce2707285e56ec09129}\label{classParser_a175a76a4539f2ce2707285e56ec09129}} 
+\index{Parser@{Parser}!Nothing@{Nothing}}
+\index{Nothing@{Nothing}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{Nothing()}{Nothing()}}
+{\footnotesize\ttfamily Q\+Json\+Object Parser\+::\+Nothing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Se encarga de generar un Q\+Json\+Document el cual sera utilizado como un simple mensaje vacio que sera enviado al servidor cuando este no debe de realizar nada. 
+
+\begin{DoxyReturn}{Returns}
+Q\+Json\+Object 
+\end{DoxyReturn}
+
+
+Definition at line 32 of file Parser.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 8
+\mbox{\Hypertarget{classParser_a14c84fbe6631aae8f29fe69e8f1c7706}\label{classParser_a14c84fbe6631aae8f29fe69e8f1c7706}} 
+\index{Parser@{Parser}!ReturnChar@{ReturnChar}}
+\index{ReturnChar@{ReturnChar}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{ReturnChar()}{ReturnChar()}}
+{\footnotesize\ttfamily std\+::string Parser\+::\+Return\+Char (\begin{DoxyParamCaption}\item[{Q\+Json\+Document}]{document }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Se encarga de convertir un Q\+Json\+Document a un std\+::string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em document\+Documento} & a parsear \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+
+Definition at line 53 of file Parser.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 9
+\mbox{\Hypertarget{classParser_a1998f6e94de23ab34fbe3b2bdf2cded4}\label{classParser_a1998f6e94de23ab34fbe3b2bdf2cded4}} 
+\index{Parser@{Parser}!ReturnJson@{ReturnJson}}
+\index{ReturnJson@{ReturnJson}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{ReturnJson()}{ReturnJson()}}
+{\footnotesize\ttfamily Q\+Json\+Document Parser\+::\+Return\+Json (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} $\ast$}]{inbox }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Se encarga de convertir un conjuto de chars en el Q\+Json\+Documt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inbox} & Caracteres a parsear \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Q\+Json\+Document 
+\end{DoxyReturn}
+
+
+Definition at line 63 of file Parser.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 10
+\mbox{\Hypertarget{classParser_ab6ed3164ec614ad75a7d6fd914b98dae}\label{classParser_ab6ed3164ec614ad75a7d6fd914b98dae}} 
+\index{Parser@{Parser}!ReturnJsonFromStr@{ReturnJsonFromStr}}
+\index{ReturnJsonFromStr@{ReturnJsonFromStr}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{ReturnJsonFromStr()}{ReturnJsonFromStr()}}
+{\footnotesize\ttfamily Q\+Json\+Document Parser\+::\+Return\+Json\+From\+Str (\begin{DoxyParamCaption}\item[{std\+::string}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Se encarga de convertir un std\+::string a un Q\+Json\+Document. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & Valor a parsear \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Q\+Json\+Document 
+\end{DoxyReturn}
+
+
+Definition at line 70 of file Parser.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 11
+\mbox{\Hypertarget{classParser_a5cd53f410523f743237e478db376ea33}\label{classParser_a5cd53f410523f743237e478db376ea33}} 
+\index{Parser@{Parser}!ReturnStringValueFromJson@{ReturnStringValueFromJson}}
+\index{ReturnStringValueFromJson@{ReturnStringValueFromJson}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{ReturnStringValueFromJson()}{ReturnStringValueFromJson()}}
+{\footnotesize\ttfamily std\+::string Parser\+::\+Return\+String\+Value\+From\+Json (\begin{DoxyParamCaption}\item[{Q\+Json\+Document}]{document,  }\item[{std\+::string}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Se encarga de obtener un valor especifico de un Q\+Json\+Document. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em document} & Documento sobre el cual trabajar \\
+\hline
+{\em value} & Valor que se desea obtener \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+
+Definition at line 59 of file Parser.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 12
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Sockets/\mbox{\hyperlink{Parser_8h}{Parser.\+h}}\item 
+Sockets/\mbox{\hyperlink{Parser_8cpp}{Parser.\+cpp}}\end{DoxyCompactItemize}

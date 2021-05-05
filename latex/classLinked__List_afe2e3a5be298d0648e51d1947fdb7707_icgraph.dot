@@ -1,0 +1,10 @@
+digraph "Linked_List::print_list"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Linked_List::print_list",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Se encarga de printear en consola la totalidad de la lista enlazada con cada uno de los parametros de..."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Memory::Show",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMemory.html#a1e56f1ad16fa009a38571fccb91a9d94",tooltip="Se encarga de mostrar la lista de las posiciones que se pueden reciclar."];
+}

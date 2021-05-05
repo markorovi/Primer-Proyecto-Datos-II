@@ -1,0 +1,12 @@
+digraph "Sockets" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  dir_438e9b7480d7921b6e0882250b9f4843 [shape=box, label="Sockets", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_438e9b7480d7921b6e0882250b9f4843.html"];
+  dir_68429450acb3cb0c38ed32ec649647d7 [shape=box label="Ide" fillcolor="white" style="filled" color="red" URL="dir_68429450acb3cb0c38ed32ec649647d7.html"];
+  dir_4bbfcbe99b666a19955ad2d97ce526ac [shape=box label="Memory" URL="dir_4bbfcbe99b666a19955ad2d97ce526ac.html"];
+  dir_438e9b7480d7921b6e0882250b9f4843->dir_68429450acb3cb0c38ed32ec649647d7 [headlabel="1", labeldistance=1.5 headhref="dir_000021_000001.html"];
+  dir_438e9b7480d7921b6e0882250b9f4843->dir_4bbfcbe99b666a19955ad2d97ce526ac [headlabel="1", labeldistance=1.5 headhref="dir_000021_000020.html"];
+  dir_68429450acb3cb0c38ed32ec649647d7->dir_438e9b7480d7921b6e0882250b9f4843 [headlabel="7", labeldistance=1.5 headhref="dir_000001_000021.html"];
+  dir_68429450acb3cb0c38ed32ec649647d7->dir_4bbfcbe99b666a19955ad2d97ce526ac [headlabel="1", labeldistance=1.5 headhref="dir_000001_000020.html"];
+}

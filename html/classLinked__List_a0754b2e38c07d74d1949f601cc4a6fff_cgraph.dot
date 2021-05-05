@@ -1,0 +1,14 @@
+digraph "Linked_List::delete_node"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Linked_List::delete_node",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Se encarga de eliminar un nodo de la lista en base al nombre de la variable que almacena."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Node::GetNext",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classNode.html#a6f8729374beb27838792dc6ef81124e8",tooltip="Getter para el siguiente nodo."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Node::GetPosition",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classNode.html#a2d31498b483a46807a1d05ec17e5a778",tooltip="Getter de la posision del noto."];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Node::SetNext",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classNode.html#ad42b093c5defbc14372468f669e2c102",tooltip="Setter para el siguiente nodo."];
+}

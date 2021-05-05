@@ -1,0 +1,10 @@
+digraph "Interpreter::showCode"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Interpreter::showCode",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Permite mostrar el código reinterpretado en consola."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Interpreter::readCode",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classInterpreter.html#afee497455dedc1993e8a61d2c0bb8f42",tooltip="Se encarga de reorganizar el código de forma que sea entendible para el interprete."];
+}

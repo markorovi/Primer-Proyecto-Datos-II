@@ -1,0 +1,21 @@
+digraph "MainWindow::getJson"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="MainWindow::getJson",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Permite a la ventana principal obtener un Json para enviar al servidor por medio del cliente."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Client::Start",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classClient.html#a2afb2a726f71d81f8a0d35e84a547132",tooltip="Se encarga de levantar el socket y realizar la recepcion/envio de mensajes."];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Interpreter::askFor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classInterpreter.html#ac7727438059aff2875c0c5e27c7e7f4a",tooltip="Le pregunta al servidor el tipo del dato introducido."];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Interpreter::interpretCode",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classInterpreter.html#a247c03a89b6620c59718d9f46be2aa23",tooltip="Es el método que permite interpretar el contenido del código escrito."];
+  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Interpreter::getValue",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classInterpreter.html#abe6f107b32c1875d3e0fd4306ef798f4",tooltip=" "];
+  Node5 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Interpreter::isAttribute",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classInterpreter.html#af468bd58dc872fc7cf1681ffd0633e49",tooltip="Permite determinar si una variable es atributo de una estructura."];
+  Node6 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

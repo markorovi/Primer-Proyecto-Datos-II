@@ -1,0 +1,15 @@
+digraph "Ide/cmake-build-debug/Ide_autogen" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_1536adaa22b87a16423cf2caba316bd7 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="cmake-build-debug" fontname="Helvetica", fontsize="10", URL="dir_1536adaa22b87a16423cf2caba316bd7.html"]
+  subgraph clusterdir_b2ea3269bb7864fce721ccf8a47a07dd {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_b2ea3269bb7864fce721ccf8a47a07dd.html"];
+    dir_b2ea3269bb7864fce721ccf8a47a07dd [shape=plaintext label="Ide_autogen"];
+    dir_e26022994bb5ff3c5ce693034fbd9aa2 [shape=box label="EWIEGA46WW" color="black" fillcolor="white" style="filled" URL="dir_e26022994bb5ff3c5ce693034fbd9aa2.html"];
+    dir_860a72009526b7caa64f57185270aca3 [shape=box label="include" color="black" fillcolor="white" style="filled" URL="dir_860a72009526b7caa64f57185270aca3.html"];
+  }
+  }
+  dir_b2ea3269bb7864fce721ccf8a47a07dd->dir_e26022994bb5ff3c5ce693034fbd9aa2 [headlabel="1", labeldistance=1.5 headhref="dir_000014_000015.html"];
+}

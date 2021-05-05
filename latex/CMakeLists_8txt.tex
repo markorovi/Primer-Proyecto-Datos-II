@@ -1,0 +1,68 @@
+\hypertarget{CMakeLists_8txt}{}\doxysection{Ide/\+C\+Make\+Lists.txt File Reference}
+\label{CMakeLists_8txt}\index{Ide/CMakeLists.txt@{Ide/CMakeLists.txt}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{CMakeLists_8txt_a8edc30f80cdfe152a1962be7fe94801f}{cmake\+\_\+minimum\+\_\+required}} (V\+E\+R\+S\+I\+ON 3.\+5) project(Ide L\+A\+N\+G\+U\+A\+G\+ES C\+XX) \mbox{\hyperlink{CMakeLists_8txt_a0ceea06c4593e09e3cbdce2acf702249}{set}}(C\+M\+A\+K\+E\+\_\+\+I\+N\+C\+L\+U\+D\+E\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+D\+IR ON) \mbox{\hyperlink{CMakeLists_8txt_a0ceea06c4593e09e3cbdce2acf702249}{set}}(C\+M\+A\+K\+E\+\_\+\+A\+U\+T\+O\+U\+IC ON) \mbox{\hyperlink{CMakeLists_8txt_a0ceea06c4593e09e3cbdce2acf702249}{set}}(C\+M\+A\+K\+E\+\_\+\+A\+U\+T\+O\+M\+OC ON) \mbox{\hyperlink{CMakeLists_8txt_a0ceea06c4593e09e3cbdce2acf702249}{set}}(C\+M\+A\+K\+E\+\_\+\+A\+U\+T\+O\+R\+CC ON) \mbox{\hyperlink{CMakeLists_8txt_a0ceea06c4593e09e3cbdce2acf702249}{set}}(C\+M\+A\+K\+E\+\_\+\+C\+X\+X\+\_\+\+S\+T\+A\+N\+D\+A\+RD 11) \mbox{\hyperlink{CMakeLists_8txt_a0ceea06c4593e09e3cbdce2acf702249}{set}}(C\+M\+A\+K\+E\+\_\+\+C\+X\+X\+\_\+\+S\+T\+A\+N\+D\+A\+R\+D\+\_\+\+R\+E\+Q\+U\+I\+R\+ED ON)() find\+\_\+package(QT N\+A\+M\+ES Qt6 Qt5 C\+O\+M\+P\+O\+N\+E\+N\+TS Widgets R\+E\+Q\+U\+I\+R\+ED) find\+\_\+package(Qt\$
+\item 
+C\+O\+M\+P\+O\+N\+E\+N\+TS Widgets R\+E\+Q\+U\+I\+R\+ED \mbox{\hyperlink{CMakeLists_8txt_a0ceea06c4593e09e3cbdce2acf702249}{set}} (P\+R\+O\+J\+E\+C\+T\+\_\+\+S\+O\+U\+R\+C\+ES main.\+cpp mainwindow.\+cpp mainwindow.\+h mainwindow.\+ui Interpreter.\+cpp Interpreter.\+h ../\mbox{\hyperlink{classMemory}{Memory}}/Memory.\+cpp ../\mbox{\hyperlink{classMemory}{Memory}}/Memory.\+h ../List/Linked\+\_\+\+List.\+cpp ../List/Linked\+\_\+\+List.\+h ../List/Node.\+cpp ../List/Node.\+h ../Sockets/Server.\+cpp ../Sockets/Server.\+h ../Sockets/Client.\+cpp ../Sockets/Client.\+h ../Sockets/Parser.\+cpp ../Sockets/Parser.\+h) if(\$
+\item 
+G\+R\+E\+A\+T\+E\+R\+\_\+\+E\+Q\+U\+AL \mbox{\hyperlink{CMakeLists_8txt_a6f7b15a6e5328e64eaac0899f509b8e7}{qt\+\_\+add\+\_\+executable}} (Ide \$\{P\+R\+O\+J\+E\+C\+T\+\_\+\+S\+O\+U\+R\+C\+ES\}) \mbox{\hyperlink{CMakeLists_8txt_ad5f3f1490d8309ad0d0f3df67a2b9ac9}{else}}() if(A\+N\+D\+R\+O\+ID) add\+\_\+library(Ide S\+H\+A\+R\+ED \$
+\item 
+\mbox{\hyperlink{CMakeLists_8txt_ad5f3f1490d8309ad0d0f3df67a2b9ac9}{else}} () add\+\_\+executable(Ide \$
+\item 
+\mbox{\hyperlink{CMakeLists_8txt_adc4aaf49dcbf9fdf980defeea86229a8}{endif}} () endif() target\+\_\+link\+\_\+libraries(Ide P\+R\+I\+V\+A\+TE Qt\$
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{CMakeLists_8txt_a8edc30f80cdfe152a1962be7fe94801f}\label{CMakeLists_8txt_a8edc30f80cdfe152a1962be7fe94801f}} 
+\index{CMakeLists.txt@{CMakeLists.txt}!cmake\_minimum\_required@{cmake\_minimum\_required}}
+\index{cmake\_minimum\_required@{cmake\_minimum\_required}!CMakeLists.txt@{CMakeLists.txt}}
+\doxysubsubsection{\texorpdfstring{cmake\_minimum\_required()}{cmake\_minimum\_required()}}
+{\footnotesize\ttfamily cmake\+\_\+minimum\+\_\+required (\begin{DoxyParamCaption}\item[{V\+E\+R\+S\+I\+ON 3.}]{5 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1 of file C\+Make\+Lists.\+txt.
+
+\mbox{\Hypertarget{CMakeLists_8txt_ad5f3f1490d8309ad0d0f3df67a2b9ac9}\label{CMakeLists_8txt_ad5f3f1490d8309ad0d0f3df67a2b9ac9}} 
+\index{CMakeLists.txt@{CMakeLists.txt}!else@{else}}
+\index{else@{else}!CMakeLists.txt@{CMakeLists.txt}}
+\doxysubsubsection{\texorpdfstring{else()}{else()}}
+{\footnotesize\ttfamily else (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 48 of file C\+Make\+Lists.\+txt.
+
+\mbox{\Hypertarget{CMakeLists_8txt_adc4aaf49dcbf9fdf980defeea86229a8}\label{CMakeLists_8txt_adc4aaf49dcbf9fdf980defeea86229a8}} 
+\index{CMakeLists.txt@{CMakeLists.txt}!endif@{endif}}
+\index{endif@{endif}!CMakeLists.txt@{CMakeLists.txt}}
+\doxysubsubsection{\texorpdfstring{endif()}{endif()}}
+{\footnotesize\ttfamily endif (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 52 of file C\+Make\+Lists.\+txt.
+
+\mbox{\Hypertarget{CMakeLists_8txt_a6f7b15a6e5328e64eaac0899f509b8e7}\label{CMakeLists_8txt_a6f7b15a6e5328e64eaac0899f509b8e7}} 
+\index{CMakeLists.txt@{CMakeLists.txt}!qt\_add\_executable@{qt\_add\_executable}}
+\index{qt\_add\_executable@{qt\_add\_executable}!CMakeLists.txt@{CMakeLists.txt}}
+\doxysubsubsection{\texorpdfstring{qt\_add\_executable()}{qt\_add\_executable()}}
+{\footnotesize\ttfamily G\+R\+E\+A\+T\+E\+R\+\_\+\+E\+Q\+U\+AL qt\+\_\+add\+\_\+executable (\begin{DoxyParamCaption}\item[{Ide \$\{P\+R\+O\+J\+E\+C\+T\+\_\+\+S\+O\+U\+R\+C\+ES\}}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 40 of file C\+Make\+Lists.\+txt.
+
+\mbox{\Hypertarget{CMakeLists_8txt_a0ceea06c4593e09e3cbdce2acf702249}\label{CMakeLists_8txt_a0ceea06c4593e09e3cbdce2acf702249}} 
+\index{CMakeLists.txt@{CMakeLists.txt}!set@{set}}
+\index{set@{set}!CMakeLists.txt@{CMakeLists.txt}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily C\+O\+M\+P\+O\+N\+E\+N\+TS Widgets R\+E\+Q\+U\+I\+R\+ED set (\begin{DoxyParamCaption}\item[{P\+R\+O\+J\+E\+C\+T\+\_\+\+S\+O\+U\+R\+C\+ES main.\+cpp mainwindow.\+cpp mainwindow.\+h mainwindow.\+ui Interpreter.\+cpp Interpreter.\+h ../\mbox{\hyperlink{classMemory}{Memory}}/Memory.\+cpp ../\mbox{\hyperlink{classMemory}{Memory}}/Memory.\+h ../List/Linked\+\_\+\+List.\+cpp ../List/Linked\+\_\+\+List.\+h ../List/Node.\+cpp ../List/Node.\+h ../Sockets/Server.\+cpp ../Sockets/Server.\+h ../Sockets/Client.\+cpp ../Sockets/Client.\+h ../Sockets/Parser.\+cpp ../Sockets/Parser.}]{h }\end{DoxyParamCaption})}
+
+
+
+Definition at line 31 of file C\+Make\+Lists.\+txt.
+

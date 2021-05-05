@@ -1,0 +1,283 @@
+\hypertarget{classNode}{}\doxysection{Node Class Reference}
+\label{classNode}\index{Node@{Node}}
+
+
+{\ttfamily \#include $<$Node.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classNode_a5c5a1a1d179a0dc07b1a01d06629328b}{Set\+Position}} (\mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}} value)
+\item 
+\mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}} \mbox{\hyperlink{classNode_a2d31498b483a46807a1d05ec17e5a778}{Get\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Getter de la posision del noto. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNode_ae5a4b5251330114dc49e9aa898bd8f6a}{Set\+Size}} (\mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}} size)
+\begin{DoxyCompactList}\small\item\em Setter para el tamano del nodo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}} \mbox{\hyperlink{classNode_ac0dbad9e453fbe5b7da151105cbf3c4f}{Get\+Size}} ()
+\begin{DoxyCompactList}\small\item\em Getter para tamano del nodo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNode_ad2cd3f7b9789563475d11c8af628d791}{Set\+Address}} (void $\ast$value)
+\begin{DoxyCompactList}\small\item\em Setter para el address del nodo. \end{DoxyCompactList}\item 
+void $\ast$ \mbox{\hyperlink{classNode_a4a6d4eb86c79870471d267cb50de4d85}{Get\+Address}} ()
+\begin{DoxyCompactList}\small\item\em Getter para la direccion del nodo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNode_a780de27eefc88bf10a2e4c7a52945934}{Set\+Type}} (std\+::string type)
+\begin{DoxyCompactList}\small\item\em Setter para el tipo del nodo. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classNode_adf624c376b6156caccd208c443941b30}{Get\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Getter para el tipo del nodo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNode_a9b1802f40cf63be1cf5b919e7c2349d7}{Set\+Name}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Setter para el nombre del nodo. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classNode_a3108774b8ea5584a9c746d06f1427aa6}{Get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Getter para el nombre del nodo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNode_ad42b093c5defbc14372468f669e2c102}{Set\+Next}} (\mbox{\hyperlink{classNode}{Node}} $\ast$node)
+\begin{DoxyCompactList}\small\item\em Setter para el siguiente nodo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classNode}{Node}} $\ast$ \mbox{\hyperlink{classNode_a6f8729374beb27838792dc6ef81124e8}{Get\+Next}} ()
+\begin{DoxyCompactList}\small\item\em Getter para el siguiente nodo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 10 of file Node.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNode_a4a6d4eb86c79870471d267cb50de4d85}\label{classNode_a4a6d4eb86c79870471d267cb50de4d85}} 
+\index{Node@{Node}!GetAddress@{GetAddress}}
+\index{GetAddress@{GetAddress}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{GetAddress()}{GetAddress()}}
+{\footnotesize\ttfamily void $\ast$ Node\+::\+Get\+Address (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter para la direccion del nodo. 
+
+\begin{DoxyReturn}{Returns}
+void$\ast$ 
+\end{DoxyReturn}
+
+
+Definition at line 15 of file Node.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 0
+\mbox{\Hypertarget{classNode_a3108774b8ea5584a9c746d06f1427aa6}\label{classNode_a3108774b8ea5584a9c746d06f1427aa6}} 
+\index{Node@{Node}!GetName@{GetName}}
+\index{GetName@{GetName}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{GetName()}{GetName()}}
+{\footnotesize\ttfamily string Node\+::\+Get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter para el nombre del nodo. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+
+Definition at line 23 of file Node.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{classNode_a6f8729374beb27838792dc6ef81124e8}\label{classNode_a6f8729374beb27838792dc6ef81124e8}} 
+\index{Node@{Node}!GetNext@{GetNext}}
+\index{GetNext@{GetNext}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{GetNext()}{GetNext()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classNode}{Node}} $\ast$ Node\+::\+Get\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter para el siguiente nodo. 
+
+\begin{DoxyReturn}{Returns}
+Node$\ast$ 
+\end{DoxyReturn}
+
+
+Definition at line 25 of file Node.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{classNode_a2d31498b483a46807a1d05ec17e5a778}\label{classNode_a2d31498b483a46807a1d05ec17e5a778}} 
+\index{Node@{Node}!GetPosition@{GetPosition}}
+\index{GetPosition@{GetPosition}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{GetPosition()}{GetPosition()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}} Node\+::\+Get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter de la posision del noto. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 11 of file Node.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{classNode_ac0dbad9e453fbe5b7da151105cbf3c4f}\label{classNode_ac0dbad9e453fbe5b7da151105cbf3c4f}} 
+\index{Node@{Node}!GetSize@{GetSize}}
+\index{GetSize@{GetSize}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{GetSize()}{GetSize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}} Node\+::\+Get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter para tamano del nodo. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 29 of file Node.\+cpp.
+
+\mbox{\Hypertarget{classNode_adf624c376b6156caccd208c443941b30}\label{classNode_adf624c376b6156caccd208c443941b30}} 
+\index{Node@{Node}!GetType@{GetType}}
+\index{GetType@{GetType}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{GetType()}{GetType()}}
+{\footnotesize\ttfamily string Node\+::\+Get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter para el tipo del nodo. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+
+Definition at line 19 of file Node.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{classNode_ad2cd3f7b9789563475d11c8af628d791}\label{classNode_ad2cd3f7b9789563475d11c8af628d791}} 
+\index{Node@{Node}!SetAddress@{SetAddress}}
+\index{SetAddress@{SetAddress}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{SetAddress()}{SetAddress()}}
+{\footnotesize\ttfamily void Node\+::\+Set\+Address (\begin{DoxyParamCaption}\item[{void $\ast$}]{value }\end{DoxyParamCaption})}
+
+
+
+Setter para el address del nodo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Valor a settear \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 13 of file Node.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{classNode_a9b1802f40cf63be1cf5b919e7c2349d7}\label{classNode_a9b1802f40cf63be1cf5b919e7c2349d7}} 
+\index{Node@{Node}!SetName@{SetName}}
+\index{SetName@{SetName}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{SetName()}{SetName()}}
+{\footnotesize\ttfamily void Node\+::\+Set\+Name (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Setter para el nombre del nodo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Nombre a settear \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 21 of file Node.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{classNode_ad42b093c5defbc14372468f669e2c102}\label{classNode_ad42b093c5defbc14372468f669e2c102}} 
+\index{Node@{Node}!SetNext@{SetNext}}
+\index{SetNext@{SetNext}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{SetNext()}{SetNext()}}
+{\footnotesize\ttfamily void Node\+::\+Set\+Next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classNode}{Node}} $\ast$}]{node }\end{DoxyParamCaption})}
+
+
+
+Setter para el siguiente nodo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node} & Nodo a settear \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 27 of file Node.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{classNode_a5c5a1a1d179a0dc07b1a01d06629328b}\label{classNode_a5c5a1a1d179a0dc07b1a01d06629328b}} 
+\index{Node@{Node}!SetPosition@{SetPosition}}
+\index{SetPosition@{SetPosition}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{SetPosition()}{SetPosition()}}
+{\footnotesize\ttfamily void Node\+::\+Set\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}}}]{value }\end{DoxyParamCaption})}
+
+@brief\+Setter de la posicion del nodo 
+\begin{DoxyParams}{Parameters}
+{\em value} & Valor a asignar \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 9 of file Node.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 8
+\mbox{\Hypertarget{classNode_ae5a4b5251330114dc49e9aa898bd8f6a}\label{classNode_ae5a4b5251330114dc49e9aa898bd8f6a}} 
+\index{Node@{Node}!SetSize@{SetSize}}
+\index{SetSize@{SetSize}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{SetSize()}{SetSize()}}
+{\footnotesize\ttfamily void Node\+::\+Set\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}}}]{size }\end{DoxyParamCaption})}
+
+
+
+Setter para el tamano del nodo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & node \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 31 of file Node.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 9
+\mbox{\Hypertarget{classNode_a780de27eefc88bf10a2e4c7a52945934}\label{classNode_a780de27eefc88bf10a2e4c7a52945934}} 
+\index{Node@{Node}!SetType@{SetType}}
+\index{SetType@{SetType}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{SetType()}{SetType()}}
+{\footnotesize\ttfamily void Node\+::\+Set\+Type (\begin{DoxyParamCaption}\item[{std\+::string}]{type }\end{DoxyParamCaption})}
+
+
+
+Setter para el tipo del nodo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Tipo a settear \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 17 of file Node.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 10
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+List/\mbox{\hyperlink{Node_8h}{Node.\+h}}\item 
+List/\mbox{\hyperlink{Node_8cpp}{Node.\+cpp}}\end{DoxyCompactItemize}

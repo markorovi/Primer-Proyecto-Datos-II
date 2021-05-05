@@ -1,0 +1,41 @@
+digraph "Node::GetNext"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Node::GetNext",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Getter para el siguiente nodo."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Linked_List::delete_node",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLinked__List.html#a0754b2e38c07d74d1949f601cc4a6fff",tooltip="Se encarga de eliminar un nodo de la lista en base al nombre de la variable que almacena."];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="Memory::Freeing_Memory",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMemory.html#a9ac8687489640f91fb75184426948413",tooltip="Se encarga de liberar un espacio en memoria."];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="Server::Start",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classServer.html#acaea883b722927c7d8299a74447c8d1b",tooltip="Se encarga de levantar el servidor el cual estara acargo del el manejo de la memoria."];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="main",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97",tooltip=" "];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="Linked_List::exists",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLinked__List.html#a34548d7c56f3ceffec8c1755e01caccd",tooltip="Se encarga de verificar si una variable se encuentra almacenada en una lista enlazada."];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="Memory::Need_Memory",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMemory.html#a33fd5c5e117fccccd73f096f442c58f6",tooltip="Solicita memoria, lo que puede resultar en una sobreescritura, una nueva direccion o en el reciclaje ..."];
+  Node7 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="Linked_List::lenght",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLinked__List.html#a01585750441ef126d47345bbe1fece36",tooltip="Se encarga de obtener la longitud de la lista enlazada."];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="Linked_List::print_list",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLinked__List.html#afe2e3a5be298d0648e51d1947fdb7707",tooltip="Se encarga de printear en consola la totalidad de la lista enlazada con cada uno de los parametros de..."];
+  Node9 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="Memory::Show",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMemory.html#a1e56f1ad16fa009a38571fccb91a9d94",tooltip="Se encarga de mostrar la lista de las posiciones que se pueden reciclar."];
+  Node1 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="Linked_List::return\l_listPostion",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLinked__List.html#aa5a842b194526c0c11154c0eac45d1bd",tooltip="Se encarga de retornar la posicion mas cercana a otra en una lista dada por el nodo que recibe."];
+  Node1 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node12 [label="Linked_List::returnAddress",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLinked__List.html#acf383a80747d6d43f3a2a200a98a7df4",tooltip="Se encarga de retornar el tipo de una variable almacenada en la lista enlazada."];
+  Node12 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node12 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node1 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node13 [label="Linked_List::returnPostion",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLinked__List.html#a61c3cff153e9177629fb7fc4f0a8b902",tooltip="Se encarga de retornar la posicion en la que se encuentra almacenado el nodo con respecto al offset."];
+  Node13 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node1 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node14 [label="Linked_List::returnType",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLinked__List.html#a7bef6c987572803a632b62f5244be818",tooltip=" "];
+  Node1 -> Node15 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node15 [label="Linked_List::returnValue",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLinked__List.html#a3b00cee10f3f33b3405611b19951095f",tooltip="Se encarga de retornar el valor que contiene el nodo que se busca."];
+  Node15 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+}

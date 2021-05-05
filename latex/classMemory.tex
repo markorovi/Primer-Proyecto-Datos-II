@@ -1,0 +1,317 @@
+\hypertarget{classMemory}{}\doxysection{Memory Class Reference}
+\label{classMemory}\index{Memory@{Memory}}
+
+
+{\ttfamily \#include $<$Memory.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} $\ast$ \mbox{\hyperlink{classMemory_ae57cd404dbfc07af273e83a7ce4c3f4d}{get\+Head}} () const
+\begin{DoxyCompactList}\small\item\em Getter para la cabeza del offset. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}} $>$ \mbox{\hyperlink{classMemory_a2eef626c0c1e6d10b3e3912e867baedb}{get\+To\+Recicle}} ()
+\begin{DoxyCompactList}\small\item\em Getter para la lista de reciclaje. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLinked__List}{Linked\+\_\+\+List}} \mbox{\hyperlink{classMemory_ae6712364781dd2c879c9f7d2b5910d4a}{get\+In\+Use}} ()
+\begin{DoxyCompactList}\small\item\em Getter para la lista en la que se encuentran los espacios de memoria en uso. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMemory_a76494a9f1c27c097f5a9d8af9f4ea818}{Using\+\_\+\+Memory}} (std\+::string type, std\+::string i, std\+::string name)
+\begin{DoxyCompactList}\small\item\em Se encarga de reservar un espacio en el offset para la nueva variable. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMemory_a53c461961dd8403ad7ad621f5b1fb609}{Reciclying\+\_\+\+Memory}} (std\+::string type, std\+::string i, \mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}} position, std\+::string name)
+\begin{DoxyCompactList}\small\item\em Se encarga de reutilizar una posicion en el offset de memoria a ser posible. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMemory_a9ac8687489640f91fb75184426948413}{Freeing\+\_\+\+Memory}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Se encarga de liberar un espacio en memoria. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMemory_a1e56f1ad16fa009a38571fccb91a9d94}{Show}} ()
+\begin{DoxyCompactList}\small\item\em Se encarga de mostrar la lista de las posiciones que se pueden reciclar. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMemory_a3f67f18d73916faaa30ee7fa6e0e9888}{Rewrite}} (void $\ast$address, std\+::string type, std\+::string value)
+\begin{DoxyCompactList}\small\item\em Se encarga de sobreescribir una variable si esta ya existe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMemory_a33fd5c5e117fccccd73f096f442c58f6}{Need\+\_\+\+Memory}} (std\+::string type, std\+::string i, std\+::string name)
+\begin{DoxyCompactList}\small\item\em Solicita memoria, lo que puede resultar en una sobreescritura, una nueva direccion o en el reciclaje de una variable que ya no esta en uso. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMemory_addc796d3c659d83c4de88d1769a41c67}{Filling\+Struct}} (std\+::string type, std\+::string i, std\+::string name)
+\begin{DoxyCompactList}\small\item\em Se encarga de rellenar los espacios de memoria del struct que se esta generando con sus respectivos atributos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMemory_ad2eef4937758ec88ec8d56c9a15c2b81}{Generating\+Struct}} (\mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}} size, std\+::string name)
+\begin{DoxyCompactList}\small\item\em Funcion que declara cuando se esta empezando a generar un struct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classMemory}{Memory}} $\ast$ \mbox{\hyperlink{classMemory_ab4d08d8bab9c8be9095acd1d29bb8f76}{get\+\_\+instance}} ()
+\begin{DoxyCompactList}\small\item\em Singleton para la memoria. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 11 of file Memory.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMemory_addc796d3c659d83c4de88d1769a41c67}\label{classMemory_addc796d3c659d83c4de88d1769a41c67}} 
+\index{Memory@{Memory}!FillingStruct@{FillingStruct}}
+\index{FillingStruct@{FillingStruct}!Memory@{Memory}}
+\doxysubsubsection{\texorpdfstring{FillingStruct()}{FillingStruct()}}
+{\footnotesize\ttfamily void Memory\+::\+Filling\+Struct (\begin{DoxyParamCaption}\item[{std\+::string}]{type,  }\item[{std\+::string}]{i,  }\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Se encarga de rellenar los espacios de memoria del struct que se esta generando con sus respectivos atributos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Tipo de dato a guardar \\
+\hline
+{\em i} & Valor a guardar \\
+\hline
+{\em name} & Nombre con el cual se va a guardar \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 187 of file Memory.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 0
+\mbox{\Hypertarget{classMemory_a9ac8687489640f91fb75184426948413}\label{classMemory_a9ac8687489640f91fb75184426948413}} 
+\index{Memory@{Memory}!Freeing\_Memory@{Freeing\_Memory}}
+\index{Freeing\_Memory@{Freeing\_Memory}!Memory@{Memory}}
+\doxysubsubsection{\texorpdfstring{Freeing\_Memory()}{Freeing\_Memory()}}
+{\footnotesize\ttfamily void Memory\+::\+Freeing\+\_\+\+Memory (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Se encarga de liberar un espacio en memoria. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Nombre de la variable a liberar \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 138 of file Memory.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 1
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{classMemory_ad2eef4937758ec88ec8d56c9a15c2b81}\label{classMemory_ad2eef4937758ec88ec8d56c9a15c2b81}} 
+\index{Memory@{Memory}!GeneratingStruct@{GeneratingStruct}}
+\index{GeneratingStruct@{GeneratingStruct}!Memory@{Memory}}
+\doxysubsubsection{\texorpdfstring{GeneratingStruct()}{GeneratingStruct()}}
+{\footnotesize\ttfamily void Memory\+::\+Generating\+Struct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}}}]{size,  }\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Funcion que declara cuando se esta empezando a generar un struct. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & Tamano del struct \\
+\hline
+{\em name} & Nombre de la cabeza del struct \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 27 of file Memory.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{classMemory_ab4d08d8bab9c8be9095acd1d29bb8f76}\label{classMemory_ab4d08d8bab9c8be9095acd1d29bb8f76}} 
+\index{Memory@{Memory}!get\_instance@{get\_instance}}
+\index{get\_instance@{get\_instance}!Memory@{Memory}}
+\doxysubsubsection{\texorpdfstring{get\_instance()}{get\_instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMemory}{Memory}} $\ast$ Memory\+::get\+\_\+instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Singleton para la memoria. 
+
+\begin{DoxyReturn}{Returns}
+Memory$\ast$ 
+\end{DoxyReturn}
+
+
+Definition at line 9 of file Memory.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{classMemory_ae57cd404dbfc07af273e83a7ce4c3f4d}\label{classMemory_ae57cd404dbfc07af273e83a7ce4c3f4d}} 
+\index{Memory@{Memory}!getHead@{getHead}}
+\index{getHead@{getHead}!Memory@{Memory}}
+\doxysubsubsection{\texorpdfstring{getHead()}{getHead()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_afe71f11dacb15682cdc012f7208e6e09}{char}} $\ast$ Memory\+::get\+Head (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter para la cabeza del offset. 
+
+\begin{DoxyReturn}{Returns}
+char$\ast$ 
+\end{DoxyReturn}
+
+
+Definition at line 179 of file Memory.\+cpp.
+
+\mbox{\Hypertarget{classMemory_ae6712364781dd2c879c9f7d2b5910d4a}\label{classMemory_ae6712364781dd2c879c9f7d2b5910d4a}} 
+\index{Memory@{Memory}!getInUse@{getInUse}}
+\index{getInUse@{getInUse}!Memory@{Memory}}
+\doxysubsubsection{\texorpdfstring{getInUse()}{getInUse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLinked__List}{Linked\+\_\+\+List}} Memory\+::get\+In\+Use (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter para la lista en la que se encuentran los espacios de memoria en uso. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classLinked__List}{Linked\+\_\+\+List}} 
+\end{DoxyReturn}
+
+
+Definition at line 175 of file Memory.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{classMemory_a2eef626c0c1e6d10b3e3912e867baedb}\label{classMemory_a2eef626c0c1e6d10b3e3912e867baedb}} 
+\index{Memory@{Memory}!getToRecicle@{getToRecicle}}
+\index{getToRecicle@{getToRecicle}!Memory@{Memory}}
+\doxysubsubsection{\texorpdfstring{getToRecicle()}{getToRecicle()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}} $>$ Memory\+::get\+To\+Recicle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter para la lista de reciclaje. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$int$>$ 
+\end{DoxyReturn}
+
+
+Definition at line 183 of file Memory.\+cpp.
+
+\mbox{\Hypertarget{classMemory_a33fd5c5e117fccccd73f096f442c58f6}\label{classMemory_a33fd5c5e117fccccd73f096f442c58f6}} 
+\index{Memory@{Memory}!Need\_Memory@{Need\_Memory}}
+\index{Need\_Memory@{Need\_Memory}!Memory@{Memory}}
+\doxysubsubsection{\texorpdfstring{Need\_Memory()}{Need\_Memory()}}
+{\footnotesize\ttfamily void Memory\+::\+Need\+\_\+\+Memory (\begin{DoxyParamCaption}\item[{std\+::string}]{type,  }\item[{std\+::string}]{i,  }\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Solicita memoria, lo que puede resultar en una sobreescritura, una nueva direccion o en el reciclaje de una variable que ya no esta en uso. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Tipo de la variable \\
+\hline
+{\em i} & Valor a almacenar \\
+\hline
+{\em name} & Nombre de la variable \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 149 of file Memory.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 6
+Here is the caller graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{classMemory_a53c461961dd8403ad7ad621f5b1fb609}\label{classMemory_a53c461961dd8403ad7ad621f5b1fb609}} 
+\index{Memory@{Memory}!Reciclying\_Memory@{Reciclying\_Memory}}
+\index{Reciclying\_Memory@{Reciclying\_Memory}!Memory@{Memory}}
+\doxysubsubsection{\texorpdfstring{Reciclying\_Memory()}{Reciclying\_Memory()}}
+{\footnotesize\ttfamily void Memory\+::\+Reciclying\+\_\+\+Memory (\begin{DoxyParamCaption}\item[{std\+::string}]{type,  }\item[{std\+::string}]{i,  }\item[{\mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}}}]{position,  }\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Se encarga de reutilizar una posicion en el offset de memoria a ser posible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & El tipo de la variable \\
+\hline
+{\em i} & Lo que la variable almacenara \\
+\hline
+{\em position} & Posicion la cual acapara la variabl en el offset \\
+\hline
+{\em name} & l nombre de la variable \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 82 of file Memory.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 8
+\mbox{\Hypertarget{classMemory_a3f67f18d73916faaa30ee7fa6e0e9888}\label{classMemory_a3f67f18d73916faaa30ee7fa6e0e9888}} 
+\index{Memory@{Memory}!Rewrite@{Rewrite}}
+\index{Rewrite@{Rewrite}!Memory@{Memory}}
+\doxysubsubsection{\texorpdfstring{Rewrite()}{Rewrite()}}
+{\footnotesize\ttfamily void Memory\+::\+Rewrite (\begin{DoxyParamCaption}\item[{void $\ast$}]{address,  }\item[{std\+::string}]{type,  }\item[{std\+::string}]{value }\end{DoxyParamCaption})}
+
+
+
+Se encarga de sobreescribir una variable si esta ya existe. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & Variable a sobreescribir \\
+\hline
+{\em type} & Tipo de la variable \\
+\hline
+{\em value} & Nuevo valor que la direccion almacenara \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 123 of file Memory.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 9
+\mbox{\Hypertarget{classMemory_a1e56f1ad16fa009a38571fccb91a9d94}\label{classMemory_a1e56f1ad16fa009a38571fccb91a9d94}} 
+\index{Memory@{Memory}!Show@{Show}}
+\index{Show@{Show}!Memory@{Memory}}
+\doxysubsubsection{\texorpdfstring{Show()}{Show()}}
+{\footnotesize\ttfamily void Memory\+::\+Show (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Se encarga de mostrar la lista de las posiciones que se pueden reciclar. 
+
+
+
+Definition at line 16 of file Memory.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 10
+\mbox{\Hypertarget{classMemory_a76494a9f1c27c097f5a9d8af9f4ea818}\label{classMemory_a76494a9f1c27c097f5a9d8af9f4ea818}} 
+\index{Memory@{Memory}!Using\_Memory@{Using\_Memory}}
+\index{Using\_Memory@{Using\_Memory}!Memory@{Memory}}
+\doxysubsubsection{\texorpdfstring{Using\_Memory()}{Using\_Memory()}}
+{\footnotesize\ttfamily void Memory\+::\+Using\+\_\+\+Memory (\begin{DoxyParamCaption}\item[{std\+::string}]{type,  }\item[{std\+::string}]{i,  }\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Se encarga de reservar un espacio en el offset para la nueva variable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & El tipo de la variable \\
+\hline
+{\em i} & Lo que la variable almacenara \\
+\hline
+{\em name} & El nombre de la variable \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 33 of file Memory.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 11
+Here is the caller graph for this function\+:
+% FIG 12
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Memory/\mbox{\hyperlink{Memory_8h}{Memory.\+h}}\item 
+Memory/\mbox{\hyperlink{Memory_8cpp}{Memory.\+cpp}}\end{DoxyCompactItemize}

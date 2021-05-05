@@ -1,0 +1,22 @@
+digraph "Memory::FillingStruct"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Memory::FillingStruct",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Se encarga de rellenar los espacios de memoria del struct que se esta generando con sus respectivos a..."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Memory::Using_Memory",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMemory.html#a76494a9f1c27c097f5a9d8af9f4ea818",tooltip="Se encarga de reservar un espacio en el offset para la nueva variable."];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="Linked_List::add_node",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLinked__List.html#a79ecb670ca531916d40bcdd85fea08cc",tooltip="Se encarga de agregar un nodo a una lista."];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="Node::SetAddress",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classNode.html#ad2cd3f7b9789563475d11c8af628d791",tooltip="Setter para el address del nodo."];
+  Node3 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="Node::SetName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classNode.html#a9b1802f40cf63be1cf5b919e7c2349d7",tooltip="Setter para el nombre del nodo."];
+  Node3 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="Node::SetNext",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classNode.html#ad42b093c5defbc14372468f669e2c102",tooltip="Setter para el siguiente nodo."];
+  Node3 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="Node::SetPosition",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classNode.html#a5c5a1a1d179a0dc07b1a01d06629328b",tooltip=" "];
+  Node3 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="Node::SetType",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classNode.html#a780de27eefc88bf10a2e4c7a52945934",tooltip="Setter para el tipo del nodo."];
+}

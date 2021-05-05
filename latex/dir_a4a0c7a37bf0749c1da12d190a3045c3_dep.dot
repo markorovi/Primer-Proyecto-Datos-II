@@ -1,0 +1,13 @@
+digraph "build-Ide-Desktop_Qt_6_0_3_GCC_64bit-Debug" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_a4a0c7a37bf0749c1da12d190a3045c3 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_a4a0c7a37bf0749c1da12d190a3045c3.html"];
+    dir_a4a0c7a37bf0749c1da12d190a3045c3 [shape=plaintext label="build-Ide-Desktop_Qt_6_0_3_GCC_64bit-Debug"];
+    dir_b65911d5d85a2812c0ea097ea8668290 [shape=box label="CMakeFiles" color="red" fillcolor="white" style="filled" URL="dir_b65911d5d85a2812c0ea097ea8668290.html"];
+    dir_5819f0aafea1b45da47f0d03dcf990db [shape=box label="Ide_autogen" color="red" fillcolor="white" style="filled" URL="dir_5819f0aafea1b45da47f0d03dcf990db.html"];
+  }
+  dir_68429450acb3cb0c38ed32ec649647d7 [shape=box label="Ide" fillcolor="white" style="filled" color="red" URL="dir_68429450acb3cb0c38ed32ec649647d7.html"];
+  dir_5819f0aafea1b45da47f0d03dcf990db->dir_68429450acb3cb0c38ed32ec649647d7 [headlabel="1", labeldistance=1.5 headhref="dir_000012_000001.html"];
+}

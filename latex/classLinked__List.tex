@@ -1,0 +1,363 @@
+\hypertarget{classLinked__List}{}\doxysection{Linked\+\_\+\+List Class Reference}
+\label{classLinked__List}\index{Linked\_List@{Linked\_List}}
+
+
+{\ttfamily \#include $<$Linked\+\_\+\+List.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classLinked__List_aaca843ae52ffcb5fab7889a4a23c9bd8}{Set\+Head}} (\mbox{\hyperlink{classNode}{Node}} $\ast$head)
+\begin{DoxyCompactList}\small\item\em Se encarga de settear la cabeza de la lista enlazada. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classNode}{Node}} $\ast$ \mbox{\hyperlink{classLinked__List_afe7d4fb2cb3e8522ef11ab0668d797a0}{Get\+Head}} ()
+\begin{DoxyCompactList}\small\item\em Se encarga de obtener la cabeza de la lista enlazada. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLinked__List_ae026074715f16409ebb26b8e2a49965d}{Linked\+\_\+\+List}} ()
+\begin{DoxyCompactList}\small\item\em Inicia el valor de la cabeza de la lista como nulo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLinked__List_a79ecb670ca531916d40bcdd85fea08cc}{add\+\_\+node}} (void $\ast$address, std\+::string type, \mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}} position, std\+::string name)
+\begin{DoxyCompactList}\small\item\em Se encarga de agregar un nodo a una lista. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}} \mbox{\hyperlink{classLinked__List_a0754b2e38c07d74d1949f601cc4a6fff}{delete\+\_\+node}} (\mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}} position)
+\begin{DoxyCompactList}\small\item\em Se encarga de eliminar un nodo de la lista en base al nombre de la variable que almacena. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLinked__List_afe2e3a5be298d0648e51d1947fdb7707}{print\+\_\+list}} (\mbox{\hyperlink{classNode}{Node}} $\ast$head)
+\begin{DoxyCompactList}\small\item\em Se encarga de printear en consola la totalidad de la lista enlazada con cada uno de los parametros de los nodos. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}} \mbox{\hyperlink{classLinked__List_aa5a842b194526c0c11154c0eac45d1bd}{return\+\_\+list\+Postion}} (\mbox{\hyperlink{classNode}{Node}} $\ast$head, \mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}} value)
+\begin{DoxyCompactList}\small\item\em Se encarga de retornar la posicion mas cercana a otra en una lista dada por el nodo que recibe. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}} \mbox{\hyperlink{classLinked__List_a01585750441ef126d47345bbe1fece36}{lenght}} ()
+\begin{DoxyCompactList}\small\item\em Se encarga de obtener la longitud de la lista enlazada. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLinked__List_a34548d7c56f3ceffec8c1755e01caccd}{exists}} (std\+::string name, \mbox{\hyperlink{classNode}{Node}} $\ast$head)
+\begin{DoxyCompactList}\small\item\em Se encarga de verificar si una variable se encuentra almacenada en una lista enlazada. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classLinked__List_a7bef6c987572803a632b62f5244be818}{return\+Type}} (std\+::string name, \mbox{\hyperlink{classNode}{Node}} $\ast$head)
+\item 
+void $\ast$ \mbox{\hyperlink{classLinked__List_acf383a80747d6d43f3a2a200a98a7df4}{return\+Address}} (std\+::string name, \mbox{\hyperlink{classNode}{Node}} $\ast$head)
+\begin{DoxyCompactList}\small\item\em Se encarga de retornar el tipo de una variable almacenada en la lista enlazada. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}} \mbox{\hyperlink{classLinked__List_a61c3cff153e9177629fb7fc4f0a8b902}{return\+Postion}} (std\+::string name, \mbox{\hyperlink{classNode}{Node}} $\ast$head)
+\begin{DoxyCompactList}\small\item\em Se encarga de retornar la posicion en la que se encuentra almacenado el nodo con respecto al offset. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classLinked__List_a3b00cee10f3f33b3405611b19951095f}{return\+Value}} (std\+::string name, \mbox{\hyperlink{classNode}{Node}} $\ast$head)
+\begin{DoxyCompactList}\small\item\em Se encarga de retornar el valor que contiene el nodo que se busca. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 11 of file Linked\+\_\+\+List.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classLinked__List_ae026074715f16409ebb26b8e2a49965d}\label{classLinked__List_ae026074715f16409ebb26b8e2a49965d}} 
+\index{Linked\_List@{Linked\_List}!Linked\_List@{Linked\_List}}
+\index{Linked\_List@{Linked\_List}!Linked\_List@{Linked\_List}}
+\doxysubsubsection{\texorpdfstring{Linked\_List()}{Linked\_List()}}
+{\footnotesize\ttfamily Linked\+\_\+\+List\+::\+Linked\+\_\+\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Inicia el valor de la cabeza de la lista como nulo. 
+
+
+
+Definition at line 10 of file Linked\+\_\+\+List.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLinked__List_a79ecb670ca531916d40bcdd85fea08cc}\label{classLinked__List_a79ecb670ca531916d40bcdd85fea08cc}} 
+\index{Linked\_List@{Linked\_List}!add\_node@{add\_node}}
+\index{add\_node@{add\_node}!Linked\_List@{Linked\_List}}
+\doxysubsubsection{\texorpdfstring{add\_node()}{add\_node()}}
+{\footnotesize\ttfamily void Linked\+\_\+\+List\+::add\+\_\+node (\begin{DoxyParamCaption}\item[{void $\ast$}]{address,  }\item[{std\+::string}]{type,  }\item[{\mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}}}]{position,  }\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+
+
+Se encarga de agregar un nodo a una lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & Atributo address a agregar \\
+\hline
+{\em type} & Atributo type a agregar \\
+\hline
+{\em position} & Atributo position a agregar \\
+\hline
+{\em name} & Atributo name a agregar \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 127 of file Linked\+\_\+\+List.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 0
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{classLinked__List_a0754b2e38c07d74d1949f601cc4a6fff}\label{classLinked__List_a0754b2e38c07d74d1949f601cc4a6fff}} 
+\index{Linked\_List@{Linked\_List}!delete\_node@{delete\_node}}
+\index{delete\_node@{delete\_node}!Linked\_List@{Linked\_List}}
+\doxysubsubsection{\texorpdfstring{delete\_node()}{delete\_node()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}} Linked\+\_\+\+List\+::delete\+\_\+node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}}}]{position }\end{DoxyParamCaption})}
+
+
+
+Se encarga de eliminar un nodo de la lista en base al nombre de la variable que almacena. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & Variable a buscar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 144 of file Linked\+\_\+\+List.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 2
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{classLinked__List_a34548d7c56f3ceffec8c1755e01caccd}\label{classLinked__List_a34548d7c56f3ceffec8c1755e01caccd}} 
+\index{Linked\_List@{Linked\_List}!exists@{exists}}
+\index{exists@{exists}!Linked\_List@{Linked\_List}}
+\doxysubsubsection{\texorpdfstring{exists()}{exists()}}
+{\footnotesize\ttfamily bool Linked\+\_\+\+List\+::exists (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{\mbox{\hyperlink{classNode}{Node}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+
+
+Se encarga de verificar si una variable se encuentra almacenada en una lista enlazada. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Variable a buscar \\
+\hline
+{\em head} & Cabeza de la lista a recorrer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 44 of file Linked\+\_\+\+List.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 4
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{classLinked__List_afe7d4fb2cb3e8522ef11ab0668d797a0}\label{classLinked__List_afe7d4fb2cb3e8522ef11ab0668d797a0}} 
+\index{Linked\_List@{Linked\_List}!GetHead@{GetHead}}
+\index{GetHead@{GetHead}!Linked\_List@{Linked\_List}}
+\doxysubsubsection{\texorpdfstring{GetHead()}{GetHead()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classNode}{Node}} $\ast$ Linked\+\_\+\+List\+::\+Get\+Head (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Se encarga de obtener la cabeza de la lista enlazada. 
+
+\begin{DoxyReturn}{Returns}
+Node$\ast$ 
+\end{DoxyReturn}
+
+
+Definition at line 14 of file Linked\+\_\+\+List.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{classLinked__List_a01585750441ef126d47345bbe1fece36}\label{classLinked__List_a01585750441ef126d47345bbe1fece36}} 
+\index{Linked\_List@{Linked\_List}!lenght@{lenght}}
+\index{lenght@{lenght}!Linked\_List@{Linked\_List}}
+\doxysubsubsection{\texorpdfstring{lenght()}{lenght()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}} Linked\+\_\+\+List\+::lenght (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Se encarga de obtener la longitud de la lista enlazada. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Definition at line 18 of file Linked\+\_\+\+List.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{classLinked__List_afe2e3a5be298d0648e51d1947fdb7707}\label{classLinked__List_afe2e3a5be298d0648e51d1947fdb7707}} 
+\index{Linked\_List@{Linked\_List}!print\_list@{print\_list}}
+\index{print\_list@{print\_list}!Linked\_List@{Linked\_List}}
+\doxysubsubsection{\texorpdfstring{print\_list()}{print\_list()}}
+{\footnotesize\ttfamily void Linked\+\_\+\+List\+::print\+\_\+list (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classNode}{Node}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+
+
+Se encarga de printear en consola la totalidad de la lista enlazada con cada uno de los parametros de los nodos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em head} & Es la cabeza de la lista que se desea printear \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 26 of file Linked\+\_\+\+List.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 8
+Here is the caller graph for this function\+:
+% FIG 9
+\mbox{\Hypertarget{classLinked__List_aa5a842b194526c0c11154c0eac45d1bd}\label{classLinked__List_aa5a842b194526c0c11154c0eac45d1bd}} 
+\index{Linked\_List@{Linked\_List}!return\_listPostion@{return\_listPostion}}
+\index{return\_listPostion@{return\_listPostion}!Linked\_List@{Linked\_List}}
+\doxysubsubsection{\texorpdfstring{return\_listPostion()}{return\_listPostion()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}} Linked\+\_\+\+List\+::return\+\_\+list\+Postion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classNode}{Node}} $\ast$}]{head,  }\item[{\mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}}}]{value }\end{DoxyParamCaption})}
+
+
+
+Se encarga de retornar la posicion mas cercana a otra en una lista dada por el nodo que recibe. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em head} & Nodo cabeza a recorrer \\
+\hline
+{\em value} & Posicion a comparar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 110 of file Linked\+\_\+\+List.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 10
+\mbox{\Hypertarget{classLinked__List_acf383a80747d6d43f3a2a200a98a7df4}\label{classLinked__List_acf383a80747d6d43f3a2a200a98a7df4}} 
+\index{Linked\_List@{Linked\_List}!returnAddress@{returnAddress}}
+\index{returnAddress@{returnAddress}!Linked\_List@{Linked\_List}}
+\doxysubsubsection{\texorpdfstring{returnAddress()}{returnAddress()}}
+{\footnotesize\ttfamily void $\ast$ Linked\+\_\+\+List\+::return\+Address (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{\mbox{\hyperlink{classNode}{Node}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+
+
+Se encarga de retornar el tipo de una variable almacenada en la lista enlazada. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Variable a buscar \\
+\hline
+{\em head} & Cabeza de la lista que se desea recorrer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+
+Definition at line 56 of file Linked\+\_\+\+List.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 11
+Here is the caller graph for this function\+:
+% FIG 12
+\mbox{\Hypertarget{classLinked__List_a61c3cff153e9177629fb7fc4f0a8b902}\label{classLinked__List_a61c3cff153e9177629fb7fc4f0a8b902}} 
+\index{Linked\_List@{Linked\_List}!returnPostion@{returnPostion}}
+\index{returnPostion@{returnPostion}!Linked\_List@{Linked\_List}}
+\doxysubsubsection{\texorpdfstring{returnPostion()}{returnPostion()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}} Linked\+\_\+\+List\+::return\+Postion (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{\mbox{\hyperlink{classNode}{Node}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+
+
+Se encarga de retornar la posicion en la que se encuentra almacenado el nodo con respecto al offset. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Variable a buscar \\
+\hline
+{\em head} & Cabeza de la lista a recorrer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 66 of file Linked\+\_\+\+List.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 13
+Here is the caller graph for this function\+:
+% FIG 14
+\mbox{\Hypertarget{classLinked__List_a7bef6c987572803a632b62f5244be818}\label{classLinked__List_a7bef6c987572803a632b62f5244be818}} 
+\index{Linked\_List@{Linked\_List}!returnType@{returnType}}
+\index{returnType@{returnType}!Linked\_List@{Linked\_List}}
+\doxysubsubsection{\texorpdfstring{returnType()}{returnType()}}
+{\footnotesize\ttfamily std\+::string Linked\+\_\+\+List\+::return\+Type (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{\mbox{\hyperlink{classNode}{Node}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em head} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 100 of file Linked\+\_\+\+List.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 15
+\mbox{\Hypertarget{classLinked__List_a3b00cee10f3f33b3405611b19951095f}\label{classLinked__List_a3b00cee10f3f33b3405611b19951095f}} 
+\index{Linked\_List@{Linked\_List}!returnValue@{returnValue}}
+\index{returnValue@{returnValue}!Linked\_List@{Linked\_List}}
+\doxysubsubsection{\texorpdfstring{returnValue()}{returnValue()}}
+{\footnotesize\ttfamily std\+::string Linked\+\_\+\+List\+::return\+Value (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{\mbox{\hyperlink{classNode}{Node}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+
+
+Se encarga de retornar el valor que contiene el nodo que se busca. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Nodo a buscar \\
+\hline
+{\em head} & Cabeza de la lista a recorrer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}
+
+
+Definition at line 76 of file Linked\+\_\+\+List.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 16
+Here is the caller graph for this function\+:
+% FIG 17
+\mbox{\Hypertarget{classLinked__List_aaca843ae52ffcb5fab7889a4a23c9bd8}\label{classLinked__List_aaca843ae52ffcb5fab7889a4a23c9bd8}} 
+\index{Linked\_List@{Linked\_List}!SetHead@{SetHead}}
+\index{SetHead@{SetHead}!Linked\_List@{Linked\_List}}
+\doxysubsubsection{\texorpdfstring{SetHead()}{SetHead()}}
+{\footnotesize\ttfamily void Linked\+\_\+\+List\+::\+Set\+Head (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classNode}{Node}} $\ast$}]{head }\end{DoxyParamCaption})}
+
+
+
+Se encarga de settear la cabeza de la lista enlazada. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em head} & El nodo que se deasea settear a cabeza. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 16 of file Linked\+\_\+\+List.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+List/\mbox{\hyperlink{Linked__List_8h}{Linked\+\_\+\+List.\+h}}\item 
+List/\mbox{\hyperlink{Linked__List_8cpp}{Linked\+\_\+\+List.\+cpp}}\end{DoxyCompactItemize}

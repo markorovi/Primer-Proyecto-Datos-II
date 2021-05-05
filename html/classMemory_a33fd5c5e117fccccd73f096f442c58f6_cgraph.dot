@@ -1,0 +1,38 @@
+digraph "Memory::Need_Memory"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Memory::Need_Memory",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Solicita memoria, lo que puede resultar en una sobreescritura, una nueva direccion o en el reciclaje ..."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Linked_List::exists",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLinked__List.html#a34548d7c56f3ceffec8c1755e01caccd",tooltip="Se encarga de verificar si una variable se encuentra almacenada en una lista enlazada."];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Node::GetName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classNode.html#a3108774b8ea5584a9c746d06f1427aa6",tooltip="Getter para el nombre del nodo."];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Node::GetNext",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classNode.html#a6f8729374beb27838792dc6ef81124e8",tooltip="Getter para el siguiente nodo."];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Linked_List::GetHead",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLinked__List.html#afe7d4fb2cb3e8522ef11ab0668d797a0",tooltip="Se encarga de obtener la cabeza de la lista enlazada."];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Linked_List::returnAddress",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLinked__List.html#acf383a80747d6d43f3a2a200a98a7df4",tooltip="Se encarga de retornar el tipo de una variable almacenada en la lista enlazada."];
+  Node6 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Node::GetAddress",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classNode.html#a4a6d4eb86c79870471d267cb50de4d85",tooltip="Getter para la direccion del nodo."];
+  Node6 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="Memory::Rewrite",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMemory.html#a3f67f18d73916faaa30ee7fa6e0e9888",tooltip="Se encarga de sobreescribir una variable si esta ya existe."];
+  Node1 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="Memory::Using_Memory",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMemory.html#a76494a9f1c27c097f5a9d8af9f4ea818",tooltip="Se encarga de reservar un espacio en el offset para la nueva variable."];
+  Node9 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="Linked_List::add_node",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLinked__List.html#a79ecb670ca531916d40bcdd85fea08cc",tooltip="Se encarga de agregar un nodo a una lista."];
+  Node10 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="Node::SetAddress",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classNode.html#ad2cd3f7b9789563475d11c8af628d791",tooltip="Setter para el address del nodo."];
+  Node10 -> Node12 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="Node::SetName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classNode.html#a9b1802f40cf63be1cf5b919e7c2349d7",tooltip="Setter para el nombre del nodo."];
+  Node10 -> Node13 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="Node::SetNext",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classNode.html#ad42b093c5defbc14372468f669e2c102",tooltip="Setter para el siguiente nodo."];
+  Node10 -> Node14 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node14 [label="Node::SetPosition",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classNode.html#a5c5a1a1d179a0dc07b1a01d06629328b",tooltip=" "];
+  Node10 -> Node15 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node15 [label="Node::SetType",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classNode.html#a780de27eefc88bf10a2e4c7a52945934",tooltip="Setter para el tipo del nodo."];
+}

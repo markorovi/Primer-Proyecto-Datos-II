@@ -1,0 +1,577 @@
+\hypertarget{classInterpreter}{}\doxysection{Interpreter Class Reference}
+\label{classInterpreter}\index{Interpreter@{Interpreter}}
+
+
+{\ttfamily \#include $<$Interpreter.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classInterpreter_a9faf0dca72cd27223e5c447b580de2a5}{Interpreter}} ()
+\begin{DoxyCompactList}\small\item\em Método contructor del interprete. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classInterpreter_ad10dedfa212861856c71c93144674b26}{Interpreter}} (Q\+Plain\+Text\+Edit $\ast$terminal\+Output, Q\+Plain\+Text\+Edit $\ast$\+\_\+app\+Log)
+\begin{DoxyCompactList}\small\item\em Método constructor del interprete. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classInterpreter_a0f96b57f8126e2b5bc63390121e4b5b1}{$\sim$\+Interpreter}} ()
+\begin{DoxyCompactList}\small\item\em Método destructor del interpreter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInterpreter_afee497455dedc1993e8a61d2c0bb8f42}{read\+Code}} (Q\+String code)
+\begin{DoxyCompactList}\small\item\em Se encarga de reorganizar el código de forma que sea entendible para el interprete. \end{DoxyCompactList}\item 
+Q\+List$<$ Q\+String\+List $>$ \mbox{\hyperlink{classInterpreter_a6747a88c313d2e0dbb88ace20850d7ed}{get\+Words}} ()
+\begin{DoxyCompactList}\small\item\em Devuelve la lista de todas las palabras escritas en el código. \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{classInterpreter_ac5de30a19ad7d393e43092b33f40bb30}{what\+Is}} (Q\+String word)
+\begin{DoxyCompactList}\small\item\em Este método se encarga de comparar qué clase de cadena es la que está leyendo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInterpreter_a247c03a89b6620c59718d9f46be2aa23}{interpret\+Code}} (\mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}} line)
+\begin{DoxyCompactList}\small\item\em Es el método que permite interpretar el contenido del código escrito. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInterpreter_acdb68bbc8266ac4a03d54856a6832606}{show\+Code}} ()
+\begin{DoxyCompactList}\small\item\em Permite mostrar el código reinterpretado en consola. \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{classInterpreter_ac7727438059aff2875c0c5e27c7e7f4a}{ask\+For}} (Q\+String aux)
+\begin{DoxyCompactList}\small\item\em Le pregunta al servidor el tipo del dato introducido. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classInterpreter_a80220f0c9d29bf7a8d627eda099dc5c5}{is\+Number}} (Q\+String value)
+\begin{DoxyCompactList}\small\item\em Método que permite determinar si una cadena de texto es un número. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classInterpreter_adbf35c650f5ce8cf963f538c4edea2fc}{is\+Char}} (Q\+String value)
+\begin{DoxyCompactList}\small\item\em Método que permite determinar si una cadena de texto es un char. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classInterpreter_a3acc4ed3993e72c94b0dd83e2e2f814e}{is\+Struct}} (Q\+String aux)
+\begin{DoxyCompactList}\small\item\em Permite detectar si la cadena brindada pertenece al nombre de un struct. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInterpreter_a860b9774d57bfbba429538f44f17a622}{set\+Terminal}} (Q\+Plain\+Text\+Edit $\ast$terminal\+Output)
+\begin{DoxyCompactList}\small\item\em Permite al interpreter tener acceso a la terminal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInterpreter_acacb63a175a77a0f389a72673480c175}{set\+App\+Log}} (Q\+Plain\+Text\+Edit $\ast$new\+App\+Log)
+\begin{DoxyCompactList}\small\item\em Permite al interpreter tener acceso al logger. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInterpreter_ae0646b4740920c9eccf8554321aa004e}{show\+In\+Terminal}} (Q\+String msg)
+\begin{DoxyCompactList}\small\item\em Muestra un mensaje en la terminal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInterpreter_a8bfc93b33b4d607350d9e093960504a4}{show\+In\+App\+Log}} (Q\+String msg)
+\begin{DoxyCompactList}\small\item\em Muestra un mensaje en el logger. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInterpreter_a2815721cfde4cc5bfb621fae532fcfb1}{free\+Scope}} ()
+\begin{DoxyCompactList}\small\item\em Libera el scope. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInterpreter_acf4dfb6c14cdb00640481a5e226216c6}{set\+Freeing\+Scope}} (bool freeing\+Scope)
+\begin{DoxyCompactList}\small\item\em Permite liberar scopes. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classInterpreter_addf640acaa895c00ddd73adc8fcabeba}{is\+Freeing\+Scope}} () const
+\begin{DoxyCompactList}\small\item\em Permite obtener el estado del scope. \end{DoxyCompactList}\item 
+const Q\+String\+List \& \mbox{\hyperlink{classInterpreter_a302a48fe1b3e80dfa529945e63818d2a}{get\+Scope\+Labels}} () const
+\begin{DoxyCompactList}\small\item\em Permite saber cuales son las variables declaradas dentro del scope. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classInterpreter_aa29d94288e0e433cd205c79a1ff1bb57}{is\+Scope}} () const
+\begin{DoxyCompactList}\small\item\em Permite saber si hay un scope abierto. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInterpreter_ab730fb0ff8bd335a2813635967087d72}{to\+Declarate}} (Q\+String type, Q\+String label, Q\+String Value)
+\begin{DoxyCompactList}\small\item\em Permite decirle al servidor que declare variables al conocer sus datos. \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{classInterpreter_af468bd58dc872fc7cf1681ffd0633e49}{is\+Attribute}} (Q\+String name, Q\+String attribute)
+\begin{DoxyCompactList}\small\item\em Permite determinar si una variable es atributo de una estructura. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInterpreter_a8d3fc5318a786c90f0ed259f36f53255}{set\+Client}} (\mbox{\hyperlink{classClient}{Client}} $\ast$client)
+\item 
+Q\+String \mbox{\hyperlink{classInterpreter_abe6f107b32c1875d3e0fd4306ef798f4}{get\+Value}} (Q\+String aux)
+\item 
+bool \mbox{\hyperlink{classInterpreter_ac6eea1913fb2cd1e88c7645971cbd7ce}{is\+Struct}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 15 of file Interpreter.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classInterpreter_a9faf0dca72cd27223e5c447b580de2a5}\label{classInterpreter_a9faf0dca72cd27223e5c447b580de2a5}} 
+\index{Interpreter@{Interpreter}!Interpreter@{Interpreter}}
+\index{Interpreter@{Interpreter}!Interpreter@{Interpreter}}
+\doxysubsubsection{\texorpdfstring{Interpreter()}{Interpreter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Interpreter\+::\+Interpreter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Método contructor del interprete. 
+
+
+
+Definition at line 11 of file Interpreter.\+cpp.
+
+\mbox{\Hypertarget{classInterpreter_ad10dedfa212861856c71c93144674b26}\label{classInterpreter_ad10dedfa212861856c71c93144674b26}} 
+\index{Interpreter@{Interpreter}!Interpreter@{Interpreter}}
+\index{Interpreter@{Interpreter}!Interpreter@{Interpreter}}
+\doxysubsubsection{\texorpdfstring{Interpreter()}{Interpreter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Interpreter\+::\+Interpreter (\begin{DoxyParamCaption}\item[{Q\+Plain\+Text\+Edit $\ast$}]{terminal\+Output,  }\item[{Q\+Plain\+Text\+Edit $\ast$}]{\+\_\+app\+Log }\end{DoxyParamCaption})}
+
+
+
+Método constructor del interprete. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em terminal\+Output} & Cuadro de texto de la terminal \\
+\hline
+{\em \+\_\+app\+Log} & Cuadro de texto del logger \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 32 of file Interpreter.\+cpp.
+
+\mbox{\Hypertarget{classInterpreter_a0f96b57f8126e2b5bc63390121e4b5b1}\label{classInterpreter_a0f96b57f8126e2b5bc63390121e4b5b1}} 
+\index{Interpreter@{Interpreter}!````~Interpreter@{$\sim$Interpreter}}
+\index{````~Interpreter@{$\sim$Interpreter}!Interpreter@{Interpreter}}
+\doxysubsubsection{\texorpdfstring{$\sim$Interpreter()}{~Interpreter()}}
+{\footnotesize\ttfamily Interpreter\+::$\sim$\+Interpreter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Método destructor del interpreter. 
+
+
+
+Definition at line 55 of file Interpreter.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classInterpreter_ac7727438059aff2875c0c5e27c7e7f4a}\label{classInterpreter_ac7727438059aff2875c0c5e27c7e7f4a}} 
+\index{Interpreter@{Interpreter}!askFor@{askFor}}
+\index{askFor@{askFor}!Interpreter@{Interpreter}}
+\doxysubsubsection{\texorpdfstring{askFor()}{askFor()}}
+{\footnotesize\ttfamily Q\+String Interpreter\+::ask\+For (\begin{DoxyParamCaption}\item[{Q\+String}]{aux }\end{DoxyParamCaption})}
+
+
+
+Le pregunta al servidor el tipo del dato introducido. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em aux} & Nombre de la variable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Q\+String 
+\end{DoxyReturn}
+
+
+Definition at line 922 of file Interpreter.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 0
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{classInterpreter_a2815721cfde4cc5bfb621fae532fcfb1}\label{classInterpreter_a2815721cfde4cc5bfb621fae532fcfb1}} 
+\index{Interpreter@{Interpreter}!freeScope@{freeScope}}
+\index{freeScope@{freeScope}!Interpreter@{Interpreter}}
+\doxysubsubsection{\texorpdfstring{freeScope()}{freeScope()}}
+{\footnotesize\ttfamily void Interpreter\+::free\+Scope (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Libera el scope. 
+
+
+
+Definition at line 866 of file Interpreter.\+cpp.
+
+\mbox{\Hypertarget{classInterpreter_a302a48fe1b3e80dfa529945e63818d2a}\label{classInterpreter_a302a48fe1b3e80dfa529945e63818d2a}} 
+\index{Interpreter@{Interpreter}!getScopeLabels@{getScopeLabels}}
+\index{getScopeLabels@{getScopeLabels}!Interpreter@{Interpreter}}
+\doxysubsubsection{\texorpdfstring{getScopeLabels()}{getScopeLabels()}}
+{\footnotesize\ttfamily const Q\+String\+List \& Interpreter\+::get\+Scope\+Labels (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Permite saber cuales son las variables declaradas dentro del scope. 
+
+\begin{DoxyReturn}{Returns}
+Q\+String\+List 
+\end{DoxyReturn}
+
+
+Definition at line 878 of file Interpreter.\+cpp.
+
+\mbox{\Hypertarget{classInterpreter_abe6f107b32c1875d3e0fd4306ef798f4}\label{classInterpreter_abe6f107b32c1875d3e0fd4306ef798f4}} 
+\index{Interpreter@{Interpreter}!getValue@{getValue}}
+\index{getValue@{getValue}!Interpreter@{Interpreter}}
+\doxysubsubsection{\texorpdfstring{getValue()}{getValue()}}
+{\footnotesize\ttfamily Q\+String Interpreter\+::get\+Value (\begin{DoxyParamCaption}\item[{Q\+String}]{aux }\end{DoxyParamCaption})}
+
+
+
+Definition at line 890 of file Interpreter.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 2
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{classInterpreter_a6747a88c313d2e0dbb88ace20850d7ed}\label{classInterpreter_a6747a88c313d2e0dbb88ace20850d7ed}} 
+\index{Interpreter@{Interpreter}!getWords@{getWords}}
+\index{getWords@{getWords}!Interpreter@{Interpreter}}
+\doxysubsubsection{\texorpdfstring{getWords()}{getWords()}}
+{\footnotesize\ttfamily Q\+List$<$ Q\+String\+List $>$ Interpreter\+::get\+Words (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Devuelve la lista de todas las palabras escritas en el código. 
+
+\begin{DoxyReturn}{Returns}
+Q\+List$<$\+Q\+String\+List$>$ 
+\end{DoxyReturn}
+
+
+Definition at line 157 of file Interpreter.\+cpp.
+
+\mbox{\Hypertarget{classInterpreter_a247c03a89b6620c59718d9f46be2aa23}\label{classInterpreter_a247c03a89b6620c59718d9f46be2aa23}} 
+\index{Interpreter@{Interpreter}!interpretCode@{interpretCode}}
+\index{interpretCode@{interpretCode}!Interpreter@{Interpreter}}
+\doxysubsubsection{\texorpdfstring{interpretCode()}{interpretCode()}}
+{\footnotesize\ttfamily void Interpreter\+::interpret\+Code (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{Ide_2cmake-build-debug_2CMakeCache_8txt_a79a3d8790b2588b09777910863574e09}{int}}}]{line }\end{DoxyParamCaption})}
+
+
+
+Es el método que permite interpretar el contenido del código escrito. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & Es el número de linea de código que está interpretando \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 201 of file Interpreter.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{classInterpreter_af468bd58dc872fc7cf1681ffd0633e49}\label{classInterpreter_af468bd58dc872fc7cf1681ffd0633e49}} 
+\index{Interpreter@{Interpreter}!isAttribute@{isAttribute}}
+\index{isAttribute@{isAttribute}!Interpreter@{Interpreter}}
+\doxysubsubsection{\texorpdfstring{isAttribute()}{isAttribute()}}
+{\footnotesize\ttfamily Q\+String Interpreter\+::is\+Attribute (\begin{DoxyParamCaption}\item[{Q\+String}]{name,  }\item[{Q\+String}]{attribute }\end{DoxyParamCaption})}
+
+
+
+Permite determinar si una variable es atributo de una estructura. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Nombre de la estructura \\
+\hline
+{\em attribute} & Nombre del atributo de la estructura \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Q\+String 
+\end{DoxyReturn}
+
+
+Definition at line 932 of file Interpreter.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 5
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{classInterpreter_adbf35c650f5ce8cf963f538c4edea2fc}\label{classInterpreter_adbf35c650f5ce8cf963f538c4edea2fc}} 
+\index{Interpreter@{Interpreter}!isChar@{isChar}}
+\index{isChar@{isChar}!Interpreter@{Interpreter}}
+\doxysubsubsection{\texorpdfstring{isChar()}{isChar()}}
+{\footnotesize\ttfamily bool Interpreter\+::is\+Char (\begin{DoxyParamCaption}\item[{Q\+String}]{value }\end{DoxyParamCaption})}
+
+
+
+Método que permite determinar si una cadena de texto es un char. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Parámetro con un valor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 836 of file Interpreter.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{classInterpreter_addf640acaa895c00ddd73adc8fcabeba}\label{classInterpreter_addf640acaa895c00ddd73adc8fcabeba}} 
+\index{Interpreter@{Interpreter}!isFreeingScope@{isFreeingScope}}
+\index{isFreeingScope@{isFreeingScope}!Interpreter@{Interpreter}}
+\doxysubsubsection{\texorpdfstring{isFreeingScope()}{isFreeingScope()}}
+{\footnotesize\ttfamily bool Interpreter\+::is\+Freeing\+Scope (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Permite obtener el estado del scope. 
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 874 of file Interpreter.\+cpp.
+
+\mbox{\Hypertarget{classInterpreter_a80220f0c9d29bf7a8d627eda099dc5c5}\label{classInterpreter_a80220f0c9d29bf7a8d627eda099dc5c5}} 
+\index{Interpreter@{Interpreter}!isNumber@{isNumber}}
+\index{isNumber@{isNumber}!Interpreter@{Interpreter}}
+\doxysubsubsection{\texorpdfstring{isNumber()}{isNumber()}}
+{\footnotesize\ttfamily bool Interpreter\+::is\+Number (\begin{DoxyParamCaption}\item[{Q\+String}]{value }\end{DoxyParamCaption})}
+
+
+
+Método que permite determinar si una cadena de texto es un número. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Parámetro con un valor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 809 of file Interpreter.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 8
+\mbox{\Hypertarget{classInterpreter_aa29d94288e0e433cd205c79a1ff1bb57}\label{classInterpreter_aa29d94288e0e433cd205c79a1ff1bb57}} 
+\index{Interpreter@{Interpreter}!isScope@{isScope}}
+\index{isScope@{isScope}!Interpreter@{Interpreter}}
+\doxysubsubsection{\texorpdfstring{isScope()}{isScope()}}
+{\footnotesize\ttfamily bool Interpreter\+::is\+Scope (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Permite saber si hay un scope abierto. 
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 870 of file Interpreter.\+cpp.
+
+\mbox{\Hypertarget{classInterpreter_ac6eea1913fb2cd1e88c7645971cbd7ce}\label{classInterpreter_ac6eea1913fb2cd1e88c7645971cbd7ce}} 
+\index{Interpreter@{Interpreter}!isStruct@{isStruct}}
+\index{isStruct@{isStruct}!Interpreter@{Interpreter}}
+\doxysubsubsection{\texorpdfstring{isStruct()}{isStruct()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Interpreter\+::is\+Struct (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+% FIG 9
+\mbox{\Hypertarget{classInterpreter_a3acc4ed3993e72c94b0dd83e2e2f814e}\label{classInterpreter_a3acc4ed3993e72c94b0dd83e2e2f814e}} 
+\index{Interpreter@{Interpreter}!isStruct@{isStruct}}
+\index{isStruct@{isStruct}!Interpreter@{Interpreter}}
+\doxysubsubsection{\texorpdfstring{isStruct()}{isStruct()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Interpreter\+::is\+Struct (\begin{DoxyParamCaption}\item[{Q\+String}]{aux }\end{DoxyParamCaption})}
+
+
+
+Permite detectar si la cadena brindada pertenece al nombre de un struct. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em aux} & Cadena de texto con el nombre de la variable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 911 of file Interpreter.\+cpp.
+
+\mbox{\Hypertarget{classInterpreter_afee497455dedc1993e8a61d2c0bb8f42}\label{classInterpreter_afee497455dedc1993e8a61d2c0bb8f42}} 
+\index{Interpreter@{Interpreter}!readCode@{readCode}}
+\index{readCode@{readCode}!Interpreter@{Interpreter}}
+\doxysubsubsection{\texorpdfstring{readCode()}{readCode()}}
+{\footnotesize\ttfamily void Interpreter\+::read\+Code (\begin{DoxyParamCaption}\item[{Q\+String}]{code }\end{DoxyParamCaption})}
+
+
+
+Se encarga de reorganizar el código de forma que sea entendible para el interprete. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & Código escrito en el programa \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 59 of file Interpreter.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 10
+\mbox{\Hypertarget{classInterpreter_acacb63a175a77a0f389a72673480c175}\label{classInterpreter_acacb63a175a77a0f389a72673480c175}} 
+\index{Interpreter@{Interpreter}!setAppLog@{setAppLog}}
+\index{setAppLog@{setAppLog}!Interpreter@{Interpreter}}
+\doxysubsubsection{\texorpdfstring{setAppLog()}{setAppLog()}}
+{\footnotesize\ttfamily void Interpreter\+::set\+App\+Log (\begin{DoxyParamCaption}\item[{Q\+Plain\+Text\+Edit $\ast$}]{new\+App\+Log }\end{DoxyParamCaption})}
+
+
+
+Permite al interpreter tener acceso al logger. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+App\+Log} & Logger del I\+DE \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 854 of file Interpreter.\+cpp.
+
+\mbox{\Hypertarget{classInterpreter_a8d3fc5318a786c90f0ed259f36f53255}\label{classInterpreter_a8d3fc5318a786c90f0ed259f36f53255}} 
+\index{Interpreter@{Interpreter}!setClient@{setClient}}
+\index{setClient@{setClient}!Interpreter@{Interpreter}}
+\doxysubsubsection{\texorpdfstring{setClient()}{setClient()}}
+{\footnotesize\ttfamily void Interpreter\+::set\+Client (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classClient}{Client}} $\ast$}]{client }\end{DoxyParamCaption})}
+
+
+
+Definition at line 886 of file Interpreter.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 11
+\mbox{\Hypertarget{classInterpreter_acf4dfb6c14cdb00640481a5e226216c6}\label{classInterpreter_acf4dfb6c14cdb00640481a5e226216c6}} 
+\index{Interpreter@{Interpreter}!setFreeingScope@{setFreeingScope}}
+\index{setFreeingScope@{setFreeingScope}!Interpreter@{Interpreter}}
+\doxysubsubsection{\texorpdfstring{setFreeingScope()}{setFreeingScope()}}
+{\footnotesize\ttfamily void Interpreter\+::set\+Freeing\+Scope (\begin{DoxyParamCaption}\item[{bool}]{freeing\+Scope }\end{DoxyParamCaption})}
+
+
+
+Permite liberar scopes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em freeing\+Scope} & Valor para freeing\+Scope \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 882 of file Interpreter.\+cpp.
+
+\mbox{\Hypertarget{classInterpreter_a860b9774d57bfbba429538f44f17a622}\label{classInterpreter_a860b9774d57bfbba429538f44f17a622}} 
+\index{Interpreter@{Interpreter}!setTerminal@{setTerminal}}
+\index{setTerminal@{setTerminal}!Interpreter@{Interpreter}}
+\doxysubsubsection{\texorpdfstring{setTerminal()}{setTerminal()}}
+{\footnotesize\ttfamily void Interpreter\+::set\+Terminal (\begin{DoxyParamCaption}\item[{Q\+Plain\+Text\+Edit $\ast$}]{terminal\+Output }\end{DoxyParamCaption})}
+
+
+
+Permite al interpreter tener acceso a la terminal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em terminal\+Output} & Terminal del I\+DE \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 850 of file Interpreter.\+cpp.
+
+\mbox{\Hypertarget{classInterpreter_acdb68bbc8266ac4a03d54856a6832606}\label{classInterpreter_acdb68bbc8266ac4a03d54856a6832606}} 
+\index{Interpreter@{Interpreter}!showCode@{showCode}}
+\index{showCode@{showCode}!Interpreter@{Interpreter}}
+\doxysubsubsection{\texorpdfstring{showCode()}{showCode()}}
+{\footnotesize\ttfamily void Interpreter\+::show\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Permite mostrar el código reinterpretado en consola. 
+
+
+
+Definition at line 802 of file Interpreter.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 12
+\mbox{\Hypertarget{classInterpreter_a8bfc93b33b4d607350d9e093960504a4}\label{classInterpreter_a8bfc93b33b4d607350d9e093960504a4}} 
+\index{Interpreter@{Interpreter}!showInAppLog@{showInAppLog}}
+\index{showInAppLog@{showInAppLog}!Interpreter@{Interpreter}}
+\doxysubsubsection{\texorpdfstring{showInAppLog()}{showInAppLog()}}
+{\footnotesize\ttfamily void Interpreter\+::show\+In\+App\+Log (\begin{DoxyParamCaption}\item[{Q\+String}]{msg }\end{DoxyParamCaption})}
+
+
+
+Muestra un mensaje en el logger. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & Mensaje recibido \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 862 of file Interpreter.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 13
+\mbox{\Hypertarget{classInterpreter_ae0646b4740920c9eccf8554321aa004e}\label{classInterpreter_ae0646b4740920c9eccf8554321aa004e}} 
+\index{Interpreter@{Interpreter}!showInTerminal@{showInTerminal}}
+\index{showInTerminal@{showInTerminal}!Interpreter@{Interpreter}}
+\doxysubsubsection{\texorpdfstring{showInTerminal()}{showInTerminal()}}
+{\footnotesize\ttfamily void Interpreter\+::show\+In\+Terminal (\begin{DoxyParamCaption}\item[{Q\+String}]{msg }\end{DoxyParamCaption})}
+
+
+
+Muestra un mensaje en la terminal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & Mensaje recibido \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 858 of file Interpreter.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 14
+\mbox{\Hypertarget{classInterpreter_ab730fb0ff8bd335a2813635967087d72}\label{classInterpreter_ab730fb0ff8bd335a2813635967087d72}} 
+\index{Interpreter@{Interpreter}!toDeclarate@{toDeclarate}}
+\index{toDeclarate@{toDeclarate}!Interpreter@{Interpreter}}
+\doxysubsubsection{\texorpdfstring{toDeclarate()}{toDeclarate()}}
+{\footnotesize\ttfamily void Interpreter\+::to\+Declarate (\begin{DoxyParamCaption}\item[{Q\+String}]{type,  }\item[{Q\+String}]{label,  }\item[{Q\+String}]{Value }\end{DoxyParamCaption})}
+
+
+
+Permite decirle al servidor que declare variables al conocer sus datos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Tipo de dato de la variable \\
+\hline
+{\em label} & Etiqueta de la variable \\
+\hline
+{\em Value} & Valor de la variable \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 903 of file Interpreter.\+cpp.
+
+Here is the call graph for this function\+:
+% FIG 15
+Here is the caller graph for this function\+:
+% FIG 16
+\mbox{\Hypertarget{classInterpreter_ac5de30a19ad7d393e43092b33f40bb30}\label{classInterpreter_ac5de30a19ad7d393e43092b33f40bb30}} 
+\index{Interpreter@{Interpreter}!whatIs@{whatIs}}
+\index{whatIs@{whatIs}!Interpreter@{Interpreter}}
+\doxysubsubsection{\texorpdfstring{whatIs()}{whatIs()}}
+{\footnotesize\ttfamily Q\+String Interpreter\+::what\+Is (\begin{DoxyParamCaption}\item[{Q\+String}]{word }\end{DoxyParamCaption})}
+
+
+
+Este método se encarga de comparar qué clase de cadena es la que está leyendo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em word} & Palabra que se quiere comparar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Q\+String 
+\end{DoxyReturn}
+
+
+Definition at line 161 of file Interpreter.\+cpp.
+
+Here is the caller graph for this function\+:
+% FIG 17
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Ide/\mbox{\hyperlink{Interpreter_8h}{Interpreter.\+h}}\item 
+Ide/\mbox{\hyperlink{Interpreter_8cpp}{Interpreter.\+cpp}}\end{DoxyCompactItemize}

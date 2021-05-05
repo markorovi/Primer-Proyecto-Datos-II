@@ -1,0 +1,8 @@
+digraph "Memory" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  dir_4bbfcbe99b666a19955ad2d97ce526ac [shape=box, label="Memory", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_4bbfcbe99b666a19955ad2d97ce526ac.html"];
+  dir_d3587ea34575ba69a6f17dbf2376cb3e [shape=box label="List" URL="dir_d3587ea34575ba69a6f17dbf2376cb3e.html"];
+  dir_4bbfcbe99b666a19955ad2d97ce526ac->dir_d3587ea34575ba69a6f17dbf2376cb3e [headlabel="1", labeldistance=1.5 headhref="dir_000020_000019.html"];
+}
