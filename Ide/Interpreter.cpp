@@ -128,20 +128,20 @@ void Interpreter::readCode(QString code) {
     }
 
 
-//    for (int i = 0; i < words.size(); i++) {
-//        for (int j = 1; j < words[i].size() - 1; j++) {
-//            if (words[i][j] == "dot") {
-//
-//                words[i][j - 1] = words[i][j - 1] + "." + words[i][j + 1];
-//
-//                words[i].removeAt(j + 1);
-//                words[i].removeAt(j);
-//
-//                j--;
-//                j--;
-//            }
-//        }
-//    }
+    for (int i = 0; i < words.size(); i++) {
+        for (int j = 1; j < words[i].size() - 1; j++) {
+            if (words[i][j] == "dot") {
+                words[i][j - 1] = words[i][j - 1] + "." + words[i][j + 1];
+
+                words[i].removeAt(j + 1);
+                words[i].removeAt(j);
+
+                j--;
+                j--;
+
+            }
+        }
+    }
     int lastAux = words.size() - 1;
 
     words.last()[words.last().size() - 1].remove(";");
