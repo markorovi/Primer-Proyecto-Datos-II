@@ -7,21 +7,14 @@
 
 using namespace std;
 
-///Inicia el valor de la cabeza de la lista como nulo.
 Linked_List::Linked_List() {
     head = nullptr;
 }
 
-/// Se encarga de obtener la cabeza de la lista enlazada.
-/// \return Node*
 Node* Linked_List::GetHead() {return this->head;}
 
-/// Se encarga de settear la cabeza de la lista enlazada.
-/// \param head Node* El nodo que se deasea settear a cabeza.
 void Linked_List::SetHead(Node *head) {this->head = head;}
 
-/// Se encarga de obtener la longitud de la lista enlazada.
-/// \return int
 int Linked_List::lenght() {
     int i = 0;
     for (Node* curr = this->GetHead() ; curr; curr = curr->GetNext()){
@@ -30,8 +23,6 @@ int Linked_List::lenght() {
     return i;
 }
 
-/// Se encarga de printear en consola la totalidad de la lista enlazada con cada uno de los parametros de los nodos
-/// \param head Node* Es la cabeza de la lista que se desea printear
 void Linked_List::print_list(Node *head) {
     cout << "Data in memory: ";
     for ( ; head; head = head->GetNext()){
@@ -50,10 +41,6 @@ void Linked_List::print_list(Node *head) {
     cout << "\n\n";
 }
 
-/// Se encarga de verificar si una variable se encuentra almacenada en una lista enlazada
-/// \param name std::string Variable a buscar
-/// \param head Node* Cabeza de la lista a recorrer
-/// \return bool
 bool Linked_List::exists(std::string name, Node *head) {
     bool flag = false;
     if (this->lenght() > 0){
@@ -66,10 +53,6 @@ bool Linked_List::exists(std::string name, Node *head) {
     return flag;
 }
 
-/// Se encarga de retornar la direccion de memoria almacenada en un nodo al que se accede por su nombre
-/// \param name std::string Variable a buscar
-/// \param head Node* Cabeza de la lista a recorrer
-/// \return void*
 void * Linked_List::returnAddress(std::string name, Node *head) {
     if (this->lenght() > 0){
         for ( ; head; head = head->GetNext()){
@@ -80,10 +63,6 @@ void * Linked_List::returnAddress(std::string name, Node *head) {
     }
 }
 
-/// Se encarga de retornar la posicion en la que se encuentra almacenado el nodo con respecto al offset
-/// \param name std::string Variable a buscar
-/// \param head Node* Cabeza de la lista a recorrer
-/// \return int
 int Linked_List::returnPostion(std::string name, Node *head) {
     if (this->lenght() > 0){
         for ( ; head; head = head->GetNext()){
@@ -94,10 +73,6 @@ int Linked_List::returnPostion(std::string name, Node *head) {
     }
 }
 
-/// Se encarga de retornar el valor que contiene el nodo que se busca
-/// \param name std::string Nodo a buscar
-/// \param head Node* Cabeza de la lista a recorrer
-/// \return std::string
 std::string Linked_List::returnValue(std::string name, Node *head) {
     if (this->lenght() > 0){
         for ( ; head; head = head->GetNext()){
@@ -122,10 +97,6 @@ std::string Linked_List::returnValue(std::string name, Node *head) {
     }
 }
 
-/// Se encarga de retornar el tipo de una variable almacenada en la lista enlazada
-/// \param name std::string Variable a buscar
-/// \param head Node* Cabeza de la lista que se desea recorrer
-/// \return std::string
 std::string Linked_List::returnType(std::string name, Node *head) {
     if (this->lenght() > 0){
         for ( ; head; head = head->GetNext()){
@@ -136,10 +107,6 @@ std::string Linked_List::returnType(std::string name, Node *head) {
     }
 }
 
-/// Se encarga de retornar la posicion mas cercana a otra en una lista dada por el nodo que recibe
-/// \param head Node* Nodo cabeza a recorrer
-/// \param value int Posicion a comparar
-/// \return int
 int Linked_List::return_listPostion(Node *head, int value) {
     int closest = 104857600;
     if (this->lenght() > 0){
@@ -157,11 +124,6 @@ int Linked_List::return_listPostion(Node *head, int value) {
     return closest;
 }
 
-/// Se encarga de agregar un nodo a una lista
-/// \param address void* Atributo address a agregar
-/// \param type std::string Atributo type a agregar
-/// \param position int Atributo position a agregar
-/// \param name std::string Atributo name a agregar
 void Linked_List::add_node(void* address, string type, int position, std::string name) {
     Node* tmp = new Node;
     tmp->SetAddress(address);
@@ -179,9 +141,6 @@ void Linked_List::add_node(void* address, string type, int position, std::string
     }
 }
 
-/// Se encarga de eliminar un nodo de la lista en base al nombre de la variable que almacena
-/// \param name std::string Variable a buscar
-/// \return int
 int Linked_List::delete_node(int position) {
     int to_return = -1;
 

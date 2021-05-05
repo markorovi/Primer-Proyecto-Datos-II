@@ -10,8 +10,6 @@
 #include <string>
 #include <iostream>
 
-
-///Se encarga de levantar el servidor el cual estara acargo de todo el manejo de la memoria
 void Server::Start() {
     int listening = socket(AF_INET, SOCK_STREAM, 0);
     sockaddr_in hint;

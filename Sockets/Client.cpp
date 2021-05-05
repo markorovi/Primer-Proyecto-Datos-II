@@ -10,7 +10,6 @@
 
 QJsonDocument Client::received = QJsonDocument();
 
-///Se encarga de levantar el socket y realizar la recepcion/envio de mensajes
 void Client::Start() {
     int sock= socket(AF_INET, SOCK_STREAM, 0);
     sockaddr_in hint;
@@ -37,8 +36,6 @@ void Client::Start() {
     close(sock);
 }
 
-/// Getter para la informacion que se obtiene del socket
-/// \return QJsonDocument
 QJsonDocument Client::getReceived() {
     return received;
 }

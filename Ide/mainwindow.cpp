@@ -17,8 +17,6 @@
 
 std::string MainWindow::json = "";
 
-/// Método principal del MainWindow
-/// \param parent QWidget
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -70,17 +68,12 @@ MainWindow::MainWindow(QWidget *parent)
 
 
 }
-/// Destructor del método del MainWindow
+
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
-/// Permite mostrar valores en la tabla que contiene los valores de la memoria ram
-/// \param memoryDirection QString dirección de memoria
-/// \param value QString valor de la variable ingresada
-/// \param label QString nombre de la variable ingresada
-/// \param referenceCount QString cantidad de veces que ha sido referenciada la variable ingresada
 void MainWindow::setValuesRamLiveView(QString memoryDirection, QString value,  QString label, int referenceCount)
 {
 
@@ -118,7 +111,6 @@ void MainWindow::setValuesRamLiveView(QString memoryDirection, QString value,  Q
     }
 }
 
-///Permite abrir archivos de texto al abrir tocar un botón
 void MainWindow::on_actionOpen_triggered()
 {
     QFile file;
@@ -146,7 +138,6 @@ void MainWindow::on_actionOpen_triggered()
 
 }
 
-/// Permite guardar el código escrito al pulsar un botón
 void MainWindow::on_actionSave_as_triggered()
 {
     QFile file;
@@ -173,13 +164,11 @@ void MainWindow::on_actionSave_as_triggered()
     file.close();
 }
 
-///Permite cerrar el programa al pulsar un botón
 void MainWindow::on_actionClose_triggered()
 {
     close();
 }
 
-/// Ejecuta el código escrito al pulsar un botón
 void MainWindow::on_actionRun_triggered()
 {
 
@@ -215,7 +204,6 @@ void MainWindow::on_actionRun_triggered()
     MainWindow::setJson(Json);
 }
 
-///Detiene el funcionamiento del código al pulsar un botón
 void MainWindow::on_actionStop_triggered()
 {
     if(running){
@@ -231,7 +219,6 @@ void MainWindow::on_actionStop_triggered()
     }
 }
 
-///Permite leer la siguiente linea del codigo al pulsar un botón
 void MainWindow::on_actionNext_Line_triggered()
 {
     //interpreter.showInAppLog("El programa se está ejecutando");
@@ -292,14 +279,10 @@ void MainWindow::on_actionNext_Line_triggered()
 
 }
 
-/// Permite a la ventana principal obtener un Json para enviar al servidor por medio del cliente
-/// \return std::string
 std::string MainWindow::getJson() {
     return json;
 }
 
-/// Permite a la ventana principal establecer un Json para enviar al servidor por medio del cliente
-/// \param toSet std::string valor que se va a poner al Json
 void MainWindow::setJson(std::string toSet) {
     json = toSet;
 }

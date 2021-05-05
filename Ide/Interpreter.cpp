@@ -8,7 +8,6 @@
 #include <QString>
 #include "Interpreter.h"
 
-/// Método contructor del interprete
 Interpreter::Interpreter() {
 
     keyWords.append("int");
@@ -29,9 +28,7 @@ Interpreter::Interpreter() {
 
 
 }
-/// Método constructor del interprete
-/// \param terminalOutput QPlainTextEdit cuadro de texto de la terminal
-/// \param _appLog QPlainTextEdit cuadro de texto del logger
+
 Interpreter::Interpreter(QPlainTextEdit *terminalOutput, QPlainTextEdit *_appLog) {
     terminal = terminalOutput;
     appLog = _appLog;
@@ -54,13 +51,11 @@ Interpreter::Interpreter(QPlainTextEdit *terminalOutput, QPlainTextEdit *_appLog
 
 
 }
-///Método destructor del interpreter
+
 Interpreter::~Interpreter() {
 
 }
 
-/// Se encarga de reorganizar el código de forma que sea entendible para el interprete
-/// \param code QString código escrito en el programa
 void Interpreter::readCode(QString code) {
 
     QStringList lines = code.split("\n");
@@ -158,15 +153,11 @@ void Interpreter::readCode(QString code) {
     qDebug() << "\n\n";
 
 }
-/// Devuelve la lista de todas las palabras escritas en el código
-/// \return QList<QStringList>
+
 QList<QStringList> Interpreter::getWords() {
     return words;
 }
 
-/// Este meodo se encarga de comparar qué clase de cadena es la que está leyendo
-/// \param word QString palabra que se quiere comparar
-/// \return QString
 QString Interpreter::whatIs(QString word) {
     QString strAux;
 
@@ -207,10 +198,6 @@ QString Interpreter::whatIs(QString word) {
     return strAux;
 }
 
-
-
-/// Es el método que permite interpretar el contenido del código escrito
-/// \param line int es el número de linea de código que está interpretando
 void Interpreter::interpretCode(int line) {
     //qDebug()<<words[line]<<"\n";
     QJsonDocument doc;
@@ -811,23 +798,14 @@ void Interpreter::interpretCode(int line) {
 //    std::cout<<Parser::ReturnStringValueFromJson(doc, "name"); //Obtener un valor de json
 }
 
-/// Permite mostrar el código reinterpretado en consola
+
 void Interpreter::showCode() {
     for (int i = 0; i < words.size(); i++) {
         qDebug() << words[i];
     }
 }
 
-bool Interpreter::isExisting(QString variable) {
-    if (variable == "") {
-        return true;
-    }
-    return true;
-}
 
-/// Método que permite determinar si una cadena de texto es un número
-/// \param value QString parametro con un valor
-/// \return bool
 bool Interpreter::isNumber(QString value) {
     bool aux = true;
     bool dotOne = true;
@@ -854,9 +832,7 @@ bool Interpreter::isNumber(QString value) {
 
     return aux;
 }
-/// Método que permite determinar si una cadena de texto es un char
-/// \param value QString parametro con un valor
-/// \return bool
+
 bool Interpreter::isChar(QString value) {
     bool aux = false;
 
@@ -870,58 +846,47 @@ bool Interpreter::isChar(QString value) {
     aux = value.startsWith("\"")&&value.endsWith("\"")&&value.count("\"")<3;
     return aux;
 }
-/// Permite al interpreter tener acceso a la terminal
-/// \param terminalOutput QPlainTextEdit terminal del IDE
+
 void Interpreter::setTerminal(QPlainTextEdit *terminalOutput) {
     terminal = terminalOutput;
 }
-/// Permite al interpreter tener acceso al logger
-/// \param newAppLog QPlainTextEdit logger del IDE
+
 void Interpreter::setAppLog(QPlainTextEdit *newAppLog) {
     appLog = newAppLog;
 }
-/// Muestra un mensaje en la terminal
-/// \param msg QString mensaje recibido
+
 void Interpreter::showInTerminal(QString msg) {
     terminal->appendPlainText(">> " + msg);
 }
-/// Muestra un mensaje en el logger
-/// \param msg QString mensaje recibido
+
 void Interpreter::showInAppLog(QString msg) {
     appLog->appendPlainText(">> " + msg);
 }
-/// Libera el scope
+
 void Interpreter::freeScope() {
     freeingScope = true;
 }
-/// Permite saber si hay un scope abierto
-/// \return bool
+
 bool Interpreter::isScope() const {
     return scope;
 }
-/// Permite obtener el estado del scope
-/// \return bool
+
 bool Interpreter::isFreeingScope() const {
     return freeingScope;
 }
-/// Permite saber cuales son las variables declaradas dentro del scope
-/// \return QStringList
+
 const QStringList &Interpreter::getScopeLabels() const {
     return scopeLabels;
 }
-/// Permite liberar scopes
-/// \param freeingScope
+
 void Interpreter::setFreeingScope(bool freeingScope) {
     Interpreter::freeingScope = freeingScope;
 }
-/// Permite al interprete conocer quién es el cliente
-/// \param client
+
 void Interpreter::setClient(Client *client) {
     Interpreter::client = client;
 }
-/// Pregunta al servidor por el valor correspondiente de la variable entrante
-/// \param aux QString Variable que contiene el nombre de la variable declarada
-/// \return
+
 QString Interpreter::getValue(QString aux) {
     QJsonDocument doc;
     doc.setObject(Parser::CreateJsonObj_Asking(aux.toStdString()));
@@ -934,10 +899,7 @@ QString Interpreter::getValue(QString aux) {
                 QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "value"));
     return QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "value"));
 }
-///Permite decirle al servidor que declare variables al conocer sus datos
-/// \param type QString tipo de dato de la variable
-/// \param label QString etiqueta de la variable
-/// \param Value QString valor de la variable
+
 void Interpreter::toDeclarate(QString type, QString label, QString Value){
     QJsonDocument doc;
     doc.setObject(Parser::CreateJsonObj_NoAddress(type.toStdString(), label.toStdString(), Value.toStdString()));
@@ -945,9 +907,7 @@ void Interpreter::toDeclarate(QString type, QString label, QString Value){
     MainWindow::setJson(Json);
     qDebug() << type << label << Value;
 }
-/// Permite detectar si la cadena brindada pertenece al nombre de un struct
-/// \param aux QString cadena de texto con el nombre de la variable
-/// \return bool
+
 bool Interpreter::isStruct(QString aux) {
 
     for (int i = 0; i < structList.size(); ++i) {
@@ -958,9 +918,7 @@ bool Interpreter::isStruct(QString aux) {
 
     return false;
 }
-/// Le pregunta al servidor el tipo del dato introducido
-/// \param aux QString nombre de la variable
-/// \return QString
+
 QString Interpreter::askFor(QString aux) {
     QJsonDocument doc;
     doc.setObject(Parser::CreateJsonObj_whatType(aux.toStdString()));
@@ -971,10 +929,6 @@ QString Interpreter::askFor(QString aux) {
     return QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "value"));
 }
 
-/// Permite determinar si una variable es atributo de una estructura
-/// \param name
-/// \param attribute
-/// \return
 QString Interpreter::isAttribute(QString name, QString attribute) {
     QJsonDocument doc;
     doc.setObject(Parser::CreateJsonObj_isAttribute(name.toStdString(),attribute.toStdString()));
