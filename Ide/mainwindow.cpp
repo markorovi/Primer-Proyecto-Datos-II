@@ -202,6 +202,10 @@ void MainWindow::on_actionRun_triggered()
     doc.setObject(Parser::Nothing()); //Genera el documento con los rasgos de dentro
     std::string Json = Parser::ReturnChar(doc); //String to char (to be able to send it through sockets) //Lo pasa a string
     MainWindow::setJson(Json);
+
+    if(interpreter.isStopProgram()){
+        on_actionStop_triggered();
+    }
 }
 
 void MainWindow::on_actionStop_triggered()
@@ -223,6 +227,7 @@ void MainWindow::on_actionNext_Line_triggered()
 {
     //interpreter.showInAppLog("El programa se está ejecutando");
     //qDebug()<<"Actual line:"<<line;
+
     if(running){
 
         if(line<interpreter.getWords().size()){
@@ -272,11 +277,16 @@ void MainWindow::on_actionNext_Line_triggered()
         }
 
     }
+
+
+
     QJsonDocument doc;
     doc.setObject(Parser::Nothing()); //Genera el documento con los rasgos de dentro
     std::string Json = Parser::ReturnChar(doc); //String to char (to be able to send it through sockets) //Lo pasa a string
     MainWindow::setJson(Json);
-
+    if(interpreter.isStopProgram()){
+        on_actionStop_triggered();
+    }
 }
 
 std::string MainWindow::getJson() {

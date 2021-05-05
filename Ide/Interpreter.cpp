@@ -219,9 +219,9 @@ void Interpreter::interpretCode(int line) {
         if (words[line].size() == 1) {
             if (whatIs(words[line][0]) == "startScope") {
                 if (inScope) {
-                    showInAppLog("Error");
+                    showInAppLog("Error: No se puede concatenar scopes");
                 } else if (inStruct) {
-                    showInAppLog("Error");
+                    showInAppLog("Error: No se pueden concatenar scopes");
 
                 } else {
                     inScope = true;
@@ -263,11 +263,11 @@ void Interpreter::interpretCode(int line) {
 
 
                 } else {
-                    showInAppLog("Error");
+                    showInAppLog("Error: no se puede cerrar el Struct o el scope si no se ha iniciado uno previamente");
                 }
 
             } else {
-                showInAppLog("Error");
+                showInAppLog("Error: parámetros incorrectos");
             }
         } else if (words[line].size() == 3 && words[line][0] == "struct" && whatIs(words[line][1]) == "variable" && whatIs(words[line][2]) == "startScope") {
             qDebug()<<"Se encuentra declarando un struct";
@@ -368,13 +368,11 @@ void Interpreter::interpretCode(int line) {
 
 
                                         } else if (whatIs(words[line][4]) == "operator") {
-                                            if (words[line][4] == "+" || words[line][4] == "-" ||
-                                                words[line][4] == "*" || words[line][4] == "/") {
+                                            if (words[line][4] == "+" || words[line][4] == "-" || words[line][4] == "*" || words[line][4] == "/") {
                                                 if (whatIs(words[line][5]) == "end") {
-                                                    showInAppLog("Error");
-                                                    //Error
-                                                } else if (whatIs(words[line][5]) == "variable") {
+                                                    showInAppLog("Error: No se ha declarado correctamente la operación");
 
+                                                } else if (whatIs(words[line][5]) == "variable") {
                                                     if (whatIs(words[line][6]) == "end") {
 
                                                         if (!isNumber(words[line][5]) && !isChar(words[line][5])) {
@@ -528,15 +526,17 @@ void Interpreter::interpretCode(int line) {
                                                                         if (inScope) {
                                                                             scopeLabels.append(label);
                                                                         }
+                                                                    } else {
+                                                                        showInAppLog("Error: no se puede dividir entre 0");
                                                                     }
                                                                 } else {
                                                                     //Error
-                                                                    showInAppLog("Error");
+                                                                    showInAppLog("Error: tipo de variable incorrecto");
                                                                 }
 
                                                             } else {
                                                                 //Error
-                                                                showInAppLog("Error");
+                                                                showInAppLog("Error: Operador incorrecto");
                                                             }
 
                                                             if(Value!=NULL){
@@ -555,24 +555,25 @@ void Interpreter::interpretCode(int line) {
                                                                 }
                                                             }
 
+                                                        } else {
+                                                            showInAppLog("Se ha ingrsado un valor incorrecto");
                                                         }
                                                     } else {
                                                         //Error
-                                                        showInAppLog("Error");
+                                                        showInAppLog("Error: Se debe terminar la línea con ;");
                                                     }
                                                 } else {
                                                     //Error
-                                                    showInAppLog("Error");
+                                                    showInAppLog("Error: Se ha digitado una variable incorrecta");
                                                 }
 
                                             } else {
-                                                showInAppLog("Error");
+                                                showInAppLog("Error: no se puede realizar esta operación");
                                             }
                                         } else {
-                                            showInAppLog("Error");
+                                            showInAppLog("Error: se ha digitado algo incorrecto");
                                         }
-                                    } else if (isChar(
-                                            words[line][3])) {  ///////////////////////////////////////////////////////////////////////////////
+                                    } else if (isChar(words[line][3])) {
                                         if (words[line][0] == "char") {
 
 
@@ -594,29 +595,28 @@ void Interpreter::interpretCode(int line) {
                                                     }
 
                                                 } else {
-                                                    showInAppLog("Error");
+                                                    showInAppLog("Error: no ha ingresado un char");
                                                 }
                                             } else {
                                                 //Error
-                                                showInAppLog("Error");
+                                                showInAppLog("Error: Se debe terminar la línea con ;");
                                             }
                                         } else {
-                                            showInAppLog("Error");
+                                            showInAppLog("Error: no existe ese tipo de variable");
                                         }
                                     } else if (words[line][3].contains("\"")) {
-                                        //Error
-                                        showInAppLog("Error");
+                                        showInAppLog("Error: se ha digitado algo incorrecto");
 
                                     } else { //Variable guardada en memoria
                                         //Buscar variable en memoria
 //                                        QString aux = getValue(words[line][3]);
-                                        showInAppLog("Error");
+                                        showInAppLog("Error: se ha producido un error");
 //                                        showInAppLog(aux);
                                     }
                                 } else if(isChar(words[line][3])){
 
                                     if(whatIs(words[line][4])=="end"){
-                                        qDebug()<<"hola";
+                                        //qDebug()<<"hola";
                                         words[line][3].remove("\"");
 
                                         QString type = words[line][0];
@@ -627,27 +627,27 @@ void Interpreter::interpretCode(int line) {
                                             toDeclarate(type, label, Value);
 
                                         } else {
-                                            showInAppLog("Error");
+                                            showInAppLog("Error: No se ha ingresado un char");
                                         }
                                     } else {
-                                        showInAppLog("Error");
+                                        showInAppLog("Error: Se debe terminar la línea con ;");
                                     }
 
                                 } else {
                                     //Error
-                                    showInAppLog("Error");
+                                    showInAppLog("Error: No se reconoce la variable");
 //                                    QString aux = getValue(words[line][3]);
 //                                    showInAppLog(aux);
                                 }
 
                             } else {
                                 //Error
-                                showInAppLog("Error");
+                                showInAppLog("Error: No se reconoce la variable");
                             }
 
                         } else {
                             //Error
-                            showInAppLog("Error");
+                            showInAppLog("Error: se ha digitado un operador incorrecto");
                         }
 
                     } else if (whatIs(words[line][0]) == "variable") {
@@ -662,7 +662,7 @@ void Interpreter::interpretCode(int line) {
 
                     } else {
                         //Error
-                        showInAppLog("Error");
+                        showInAppLog("Error: se ha digitado algo incorrecto");
                     }
 
                 } else if ((whatIs(words[line][0]) == "stdKey")) {
@@ -682,16 +682,16 @@ void Interpreter::interpretCode(int line) {
                                     showInTerminal(words[line][2]);
 
                                 } else {
-                                    showInAppLog("Error");
+                                    showInAppLog("Error: Se debe terminar la línea con ;");
                                 }
                             } else {
-                                showInAppLog("Error");
+                                showInAppLog("Error: No se reconoce la variable");
                             }
                         } else if (words[line][1] == "(") {
 
                         }
                     } else {
-                        showInAppLog("Error");
+                        showInAppLog("Error: no se puede utilizar el cout");
                     }
                 } else if(isStruct(words[line][0])){
                     if(whatIs(words[line][1])=="variable"){
@@ -740,10 +740,10 @@ void Interpreter::interpretCode(int line) {
 
 
                         } else {
-                            showInAppLog("Error");
+                            showInAppLog("Error: Se debe terminar la línea con ;");
                         }
                     } else {
-                        showInAppLog("Error");
+                        showInAppLog("Error: No se reconoce la variable");
                     }
                 } else if(askFor(words[line][0])=="struct"){
                     qDebug()<<"Sí es un struct";
@@ -767,27 +767,29 @@ void Interpreter::interpretCode(int line) {
                                         qDebug()<<"Entrada final";
 
                                     } else {
-                                        showInAppLog("Error");
+                                        showInAppLog("Error: No fue posible realizar la instruccion");
 
                                     }
                                 } else {
-                                    showInAppLog("Error");
+                                    showInAppLog("Error: No fue posible realizar la instruccion");
 
                                 }
                             } else {
-                                showInAppLog("Error");
+                                showInAppLog("Error: No fue posible realizar la instruccion");
 
                             }
                         } else {
-                            showInAppLog("Error");
+                            showInAppLog("Error: No fue posible realizar la instruccion");
                         }
                     } else {
-                        showInAppLog("Error");
+                        showInAppLog("Error: No fue posible realizar la instruccion");
                     }
                 } else {
                     //Error
-                    showInAppLog("Error");
+                    showInAppLog("Error: No fue posible realizar la instruccion");
                 }
+            } else{
+                showInAppLog("Error: Se debe terminar la línea con ;");
             }
         }
     }
@@ -861,6 +863,10 @@ void Interpreter::showInTerminal(QString msg) {
 
 void Interpreter::showInAppLog(QString msg) {
     appLog->appendPlainText(">> " + msg);
+
+    if(msg.contains("Error")) {
+        setStopProgram(true);
+    }
 }
 
 void Interpreter::freeScope() {
@@ -945,6 +951,14 @@ QString Interpreter::isAttribute(QString name, QString attribute) {
 //        aux= false;
 //    }
     return QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "value"));
+}
+
+void Interpreter::setStopProgram(bool stopProgram) {
+    Interpreter::stopProgram = stopProgram;
+}
+
+bool Interpreter::isStopProgram() const {
+    return stopProgram;
 }
 
 
