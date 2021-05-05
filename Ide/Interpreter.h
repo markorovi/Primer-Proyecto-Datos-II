@@ -157,12 +157,18 @@ class Interpreter {
          * @param attribute Nombre del atributo de la estructura
          * @return QString
          */
+
         QString isAttribute(QString name,QString attribute);
+        bool isStopProgram() const;
+        void setStopProgram(bool stopProgram);
+
 
 private:
     bool freeingScope = false;
     bool inScope= false;
     bool scope = true;
+    bool stopProgram = false;
+
     QStringList scopeLabels;
     QPlainTextEdit *terminal;
     QPlainTextEdit *appLog;
@@ -177,10 +183,8 @@ private:
 
 public:
     void setClient(Client *client);
-
     QString getValue(QString aux);
 
-    bool isStruct();
 };
 
 
