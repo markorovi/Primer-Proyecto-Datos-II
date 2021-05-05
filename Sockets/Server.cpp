@@ -116,17 +116,20 @@ void Server::Start() {
             std::string strAddress = ss.str();
             toReturn.setObject(Parser::CreateJsonObj_Address("struct", Parser::ReturnStringValueFromJson(doc, "name"), "", strAddress));
 
+            //std::cout<<"El tamaño es: "<<size<<std::endl;
+
+
         } else if (Parser::ReturnStringValueFromJson(doc, "toDo") == "fillStruct"){ //hay que quitar lo que hace que devuelva la direccion, porque esto no se ve en la ram view//////////////////////////////
 
             Memory::get_instance()->FillingStruct(Parser::ReturnStringValueFromJson(doc, "type"), "", Parser::ReturnStringValueFromJson(doc, "name") + "_struct");
-            void *address = Memory::get_instance()->getInUse().GetHead()->GetAddress();
-            std::stringstream ss;
-            ss << address;
-            std::string strAddress = ss.str();
-            toReturn.setObject(Parser::CreateJsonObj_Address("struct", Parser::ReturnStringValueFromJson(doc, "name"), "", strAddress));
+//            void *address = Memory::get_instance()->getInUse().GetHead()->GetAddress();
+//            std::stringstream ss;
+//            ss << address;
+//            std::string strAddress = ss.str();
+//            toReturn.setObject(Parser::CreateJsonObj_Address("struct", Parser::ReturnStringValueFromJson(doc, "name"), "", strAddress));
 
-
-            //toReturn.setObject(Parser::Nothing());
+            std::cout<<"Dirección: "<<Memory::get_instance()->getInUse().GetHead()->GetAddress()<<std::endl;
+            toReturn.setObject(Parser::Nothing());
         } else if (Parser::ReturnStringValueFromJson(doc, "toDo") == "modifyStruct") {
             Node* iterator = Memory::get_instance()->getInUse().GetHead();
             while (iterator->GetName() != Parser::ReturnStringValueFromJson(doc, "toModify")){

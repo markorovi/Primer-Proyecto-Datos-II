@@ -27,14 +27,15 @@
      <string>
 cout &lt;&lt; &quot;Hola mundo&quot;;
 
-int h = 6;
+struct variables {
 
-int x = h;
+int a;
+int b;
+long c;
 
-int y = x + h;
-int b = 1;
+}
 
-
+int y = 0;
 </string>
     </property>
    </widget>

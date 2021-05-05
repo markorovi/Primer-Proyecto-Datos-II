@@ -11,6 +11,7 @@
 #include <QStringList>
 #include "../Sockets/Client.h"
 
+
 class Interpreter {
     public:
         Interpreter();
@@ -25,7 +26,7 @@ class Interpreter {
         bool isExisting(QString);
         bool isNumber(QString);
         bool isChar(QString);
-
+        bool isStruct(QString);
         void setTerminal(QPlainTextEdit*);
         void setAppLog(QPlainTextEdit*);
         void showInTerminal(QString);
@@ -35,7 +36,7 @@ class Interpreter {
         bool isFreeingScope() const;
         const QStringList &getScopeLabels() const;
         bool isScope() const;
-
+        void toDeclarate(QString, QString, QString);
 private:
     bool freeingScope = false;
     bool inScope= false;
@@ -45,15 +46,19 @@ private:
     QStringList keyWords;
     QStringList operators;
     QList<QStringList> words;
+    QList<QList<QStringList>> structList;
     QList<QStringList> structs;
     QStringList auxStructs;
     bool scope = true;
     bool inStruct = false;
     Client *client;
+
 public:
     void setClient(Client *client);
 
     QString getValue(QString aux);
+
+    bool isStruct();
 };
 
 

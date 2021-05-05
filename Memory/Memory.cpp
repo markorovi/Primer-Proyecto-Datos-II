@@ -210,13 +210,14 @@ std::vector<int> Memory::getToRecicle() {
 }
 
 void Memory::FillingStruct(std::string type, std::string i, std::string name) {
-    if (this->to_recicle.empty()){
+    if (this->to_recicle.empty()) {
         this->Using_Memory(type, i, name);
-    } else{
+    } else {
         this->counter = this->to_recicle.front();
         this->to_recicle.clear();
 
         this->Using_Memory(type, i, name);
-        std::cout<<"aqui 1"<<std::endl;
+        std::cout << "aqui 1" << std::endl;
 
+    }
 }

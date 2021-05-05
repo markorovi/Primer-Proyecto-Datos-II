@@ -28,3 +28,7 @@
 4	17	1620162516765639620	Ide_autogen/timestamp	e3818549b07df6c3
 17	2391	1620162519137646923	CMakeFiles/Ide.dir/Ide_autogen/mocs_compilation.cpp.o	4af9b3430493c59e
 17	3153	1620162519897649268	CMakeFiles/Ide.dir/Interpreter.cpp.o	db6df4a1c16200b1
+3	170	1620177847264027548	Ide_autogen/timestamp	e3818549b07df6c3
+170	2587	1620177849676074377	CMakeFiles/Ide.dir/Ide_autogen/mocs_compilation.cpp.o	4af9b3430493c59e
+171	2704	1620177849796076702	CMakeFiles/Ide.dir/main.cpp.o	6300fdb48dcb3331
+171	3363	1620177850452089397	CMakeFiles/Ide.dir/mainwindow.cpp.o	a33a77b5a30e69a4

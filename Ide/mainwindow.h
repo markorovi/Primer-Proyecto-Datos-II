@@ -17,7 +17,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    void setValuesRamLiveView(QString , QString, QString, int);
+     void setValuesRamLiveView(QString , QString, QString, int);
 
 
 private:

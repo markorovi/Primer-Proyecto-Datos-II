@@ -202,6 +202,18 @@ QString Interpreter::whatIs(QString word) {
 void Interpreter::interpretCode(int line) {
     //qDebug()<<words[line]<<"\n";
     QJsonDocument doc;
+    if(inStruct){
+        qDebug()<<"El valor de inStruct es: Verdadero";
+
+    } else{
+        qDebug()<<"El valor de inStruct es: Falso";
+
+    }
+    //qDebug()<<words[line];
+    for(int i=0; i<words[line].size(); i++){
+        //qDebug()<<whatIs(words[line][i]);
+    }
+
     freeingScope = false;
     if (line < words.size()) {
         scope = true;
@@ -222,6 +234,11 @@ void Interpreter::interpretCode(int line) {
                 }
 
             } else if (whatIs(words[line][0]) == "endScope") {
+
+                doc.setObject(Parser::Nothing()); //Genera el documento con los rasgos de dentro
+                std::string Json = Parser::ReturnChar(doc); //String to char (to be able to send it through sockets) //Lo pasa a string
+                MainWindow::setJson(Json);
+
                 if (inScope) {
                     inScope = false;
                     freeingScope = true;
@@ -232,6 +249,19 @@ void Interpreter::interpretCode(int line) {
 
                 } else if (inStruct) {
                     inStruct = false;
+                    qDebug()<<"Dentro del struct hay:";
+                    structList.append(structs);
+                    structs.clear();
+                    for(int i = 0; i<structList.size(); i++){
+
+                        qDebug()<<"";
+
+                        for (int j = 0; j < structList[i].size(); ++j) {
+                            qDebug()<<structList[i][j];
+                        }
+                    }
+
+
 
                 } else {
                     showInAppLog("Error");
@@ -240,15 +270,17 @@ void Interpreter::interpretCode(int line) {
             } else {
                 showInAppLog("Error");
             }
-        } else if (words[line].size() == 3 && words[line][0] == "struct" && whatIs(words[line][1]) == "variable" &&
-                   whatIs(words[line][2]) == "endScope") {
-
+        } else if (words[line].size() == 3 && words[line][0] == "struct" && whatIs(words[line][1]) == "variable" && whatIs(words[line][2]) == "startScope") {
+            qDebug()<<"Se encuentra declarando un struct";
             if (inStruct) {
                 showInAppLog("Error: No se permite hacer concatenación de structs");
             } else if (inScope) {
                 showInAppLog("Error: No se permite hacer concatenación de structs con scopes");
             } else {
                 inStruct = true;
+                auxStructs.append(words[line][1]);
+                structs.append(auxStructs);
+                auxStructs.clear();
             }
 
 
@@ -270,15 +302,29 @@ void Interpreter::interpretCode(int line) {
                             QString label = words[line][1];
                             QString Value = "null";
 
-                            doc.setObject(Parser::CreateJsonObj_NoAddress(type.toStdString(), label.toStdString(),
-                                                                          "")); //Genera el documento con los rasgos de dentro
-                            std::string Json = Parser::ReturnChar(
-                                    doc); //String to char (to be able to send it through sockets) //Lo pasa a string
-                            MainWindow::setJson(Json);
-                            qDebug() << type << label << Value;
 
-                            if (inScope) {
-                                scopeLabels.append(label);
+                            if(inStruct){
+                                auxStructs.append(type);
+                                auxStructs.append(label);
+                                auxStructs.append(Value);
+                                structs.append(auxStructs);
+                                auxStructs.clear();
+
+
+                                doc.setObject(Parser::Nothing()); //Genera el documento con los rasgos de dentro
+                                std::string Json = Parser::ReturnChar(doc); //String to char (to be able to send it through sockets) //Lo pasa a string
+                                MainWindow::setJson(Json);
+
+                            } else {
+
+                                doc.setObject(Parser::CreateJsonObj_NoAddress(type.toStdString(), label.toStdString(),"")); //Genera el documento con los rasgos de dentro
+                                std::string Json = Parser::ReturnChar(doc); //String to char (to be able to send it through sockets) //Lo pasa a string
+                                MainWindow::setJson(Json);
+                                qDebug() << type << label << Value;
+
+                                if (inScope) {
+                                    scopeLabels.append(label);
+                                }
                             }
 
                         } else if (whatIs(words[line][2]) == "operator" && words[line][2] == "equals") {
@@ -314,7 +360,10 @@ void Interpreter::interpretCode(int line) {
                                             if (inScope) {
                                                 scopeLabels.append(label);
                                             } else if (inStruct) {
-
+                                                qDebug()<<"Dentor del struct está: ";
+                                                for(int i=0; i<structs.size();i++){
+                                                    qDebug()<<structs[i];
+                                                }
                                                 //structs[0].append(label);
                                             }
 
@@ -335,7 +384,7 @@ void Interpreter::interpretCode(int line) {
 
                                                         QString type = words[line][0];
                                                         QString label = words[line][1];
-
+                                                        QString Value;
                                                         if (isNumber(words[line][5])) {
 
                                                             if (words[line][4] == "+") {
@@ -343,16 +392,8 @@ void Interpreter::interpretCode(int line) {
                                                                 if (words[line][0] == "int") {
                                                                     //qDebug()<<"int declarado";
 
-                                                                    QString Value = QString::number(
-                                                                            (words[line][3].toInt() +
-                                                                             words[line][5].toInt()));
-                                                                    doc.setObject(Parser::CreateJsonObj_NoAddress(
-                                                                            type.toStdString(), label.toStdString(),
-                                                                            Value.toStdString()));
-                                                                    std::string Json = Parser::ReturnChar(
-                                                                            doc); //String to char (to be able to send it through sockets) //Lo pasa a string
-                                                                    MainWindow::setJson(Json);
-                                                                    qDebug() << type << label << Value;
+                                                                    Value = QString::number((words[line][3].toInt() + words[line][5].toInt()));
+
 
                                                                     if (inScope) {
                                                                         scopeLabels.append(label);
@@ -360,16 +401,7 @@ void Interpreter::interpretCode(int line) {
 
                                                                 } else if (words[line][0] == "float") {
 
-                                                                    QString Value = QString::number(
-                                                                            (words[line][3].toFloat() +
-                                                                             words[line][5].toFloat()));
-                                                                    doc.setObject(Parser::CreateJsonObj_NoAddress(
-                                                                            type.toStdString(), label.toStdString(),
-                                                                            Value.toStdString()));
-                                                                    std::string Json = Parser::ReturnChar(
-                                                                            doc); //String to char (to be able to send it through sockets) //Lo pasa a string
-                                                                    MainWindow::setJson(Json);
-                                                                    qDebug() << type << label << Value;
+                                                                    QString Value = QString::number((words[line][3].toFloat() + words[line][5].toFloat()));
 
                                                                     if (inScope) {
                                                                         scopeLabels.append(label);
@@ -377,16 +409,7 @@ void Interpreter::interpretCode(int line) {
 
                                                                 } else if (words[line][0] == "double") {
 
-                                                                    QString Value = QString::number(
-                                                                            (words[line][3].toDouble() +
-                                                                             words[line][5].toDouble()));
-                                                                    doc.setObject(Parser::CreateJsonObj_NoAddress(
-                                                                            type.toStdString(), label.toStdString(),
-                                                                            Value.toStdString()));
-                                                                    std::string Json = Parser::ReturnChar(
-                                                                            doc); //String to char (to be able to send it through sockets) //Lo pasa a string
-                                                                    MainWindow::setJson(Json);
-                                                                    qDebug() << type << label << Value;
+                                                                    QString Value = QString::number((words[line][3].toDouble() + words[line][5].toDouble()));
 
                                                                     if (inScope) {
                                                                         scopeLabels.append(label);
@@ -394,16 +417,7 @@ void Interpreter::interpretCode(int line) {
 
                                                                 } else if (words[line][0] == "long") {
 
-                                                                    QString Value = QString::number(
-                                                                            (words[line][3].toLong() +
-                                                                             words[line][5].toLong()));
-                                                                    doc.setObject(Parser::CreateJsonObj_NoAddress(
-                                                                            type.toStdString(), label.toStdString(),
-                                                                            Value.toStdString()));
-                                                                    std::string Json = Parser::ReturnChar(
-                                                                            doc); //String to char (to be able to send it through sockets) //Lo pasa a string
-                                                                    MainWindow::setJson(Json);
-                                                                    qDebug() << type << label << Value;
+                                                                    QString Value = QString::number((words[line][3].toLong() + words[line][5].toLong()));
 
                                                                     if (inScope) {
                                                                         scopeLabels.append(label);
@@ -416,16 +430,7 @@ void Interpreter::interpretCode(int line) {
                                                             } else if (words[line][4] == "-") {
                                                                 if (words[line][0] == "int") {
 
-                                                                    QString Value = QString::number(
-                                                                            (words[line][3].toInt() -
-                                                                             words[line][5].toInt()));
-                                                                    doc.setObject(Parser::CreateJsonObj_NoAddress(
-                                                                            type.toStdString(), label.toStdString(),
-                                                                            Value.toStdString()));
-                                                                    std::string Json = Parser::ReturnChar(
-                                                                            doc); //String to char (to be able to send it through sockets) //Lo pasa a string
-                                                                    MainWindow::setJson(Json);
-                                                                    qDebug() << type << label << Value;
+                                                                    QString Value = QString::number((words[line][3].toInt() - words[line][5].toInt()));
 
                                                                     if (inScope) {
                                                                         scopeLabels.append(label);
@@ -433,16 +438,7 @@ void Interpreter::interpretCode(int line) {
 
                                                                 } else if (words[line][0] == "float") {
 
-                                                                    QString Value = QString::number(
-                                                                            (words[line][3].toFloat() -
-                                                                             words[line][5].toFloat()));
-                                                                    doc.setObject(Parser::CreateJsonObj_NoAddress(
-                                                                            type.toStdString(), label.toStdString(),
-                                                                            Value.toStdString()));
-                                                                    std::string Json = Parser::ReturnChar(
-                                                                            doc); //String to char (to be able to send it through sockets) //Lo pasa a string
-                                                                    MainWindow::setJson(Json);
-                                                                    qDebug() << type << label << Value;
+                                                                    QString Value = QString::number((words[line][3].toFloat() - words[line][5].toFloat()));
 
                                                                     if (inScope) {
                                                                         scopeLabels.append(label);
@@ -450,16 +446,7 @@ void Interpreter::interpretCode(int line) {
 
                                                                 } else if (words[line][0] == "double") {
 
-                                                                    QString Value = QString::number(
-                                                                            (words[line][3].toDouble() -
-                                                                             words[line][5].toDouble()));
-                                                                    doc.setObject(Parser::CreateJsonObj_NoAddress(
-                                                                            type.toStdString(), label.toStdString(),
-                                                                            Value.toStdString()));
-                                                                    std::string Json = Parser::ReturnChar(
-                                                                            doc); //String to char (to be able to send it through sockets) //Lo pasa a string
-                                                                    MainWindow::setJson(Json);
-                                                                    qDebug() << type << label << Value;
+                                                                    QString Value = QString::number((words[line][3].toDouble() - words[line][5].toDouble()));
 
                                                                     if (inScope) {
                                                                         scopeLabels.append(label);
@@ -467,17 +454,7 @@ void Interpreter::interpretCode(int line) {
 
                                                                 } else if (words[line][0] == "long") {
 
-                                                                    QString Value = QString::number(
-                                                                            (words[line][3].toLong() -
-                                                                             words[line][5].toLong()));
-                                                                    doc.setObject(Parser::CreateJsonObj_NoAddress(
-                                                                            type.toStdString(), label.toStdString(),
-                                                                            Value.toStdString()));
-                                                                    std::string Json = Parser::ReturnChar(
-                                                                            doc); //String to char (to be able to send it through sockets) //Lo pasa a string
-                                                                    MainWindow::setJson(Json);
-                                                                    qDebug() << type << label << Value;
-
+                                                                    QString Value = QString::number((words[line][3].toLong() - words[line][5].toLong()));
                                                                     if (inScope) {
                                                                         scopeLabels.append(label);
                                                                     }
@@ -486,16 +463,7 @@ void Interpreter::interpretCode(int line) {
 
                                                                 if (words[line][0] == "int") {
 
-                                                                    QString Value = QString::number(
-                                                                            (words[line][3].toInt() *
-                                                                             words[line][5].toInt()));
-                                                                    doc.setObject(Parser::CreateJsonObj_NoAddress(
-                                                                            type.toStdString(), label.toStdString(),
-                                                                            Value.toStdString()));
-                                                                    std::string Json = Parser::ReturnChar(
-                                                                            doc); //String to char (to be able to send it through sockets) //Lo pasa a string
-                                                                    MainWindow::setJson(Json);
-                                                                    qDebug() << type << label << Value;
+                                                                    QString Value = QString::number((words[line][3].toInt() * words[line][5].toInt()));
 
                                                                     if (inScope) {
                                                                         scopeLabels.append(label);
@@ -503,16 +471,7 @@ void Interpreter::interpretCode(int line) {
 
                                                                 } else if (words[line][0] == "float") {
 
-                                                                    QString Value = QString::number(
-                                                                            (words[line][3].toFloat() *
-                                                                             words[line][5].toFloat()));
-                                                                    doc.setObject(Parser::CreateJsonObj_NoAddress(
-                                                                            type.toStdString(), label.toStdString(),
-                                                                            Value.toStdString()));
-                                                                    std::string Json = Parser::ReturnChar(
-                                                                            doc); //String to char (to be able to send it through sockets) //Lo pasa a string
-                                                                    MainWindow::setJson(Json);
-                                                                    qDebug() << type << label << Value;
+                                                                    QString Value = QString::number((words[line][3].toFloat() *words[line][5].toFloat()));
 
                                                                     if (inScope) {
                                                                         scopeLabels.append(label);
@@ -520,16 +479,7 @@ void Interpreter::interpretCode(int line) {
 
                                                                 } else if (words[line][0] == "double") {
 
-                                                                    QString Value = QString::number(
-                                                                            (words[line][3].toDouble() *
-                                                                             words[line][5].toDouble()));
-                                                                    doc.setObject(Parser::CreateJsonObj_NoAddress(
-                                                                            type.toStdString(), label.toStdString(),
-                                                                            Value.toStdString()));
-                                                                    std::string Json = Parser::ReturnChar(
-                                                                            doc); //String to char (to be able to send it through sockets) //Lo pasa a string
-                                                                    MainWindow::setJson(Json);
-                                                                    qDebug() << type << label << Value;
+                                                                    QString Value = QString::number((words[line][3].toDouble() *words[line][5].toDouble()));
 
                                                                     if (inScope) {
                                                                         scopeLabels.append(label);
@@ -537,16 +487,7 @@ void Interpreter::interpretCode(int line) {
 
                                                                 } else if (words[line][0] == "long") {
 
-                                                                    QString Value = QString::number(
-                                                                            (words[line][3].toLong() *
-                                                                             words[line][5].toLong()));
-                                                                    doc.setObject(Parser::CreateJsonObj_NoAddress(
-                                                                            type.toStdString(), label.toStdString(),
-                                                                            Value.toStdString()));
-                                                                    std::string Json = Parser::ReturnChar(
-                                                                            doc); //String to char (to be able to send it through sockets) //Lo pasa a string
-                                                                    MainWindow::setJson(Json);
-                                                                    qDebug() << type << label << Value;
+                                                                    QString Value = QString::number((words[line][3].toLong() * words[line][5].toLong()));
 
                                                                     if (inScope) {
                                                                         scopeLabels.append(label);
@@ -556,16 +497,7 @@ void Interpreter::interpretCode(int line) {
                                                                 if (words[line][0] == "int") {
                                                                     if (words[line][5].toInt() != 0) {
 
-                                                                        QString Value = QString::number(
-                                                                                (words[line][3].toInt() /
-                                                                                 words[line][5].toInt()));
-                                                                        doc.setObject(Parser::CreateJsonObj_NoAddress(
-                                                                                type.toStdString(), label.toStdString(),
-                                                                                Value.toStdString()));
-                                                                        std::string Json = Parser::ReturnChar(
-                                                                                doc); //String to char (to be able to send it through sockets) //Lo pasa a string
-                                                                        MainWindow::setJson(Json);
-                                                                        qDebug() << type << label << Value;
+                                                                        QString Value = QString::number((words[line][3].toInt() /words[line][5].toInt()));
 
                                                                         if (inScope) {
                                                                             scopeLabels.append(label);
@@ -574,16 +506,7 @@ void Interpreter::interpretCode(int line) {
                                                                 } else if (words[line][0] == "float") {
                                                                     if (words[line][5].toFloat() != 0) {
 
-                                                                        QString Value = QString::number(
-                                                                                (words[line][3].toFloat() /
-                                                                                 words[line][5].toFloat()));
-                                                                        doc.setObject(Parser::CreateJsonObj_NoAddress(
-                                                                                type.toStdString(), label.toStdString(),
-                                                                                Value.toStdString()));
-                                                                        std::string Json = Parser::ReturnChar(
-                                                                                doc); //String to char (to be able to send it through sockets) //Lo pasa a string
-                                                                        MainWindow::setJson(Json);
-                                                                        qDebug() << type << label << Value;
+                                                                        QString Value = QString::number((words[line][3].toFloat() /words[line][5].toFloat()));
 
                                                                         if (inScope) {
                                                                             scopeLabels.append(label);
@@ -592,16 +515,7 @@ void Interpreter::interpretCode(int line) {
                                                                 } else if (words[line][0] == "double") {
                                                                     if (words[line][5].toDouble() != 0) {
 
-                                                                        QString Value = QString::number(
-                                                                                (words[line][3].toDouble() /
-                                                                                 words[line][5].toDouble()));
-                                                                        doc.setObject(Parser::CreateJsonObj_NoAddress(
-                                                                                type.toStdString(), label.toStdString(),
-                                                                                Value.toStdString()));
-                                                                        std::string Json = Parser::ReturnChar(
-                                                                                doc); //String to char (to be able to send it through sockets) //Lo pasa a string
-                                                                        MainWindow::setJson(Json);
-                                                                        qDebug() << type << label << Value;
+                                                                        QString Value = QString::number((words[line][3].toDouble() /words[line][5].toDouble()));
 
                                                                         if (inScope) {
                                                                             scopeLabels.append(label);
@@ -610,16 +524,7 @@ void Interpreter::interpretCode(int line) {
                                                                 } else if (words[line][0] == "long") {
                                                                     if (words[line][5].toLong() != 0) {
 
-                                                                        QString Value = QString::number(
-                                                                                (words[line][3].toLong() /
-                                                                                 words[line][5].toLong()));
-                                                                        doc.setObject(Parser::CreateJsonObj_NoAddress(
-                                                                                type.toStdString(), label.toStdString(),
-                                                                                Value.toStdString()));
-                                                                        std::string Json = Parser::ReturnChar(
-                                                                                doc); //String to char (to be able to send it through sockets) //Lo pasa a string
-                                                                        MainWindow::setJson(Json);
-                                                                        qDebug() << type << label << Value;
+                                                                        QString Value = QString::number((words[line][3].toLong() / words[line][5].toLong()));
 
                                                                         if (inScope) {
                                                                             scopeLabels.append(label);
@@ -634,6 +539,23 @@ void Interpreter::interpretCode(int line) {
                                                                 //Error
                                                                 showInAppLog("Error");
                                                             }
+
+                                                            if(Value!=NULL){
+                                                                if (!inStruct){
+                                                                    toDeclarate(type,label,Value);
+                                                                } else {
+                                                                    doc.setObject(Parser::Nothing()); //Genera el documento con los rasgos de dentro
+                                                                    std::string Json = Parser::ReturnChar(doc); //String to char (to be able to send it through sockets) //Lo pasa a string
+                                                                    MainWindow::setJson(Json);
+
+                                                                    auxStructs.append(type);
+                                                                    auxStructs.append(label);
+                                                                    auxStructs.append(Value);
+                                                                    structs.append(auxStructs);
+                                                                    auxStructs.clear();
+                                                                }
+                                                            }
+
                                                         }
                                                     } else {
                                                         //Error
@@ -663,11 +585,8 @@ void Interpreter::interpretCode(int line) {
                                                 Value.remove("\"");
 
                                                 if (Value.size() == 1) {
-                                                    doc.setObject(Parser::CreateJsonObj_NoAddress(type.toStdString(),
-                                                                                                  label.toStdString(),
-                                                                                                  Value.toStdString()));
-                                                    std::string Json = Parser::ReturnChar(
-                                                            doc); //String to char (to be able to send it through sockets) //Lo pasa a string
+                                                    doc.setObject(Parser::CreateJsonObj_NoAddress(type.toStdString(),label.toStdString(), Value.toStdString()));
+                                                    std::string Json = Parser::ReturnChar(doc); //String to char (to be able to send it through sockets) //Lo pasa a string
                                                     MainWindow::setJson(Json);
                                                     qDebug() << type << label << Value;
 
@@ -742,6 +661,58 @@ void Interpreter::interpretCode(int line) {
                             }
                         } else if (words[line][1] == "(") {
 
+                        }
+                    } else {
+                        showInAppLog("Error");
+                    }
+                } else if(isStruct(words[line][0])){
+                    if(whatIs(words[line][1])=="variable"){
+                        if(whatIs(words[line][2])=="end"){
+
+                            int integers = 0, doubles = 0, longs = 0, floats = 0, chars = 0;
+
+                            for(int i = 0; i<structList.size(); i++) {
+                                if(words[line][0]==structList[i][0][0]){
+                                    for (int j = 0; j < structList[i].size(); j++) {
+
+                                        integers += structList[i][j].count("int");
+                                        doubles += structList[i][j].count("double");
+                                        longs += structList[i][j].count("long");
+                                        floats += structList[i][j].count("float");
+                                        chars += structList[i][j].count("char");
+
+                                    }
+
+                                    doc.setObject(Parser::CreateJsonObj_NewStructObject(structList[i][0][0].toStdString(), std::to_string(integers),std::to_string(doubles),std::to_string(longs),std::to_string(floats),std::to_string(chars)));
+                                    std::string json = Parser::ReturnChar(doc);
+                                    MainWindow::setJson(json);
+                                    client->Start();
+                                    usleep(10000);
+
+                                    for (int j = 1; j<structList[i].size(); j++){
+
+                                        qDebug()<<"Tipo de dato: "<<structList[i][j][0];
+                                        qDebug()<<"Struct al que pertenece "<<structList[i][0][0];
+                                        qDebug()<<"Nombre del atributo: "<<structList[i][j][1];
+
+                                        doc.setObject(Parser::CreateJsonObj_FillStruct(structList[i][j][0].toStdString(), structList[i][0][0].toStdString(), structList[i][j][1].toStdString()));
+                                        std::string json = Parser::ReturnChar(doc);
+                                        MainWindow::setJson(json);
+                                        client->Start();
+                                        usleep(10000);
+                                    }
+                                }
+                            }
+
+                            qDebug()<<"Cantidad de ints:"<<integers;
+                            qDebug()<<"Cantidad de doubles:"<<doubles;
+                            qDebug()<<"Cantidad de longs:"<<longs;
+                            qDebug()<<"Cantidad de floats:"<<floats;
+                            qDebug()<<"Cantidad de char:"<<chars;
+
+
+                        } else {
+                            showInAppLog("Error");
                         }
                     } else {
                         showInAppLog("Error");
@@ -858,3 +829,21 @@ QString Interpreter::getValue(QString aux) {
     return QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "value"));
 }
 
+void Interpreter::toDeclarate(QString type, QString label, QString Value){
+    QJsonDocument doc;
+    doc.setObject(Parser::CreateJsonObj_NoAddress(type.toStdString(), label.toStdString(), Value.toStdString()));
+    std::string Json = Parser::ReturnChar(doc); //String to char (to be able to send it through sockets) //Lo pasa a string
+    MainWindow::setJson(Json);
+    qDebug() << type << label << Value;
+}
+
+bool Interpreter::isStruct(QString aux) {
+
+    for (int i = 0; i < structList.size(); ++i) {
+        if(structList[i][0][0]==aux){
+            return true;
+        }
+    }
+
+    return false;
+}

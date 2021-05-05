@@ -167,14 +167,15 @@ public:
         codeInput->setPlainText(QCoreApplication::translate("MainWindow", "\n"
 "cout << \"Hola mundo\";\n"
 "\n"
-"int h = 6;\n"
+"struct variables {\n"
 "\n"
-"int x = h;\n"
+"int a;\n"
+"int b;\n"
+"long c;\n"
 "\n"
-"int y = x + h;\n"
-"int b = 1;\n"
+"}\n"
 "\n"
-"\n"
+"int y = 0;\n"
 "", nullptr));
         labelConsole->setText(QCoreApplication::translate("MainWindow", "Console", nullptr));
         labelLog->setText(QCoreApplication::translate("MainWindow", "Log", nullptr));
