@@ -8,7 +8,7 @@
 #include <QString>
 #include "Interpreter.h"
 
-
+/// Método contructor del interprete
 Interpreter::Interpreter() {
 
     keyWords.append("int");
@@ -29,7 +29,9 @@ Interpreter::Interpreter() {
 
 
 }
-
+/// Método constructor del interprete
+/// \param terminalOutput QPlainTextEdit cuadro de texto de la terminal
+/// \param _appLog QPlainTextEdit cuadro de texto del logger
 Interpreter::Interpreter(QPlainTextEdit *terminalOutput, QPlainTextEdit *_appLog) {
     terminal = terminalOutput;
     appLog = _appLog;
@@ -52,11 +54,13 @@ Interpreter::Interpreter(QPlainTextEdit *terminalOutput, QPlainTextEdit *_appLog
 
 
 }
-
+///Método destructor del interpreter
 Interpreter::~Interpreter() {
 
 }
 
+/// Se encarga de reorganizar el código de forma que sea entendible para el interprete
+/// \param code QString código escrito en el programa
 void Interpreter::readCode(QString code) {
 
     QStringList lines = code.split("\n");
@@ -129,20 +133,20 @@ void Interpreter::readCode(QString code) {
     }
 
 
-    for (int i = 0; i < words.size(); i++) {
-        for (int j = 1; j < words[i].size() - 1; j++) {
-            if (words[i][j] == "dot") {
-
-                words[i][j - 1] = words[i][j - 1] + "." + words[i][j + 1];
-
-                words[i].removeAt(j + 1);
-                words[i].removeAt(j);
-
-                j--;
-                j--;
-            }
-        }
-    }
+//    for (int i = 0; i < words.size(); i++) {
+//        for (int j = 1; j < words[i].size() - 1; j++) {
+//            if (words[i][j] == "dot") {
+//
+//                words[i][j - 1] = words[i][j - 1] + "." + words[i][j + 1];
+//
+//                words[i].removeAt(j + 1);
+//                words[i].removeAt(j);
+//
+//                j--;
+//                j--;
+//            }
+//        }
+//    }
     int lastAux = words.size() - 1;
 
     words.last()[words.last().size() - 1].remove(";");
@@ -154,11 +158,15 @@ void Interpreter::readCode(QString code) {
     qDebug() << "\n\n";
 
 }
-
+/// Devuelve la lista de todas las palabras escritas en el código
+/// \return QList<QStringList>
 QList<QStringList> Interpreter::getWords() {
     return words;
 }
 
+/// Este meodo se encarga de comparar qué clase de cadena es la que está leyendo
+/// \param word QString palabra que se quiere comparar
+/// \return QString
 QString Interpreter::whatIs(QString word) {
     QString strAux;
 
@@ -199,6 +207,10 @@ QString Interpreter::whatIs(QString word) {
     return strAux;
 }
 
+
+
+/// Es el método que permite interpretar el contenido del código escrito
+/// \param line int es el número de linea de código que está interpretando
 void Interpreter::interpretCode(int line) {
     //qDebug()<<words[line]<<"\n";
     QJsonDocument doc;
@@ -717,6 +729,45 @@ void Interpreter::interpretCode(int line) {
                     } else {
                         showInAppLog("Error");
                     }
+                } else if(askFor(words[line][0])=="struct"){
+                    qDebug()<<"Sí es un struct";
+                    qDebug()<<words[line][1];
+                    if(whatIs(words[line][1])=="accessTo"){
+                        qDebug()<<"IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII";
+                        qDebug()<<isAttribute(words[line][0], words[line][2]);
+                        qDebug()<<"EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE";
+                        if(isAttribute(words[line][0], words[line][2])=="true"){
+                            qDebug()<<"Sí es un atributo";
+                            if(whatIs(words[line][3])=="equals"){
+                                qDebug()<<"Sí es un igual";
+                                if(whatIs(words[line][4])=="variable"){
+                                    qDebug()<<"Sí es una variable";
+                                    if(whatIs(words[line][5])=="end"){
+
+                                        if(!isNumber(words[line][4])&&!isChar(words[line][4])) {
+                                            getValue(words[line][4]);
+                                        }
+
+                                        qDebug()<<"Entrada final";
+
+                                    } else {
+                                        showInAppLog("Error");
+
+                                    }
+                                } else {
+                                    showInAppLog("Error");
+
+                                }
+                            } else {
+                                showInAppLog("Error");
+
+                            }
+                        } else {
+                            showInAppLog("Error");
+                        }
+                    } else {
+                        showInAppLog("Error");
+                    }
                 } else {
                     //Error
                     showInAppLog("Error");
@@ -731,6 +782,7 @@ void Interpreter::interpretCode(int line) {
 //    std::cout<<Parser::ReturnStringValueFromJson(doc, "name"); //Obtener un valor de json
 }
 
+/// Permite mostrar el código reinterpretado en consola
 void Interpreter::showCode() {
     for (int i = 0; i < words.size(); i++) {
         qDebug() << words[i];
@@ -847,3 +899,49 @@ bool Interpreter::isStruct(QString aux) {
 
     return false;
 }
+
+QString Interpreter::askFor(QString aux) {
+    QJsonDocument doc;
+    doc.setObject(Parser::CreateJsonObj_whatType(aux.toStdString()));
+    std::string Json = Parser::ReturnChar(doc); //String to char (to be able to send it through sockets) //Lo pasa a string
+    MainWindow::setJson(Json);
+    client->Start();
+    usleep(10000);
+    return QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "value"));
+}
+
+bool Interpreter::find(QString tipoStruct, QString atribute) {
+
+    for (int i = 0; i < structList.size(); ++i) {
+        if(structList[i][0][0]==tipoStruct){
+
+            for (int j = 0; j < structList[i].size(); ++j) {
+
+            }
+            return true;
+        }
+    }
+
+    return false;
+}
+
+QString Interpreter::isAttribute(QString name, QString attribute) {
+    QJsonDocument doc;
+    doc.setObject(Parser::CreateJsonObj_isAttribute(name.toStdString(),attribute.toStdString()));
+    std::string Json = Parser::ReturnChar(doc); //String to char (to be able to send it through sockets) //Lo pasa a string
+    MainWindow::setJson(Json);
+    qDebug()<<QString::fromStdString(Parser::ReturnStringValueFromJson(doc,"toDo"));;
+    client->Start();
+    //usleep(10000);
+
+//    qDebug()<<"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+//    if(QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "value"))=="true"){
+//        aux= true;
+//    } else {
+//        aux= false;
+//    }
+    return QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "value"));
+}
+
+
+

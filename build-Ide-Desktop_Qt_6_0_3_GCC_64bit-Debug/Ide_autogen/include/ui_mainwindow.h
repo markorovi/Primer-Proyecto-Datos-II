@@ -176,7 +176,10 @@ public:
 "}\n"
 "\n"
 "int y = 0;\n"
-"", nullptr));
+"\n"
+"variables z;\n"
+"\n"
+"z.a = 2;", nullptr));
         labelConsole->setText(QCoreApplication::translate("MainWindow", "Console", nullptr));
         labelLog->setText(QCoreApplication::translate("MainWindow", "Log", nullptr));
         terminalOutput->setPlainText(QString());

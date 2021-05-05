@@ -22,7 +22,7 @@ class Interpreter {
         QString whatIs(QString);
         void interpretCode(int);
         void showCode();
-
+        QString askFor(QString);
         bool isExisting(QString);
         bool isNumber(QString);
         bool isChar(QString);
@@ -37,6 +37,8 @@ class Interpreter {
         const QStringList &getScopeLabels() const;
         bool isScope() const;
         void toDeclarate(QString, QString, QString);
+        bool find(QString, QString);
+        QString isAttribute(QString,QString);
 private:
     bool freeingScope = false;
     bool inScope= false;

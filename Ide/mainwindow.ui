@@ -36,7 +36,10 @@ long c;
 }
 
 int y = 0;
-</string>
+
+variables z;
+
+z.a = 2;</string>
     </property>
    </widget>
    <widget class="QPlainTextEdit" name="appLog">

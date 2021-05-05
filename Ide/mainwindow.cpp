@@ -178,6 +178,7 @@ void MainWindow::on_actionRun_triggered()
         ui->ramLiveView->removeRow(0);
         running=true;
         interpreter.readCode(ui->codeInput->toPlainText());
+        interpreter.showCode();
         interpreter.interpretCode(line);
 
 

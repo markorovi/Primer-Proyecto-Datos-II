@@ -51,6 +51,7 @@ void Server::Start() {
             break;
         }
         QJsonDocument doc = Parser::ReturnJson(std::string(this->buf, 0, bytesReceived).c_str()); //Devolver lo que llego por el socket a json
+
         QJsonDocument toReturn;
         if (Parser::ReturnStringValueFromJson(doc, "toDo") == "assign"){
             std::cout<<Parser::ReturnStringValueFromJson(doc, "toDo")<<std::endl;
@@ -148,44 +149,47 @@ void Server::Start() {
 
         } else if (Parser::ReturnStringValueFromJson(doc, "toDo") == "isAttribute"){
             std::string flag = "false";
+            std::cout<<"Está entrando a la pregunta";
             Node* iterator = Memory::get_instance()->getInUse().GetHead();
             while (iterator->GetName() != Parser::ReturnStringValueFromJson(doc, "name")){
                 iterator = iterator->GetNext();
             }
             int size = iterator->GetSize();
+            std::cout<<"Encuentra el struct";
             while (size > 0) {
                 if (iterator->GetType() == "int") {
                     iterator = iterator->GetNext();
                     size=-4;
-                    if (iterator->GetName() == Parser::ReturnStringValueFromJson(doc, "attribute")){
+                    if (iterator->GetName() == Parser::ReturnStringValueFromJson(doc, "attribute")+"_struct"){
                         flag = "true";
                     }
                 } else if (iterator->GetType() == "char") {
                     iterator = iterator->GetNext();
                     size=-1;
-                    if (iterator->GetName() == Parser::ReturnStringValueFromJson(doc, "attribute")){
+                    if (iterator->GetName() == Parser::ReturnStringValueFromJson(doc, "attribute")+"_struct"){
                         flag = "true";
                     }
                 } else if (iterator->GetType() == "long") {
                     iterator = iterator->GetNext();
                     size=-8;
-                    if (iterator->GetName() == Parser::ReturnStringValueFromJson(doc, "attribute")){
+                    if (iterator->GetName() == Parser::ReturnStringValueFromJson(doc, "attribute")+"_struct"){
                         flag = "true";
                     }
                 } else if (iterator->GetType() == "double") {
                     iterator = iterator->GetNext();
                     size=-8;
-                    if (iterator->GetName() == Parser::ReturnStringValueFromJson(doc, "attribute")){
+                    if (iterator->GetName() == Parser::ReturnStringValueFromJson(doc, "attribute")+"_struct"){
                         flag = "true";
                     }
                 } else if (iterator->GetType() == "float") {
                     iterator = iterator->GetNext();
                     size=-4;
-                    if (iterator->GetName() == Parser::ReturnStringValueFromJson(doc, "attribute")){
+                    if (iterator->GetName() == Parser::ReturnStringValueFromJson(doc, "attribute")+"_struct"){
                         flag = "true";
                     }
                 }
             }
+            std::cout<<"Responde el mensaje";
             toReturn.setObject(Parser::CreateJsonObj_ReturnsData(flag));
 
         }
