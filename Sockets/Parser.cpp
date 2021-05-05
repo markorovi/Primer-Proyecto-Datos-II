@@ -20,6 +20,9 @@ QJsonObject Parser::CreateJsonObj_NoAddress(std::string type, std::string name, 
     return obj;
 }
 
+/// Generar QJsonDocument el cual sera utilizado para cuando se desee liberar memoria
+/// \param name std::string Nombre de la variable que se desea liberar
+/// \return QJsonObject
 QJsonObject Parser::CreateJsonObj_Free(std::string name){
     QJsonObject obj;
     obj["toDo"] = "free";
@@ -27,6 +30,9 @@ QJsonObject Parser::CreateJsonObj_Free(std::string name){
     return obj;
 }
 
+/// Generar QJsonDocument el cual sera utilizado para cuando se solitice lo que contiene una variable
+/// \param name std::string NOmbre de la variable que se desea buscar
+/// \return QJsonObject
 QJsonObject Parser::CreateJsonObj_Asking(std::string name){
     QJsonObject obj;
     obj["toDo"] = "asking";
@@ -42,8 +48,10 @@ QJsonObject Parser::Nothing(){
     return obj;
 }
 
-
-QJsonObject Parser::CreateJsonObj_Value(std::string name) {
+/// Se encarga de generar un QJsonDocument el cual sera utilizado para reenviar los datos de una variable al cliente
+/// \param name
+/// \return
+QJsonObject Parser::CreateJsonObj_ReturnsData(std::string name) {
     QJsonObject obj;
     obj["value"] = name.c_str();
     return obj;
@@ -101,7 +109,14 @@ QJsonDocument Parser::ReturnJsonFromStr(std::string text){
     return document;
 }
 
-
+/// Se encarga de generar un QJsonDocument el cual el servidor utilizara para generar los espacios en memoria del struct
+/// \param name std::string Nombre del struct que se esta generando
+/// \param integers std::string Cantidad de ints
+/// \param doubles std::string Cantidad de doubles
+/// \param longs std::string Cantidad de longs
+/// \param floats std::string Cantidad de floats
+/// \param chars std::string Cantidad de chars
+/// \return QJsonDocument
 QJsonObject Parser::CreateJsonObj_NewStructObject(std::string name, std::string integers,
                                                   std::string doubles, std::string longs, std::string floats,
                                                   std::string chars) {
@@ -116,6 +131,11 @@ QJsonObject Parser::CreateJsonObj_NewStructObject(std::string name, std::string 
     return obj;
 }
 
+/// Se encarga de generar un QJsonDocument el cual se encargara de asignarle los valores especificos a los atribustos de cada struct
+/// \param type std::string Tipo de dato a manipular
+/// \param toModify std::string Nombre del struct al que pertenece el atributo
+/// \param name std::string Nombre del atributo a modificar
+/// \return QJsonObject
 QJsonObject Parser::CreateJsonObj_FillStruct(std::string type, std::string toModify, std::string name) {
     QJsonObject obj;
     obj["name"] = name.c_str();
@@ -125,6 +145,12 @@ QJsonObject Parser::CreateJsonObj_FillStruct(std::string type, std::string toMod
     return obj;
 }
 
+/// Se encarga de generar un QJsonDocument el cual el servidor utilizara para sobreescribir la informacion en los espacios de memoria de los atributos de un struct especifico
+/// \param type std::string Tipo de dato a manipular
+/// \param toModify std::string Struct el cual se va a manipular
+/// \param value std::string Dato que se sobreescribira
+/// \param name std::string Nombre del atriburo a sobreescribir
+/// \return QJsonDocument
 QJsonObject Parser::CreateJsonObj_ModifyStruct(std::string type, std::string toModify, std::string value, std::string name) {
     QJsonObject obj;
     obj["name"] = (name + "_struct").c_str();
@@ -133,4 +159,14 @@ QJsonObject Parser::CreateJsonObj_ModifyStruct(std::string type, std::string toM
     obj["value"] = value.c_str();
     obj["toModify"] = toModify.c_str();
     return obj;
+}
+
+/// Se encarga de generar un QJsonDocument el cual le permitira al cliente solicitar de que tipo de dato es una variable almacenada
+/// \param name std::string Nombre de la variable a buscar
+/// \return QJsonDocument
+QJsonObject Parser::CreateJsonObj_whatType(std::string name) {
+    QJsonObject obj;
+    obj["toDo"] = "whatType";
+    obj["name"] = name.c_str();
+    return obj;;
 }

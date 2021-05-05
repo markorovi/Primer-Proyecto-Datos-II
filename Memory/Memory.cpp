@@ -27,6 +27,9 @@ void Memory::Show() {
     std::cout<<"\n\n";
 }
 
+/// Funcion que declara cuando se esta empezando a generar un struct
+/// \param size int Tamano del struct
+/// \param name std::string Nombre de la cabeza del struct
 void Memory::GeneratingStruct(int size, std::string name) {
     this->InUse.add_node(&this->head[this->counter], "struct", this->counter, name);
     this->InUse.GetHead()->SetSize(size);
@@ -205,10 +208,16 @@ char *Memory::getHead() const {
     return head;
 }
 
+/// Getter para la lista de reciclaje
+/// \return  std::vector<int>
 std::vector<int> Memory::getToRecicle() {
     return this->to_recicle;
 }
 
+/// Se encarga de rellenar los espacios de memoria del struct que se esta generando con sus respectivos atributos
+/// \param type std::string Tipo de dato a guardar
+/// \param i std::string Valor a guardar
+/// \param name std::string Nombre con el cual se va a guardar
 void Memory::FillingStruct(std::string type, std::string i, std::string name) {
     if (this->to_recicle.empty()) {
         this->Using_Memory(type, i, name);

@@ -683,7 +683,7 @@ void Interpreter::interpretCode(int line) {
 
                                     }
 
-                                    doc.setObject(Parser::CreateJsonObj_NewStructObject(structList[i][0][0].toStdString(), std::to_string(integers),std::to_string(doubles),std::to_string(longs),std::to_string(floats),std::to_string(chars)));
+                                    doc.setObject(Parser::CreateJsonObj_NewStructObject(words[line][1].toStdString(), std::to_string(integers),std::to_string(doubles),std::to_string(longs),std::to_string(floats),std::to_string(chars)));
                                     std::string json = Parser::ReturnChar(doc);
                                     MainWindow::setJson(json);
                                     client->Start();

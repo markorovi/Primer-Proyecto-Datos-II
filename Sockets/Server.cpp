@@ -76,10 +76,14 @@ void Server::Start() {
             toReturn.setObject(Parser::Nothing());
         } else if(Parser::ReturnStringValueFromJson(doc, "toDo") == "asking") {
             std::string value = Memory::get_instance()->getInUse().returnValue(Parser::ReturnStringValueFromJson(doc, "name"), Memory::get_instance()->getInUse().GetHead());
-            toReturn.setObject(Parser::CreateJsonObj_Value(value));
+            toReturn.setObject(Parser::CreateJsonObj_ReturnsData(value));
             //std::cout<<"VALOR: " + value<<std::endl;
 
 
+
+        } else if (Parser::ReturnStringValueFromJson(doc, "toDo") == "whatType"){
+            std::string type = Memory::get_instance()->getInUse().returnType(Parser::ReturnStringValueFromJson(doc, "name"), Memory::get_instance()->getInUse().GetHead());
+            toReturn.setObject(Parser::CreateJsonObj_ReturnsData(type));
 
         } else if (Parser::ReturnStringValueFromJson(doc, "toDo") == "newStruct"){
             int num;

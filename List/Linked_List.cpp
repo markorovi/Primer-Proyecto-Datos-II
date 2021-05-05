@@ -80,7 +80,10 @@ void * Linked_List::returnAddress(std::string name, Node *head) {
     }
 }
 
-
+/// Se encarga de retornar la posicion en la que se encuentra almacenado el nodo con respecto al offset
+/// \param name std::string Variable a buscar
+/// \param head Node* Cabeza de la lista a recorrer
+/// \return int
 int Linked_List::returnPostion(std::string name, Node *head) {
     if (this->lenght() > 0){
         for ( ; head; head = head->GetNext()){
@@ -91,6 +94,10 @@ int Linked_List::returnPostion(std::string name, Node *head) {
     }
 }
 
+/// Se encarga de retornar el valor que contiene el nodo que se busca
+/// \param name std::string Nodo a buscar
+/// \param head Node* Cabeza de la lista a recorrer
+/// \return std::string
 std::string Linked_List::returnValue(std::string name, Node *head) {
     if (this->lenght() > 0){
         for ( ; head; head = head->GetNext()){
