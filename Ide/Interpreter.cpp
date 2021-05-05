@@ -863,8 +863,11 @@ bool Interpreter::isChar(QString value) {
     if(value[0]=="\"" && value[2]=="\"" && value.size()==3){
         qDebug()<<value;
         aux = true;
-    }
 
+    } else if(value.startsWith("\"") && value.endsWith("\"") && value.count("\"")==2 && value.size()>3){
+        aux=true;
+    }
+    aux = value.startsWith("\"")&&value.endsWith("\"")&&value.count("\"")<3;
     return aux;
 }
 /// Permite al interpreter tener acceso a la terminal

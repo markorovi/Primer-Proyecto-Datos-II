@@ -164,22 +164,7 @@ public:
 #endif // QT_CONFIG(shortcut)
         actionStop->setText(QCoreApplication::translate("MainWindow", "Stop", nullptr));
         actionNext_Line->setText(QCoreApplication::translate("MainWindow", "Next Line", nullptr));
-        codeInput->setPlainText(QCoreApplication::translate("MainWindow", "\n"
-"cout << \"Hola mundo\";\n"
-"\n"
-"struct variables {\n"
-"\n"
-"int a;\n"
-"int b;\n"
-"long c;\n"
-"\n"
-"}\n"
-"\n"
-"int y = 0;\n"
-"\n"
-"variables z;\n"
-"\n"
-"z.a = 2;", nullptr));
+        codeInput->setPlainText(QString());
         labelConsole->setText(QCoreApplication::translate("MainWindow", "Console", nullptr));
         labelLog->setText(QCoreApplication::translate("MainWindow", "Log", nullptr));
         terminalOutput->setPlainText(QString());

@@ -25,21 +25,7 @@
     </property>
     <property name="plainText">
      <string>
-cout &lt;&lt; &quot;Hola mundo&quot;;
-
-struct variables {
-
-int a;
-int b;
-long c;
-
-}
-
-int y = 0;
-
-variables z;
-
-z.a = 2;</string>
+</string>
     </property>
    </widget>
    <widget class="QPlainTextEdit" name="appLog">
