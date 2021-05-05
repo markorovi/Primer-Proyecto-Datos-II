@@ -1,0 +1,14 @@
+
+int c = 2;
+cout << c;
+
+{
+
+int a = 5;
+int b = 25 + 5;
+
+}
+
+
+int c = 4;
+cout << c;

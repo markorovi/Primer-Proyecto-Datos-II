@@ -74,11 +74,11 @@ public:
 
     /*!
      * @brief Se encarga de sobreescribir una variable si esta ya existe
-     * @param address Variable a sobreescribir
+     * @param position Variable a sobreescribir
      * @param type Tipo de la variable
      * @param value Nuevo valor que la direccion almacenara
      */
-    void Rewrite(void * address, std::string type, std::string value);
+    void Rewrite(int position, std::string type, std::string value);
 
     /*!
      * @brief Solicita memoria, lo que puede resultar en una sobreescritura, una nueva direccion o en el reciclaje de una variable que ya no esta en uso

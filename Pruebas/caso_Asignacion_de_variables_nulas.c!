@@ -1,0 +1,17 @@
+
+char a = "r";
+
+int b = 2;
+
+{
+
+double c = 15;
+cout << c;
+
+}
+
+int d;
+
+int d = 3;
+
+cout << d;

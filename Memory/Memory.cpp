@@ -77,6 +77,7 @@ void Memory::Using_Memory(std::string type, std::string i,  std::string name) {
             this->counter+= 4;
         }
     }
+    std::cout<<"El valor asignado es:"<<*reinterpret_cast<int *>(this->head+this->counter)<<std::endl;
 }
 
 void Memory::Reciclying_Memory(std::string type, std::string i, int position, std::string name)  {
@@ -120,19 +121,20 @@ void Memory::Reciclying_Memory(std::string type, std::string i, int position, st
     //this->counter++;
 }
 
-void Memory::Rewrite(void * address, std::string type, std::string value) {
-    std::cout<<address<< ", "<< type << ", " << value<<std::endl;
+void Memory::Rewrite(int position, std::string type, std::string value) {
+    //std::cout<<address<< ", "<< type << ", " << value<<std::endl;
     if (type == "int"){
-        *reinterpret_cast<int *>(&address) = stoi(value);
+        *reinterpret_cast<int *>(this->head+position) = std::stoi(value);
     } else if (type=="char"){
-        *reinterpret_cast<char *>(&address) = value[0];
+        *reinterpret_cast<char *>(this->head+position) = value[0];
     } else if (type=="long"){
-        *reinterpret_cast<long *>(&address) = stol(value);
+        *reinterpret_cast<long *>(this->head+position) = std::stol(value);
     } else if (type=="double"){
-        *reinterpret_cast<double *>(&address) = stod(value);
+        *reinterpret_cast<double *>(this->head+position) = std::stod(value);
     } else if (type=="float"){
-        *reinterpret_cast<float *>(&address) = stof(value);
+        *reinterpret_cast<float *>(this->head+position) = std::stof(value);
     }
+    std::cout<<"El valor almacenado es:"<<*reinterpret_cast<int *>(this->head+position)<<std::endl;
 }
 
 void Memory::Freeing_Memory(std::string name) {
@@ -149,7 +151,7 @@ void Memory::Freeing_Memory(std::string name) {
 void Memory::Need_Memory(std::string type, std::string i, std::string name) {
     if (this->to_recicle.empty()){
         if (this->InUse.exists(name, Memory::InUse.GetHead())){
-            this->Rewrite(this->InUse.returnAddress(name, Memory::InUse.GetHead()), this->InUse.returnType(name, Memory::InUse.GetHead()), i);
+            this->Rewrite(this->InUse.returnPostion(name, Memory::InUse.GetHead()), this->InUse.returnType(name, Memory::InUse.GetHead()), i);
 
         }else if (!this->InUse.exists(name, Memory::InUse.GetHead())){
             this->Using_Memory(type, i, name);
@@ -160,7 +162,7 @@ void Memory::Need_Memory(std::string type, std::string i, std::string name) {
         this->to_recicle.clear();
 
         if (this->InUse.exists(name, Memory::InUse.GetHead())){
-            this->Rewrite(this->InUse.returnAddress(name, Memory::InUse.GetHead()), this->InUse.returnType(name, Memory::InUse.GetHead()), i);
+            this->Rewrite(this->InUse.returnPostion(name, Memory::InUse.GetHead()), this->InUse.returnType(name, Memory::InUse.GetHead()), i);
 
         }else if (!this->InUse.exists(name, Memory::InUse.GetHead())){
             this->Using_Memory(type, i, name);
