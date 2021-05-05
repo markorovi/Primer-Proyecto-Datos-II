@@ -82,116 +82,116 @@ void Server::Start() {
 
 
 
-        } else if (Parser::ReturnStringValueFromJson(doc, "toDo") == "whatType"){
-            std::string type = Memory::get_instance()->getInUse().returnType(Parser::ReturnStringValueFromJson(doc, "name"), Memory::get_instance()->getInUse().GetHead());
-            toReturn.setObject(Parser::CreateJsonObj_ReturnsData(type));
-
-        } else if (Parser::ReturnStringValueFromJson(doc, "toDo") == "newStruct"){
-            int num;
-            int size;
-            num = std::stoi(Parser::ReturnStringValueFromJson(doc, "integers"));
-            while (num != 0){
-                size += 4;
-                num--;
-            }
-            num = std::stoi(Parser::ReturnStringValueFromJson(doc, "longs"));
-            while (num != 0){
-                size += 8;
-                num--;
-            }
-            num = std::stoi(Parser::ReturnStringValueFromJson(doc, "doubles"));
-            while (num != 0){
-                size += 8;
-                num--;
-            }
-            num = std::stoi(Parser::ReturnStringValueFromJson(doc, "chars"));
-            while (num != 0){
-                size += 1;
-                num--;
-            }
-            num = std::stoi(Parser::ReturnStringValueFromJson(doc, "floats"));
-            while (num != 0){
-                size += 4;
-                num--;
-            }
-            Memory::get_instance()->GeneratingStruct(size, Parser::ReturnStringValueFromJson(doc, "name"));
-            void *address = Memory::get_instance()->getInUse().GetHead()->GetAddress();
-            std::stringstream ss;
-            ss << address;
-            std::string strAddress = ss.str();
-            toReturn.setObject(Parser::CreateJsonObj_Address("struct", Parser::ReturnStringValueFromJson(doc, "name"), "", strAddress));
-
-            //std::cout<<"El tamaño es: "<<size<<std::endl;
-
-
-        } else if (Parser::ReturnStringValueFromJson(doc, "toDo") == "fillStruct"){ //hay que quitar lo que hace que devuelva la direccion, porque esto no se ve en la ram view//////////////////////////////
-
-            Memory::get_instance()->FillingStruct(Parser::ReturnStringValueFromJson(doc, "type"), "", Parser::ReturnStringValueFromJson(doc, "name") + "_struct");
+//        } else if (Parser::ReturnStringValueFromJson(doc, "atoDo") == "whatType"){
+//            std::string type = Memory::get_instance()->getInUse().returnType(Parser::ReturnStringValueFromJson(doc, "name"), Memory::get_instance()->getInUse().GetHead());
+//            toReturn.setObject(Parser::CreateJsonObj_ReturnsData(type));
+//
+//        } else if (Parser::ReturnStringValueFromJson(doc, "atoDo") == "newStruct"){
+//            int num;
+//            int size;
+//            num = std::stoi(Parser::ReturnStringValueFromJson(doc, "integers"));
+//            while (num != 0){
+//                size += 4;
+//                num--;
+//            }
+//            num = std::stoi(Parser::ReturnStringValueFromJson(doc, "longs"));
+//            while (num != 0){
+//                size += 8;
+//                num--;
+//            }
+//            num = std::stoi(Parser::ReturnStringValueFromJson(doc, "doubles"));
+//            while (num != 0){
+//                size += 8;
+//                num--;
+//            }
+//            num = std::stoi(Parser::ReturnStringValueFromJson(doc, "chars"));
+//            while (num != 0){
+//                size += 1;
+//                num--;
+//            }
+//            num = std::stoi(Parser::ReturnStringValueFromJson(doc, "floats"));
+//            while (num != 0){
+//                size += 4;
+//                num--;
+//            }
+//            Memory::get_instance()->GeneratingStruct(size, Parser::ReturnStringValueFromJson(doc, "name"));
 //            void *address = Memory::get_instance()->getInUse().GetHead()->GetAddress();
 //            std::stringstream ss;
 //            ss << address;
 //            std::string strAddress = ss.str();
 //            toReturn.setObject(Parser::CreateJsonObj_Address("struct", Parser::ReturnStringValueFromJson(doc, "name"), "", strAddress));
-
-            std::cout<<"Dirección: "<<Memory::get_instance()->getInUse().GetHead()->GetAddress()<<std::endl;
-            toReturn.setObject(Parser::Nothing());
-        } else if (Parser::ReturnStringValueFromJson(doc, "toDo") == "modifyStruct") {
-            Node* iterator = Memory::get_instance()->getInUse().GetHead();
-            while (iterator->GetName() != Parser::ReturnStringValueFromJson(doc, "toModify")){
-                iterator = iterator->GetNext();
-            }
-            iterator = iterator->GetNext();
-            while (iterator->GetName() != Parser::ReturnStringValueFromJson(doc, "name")){
-                iterator = iterator->GetNext();
-            }
-            Memory::get_instance()->Rewrite(iterator->GetAddress(), Parser::ReturnStringValueFromJson(doc, "type"), Parser::ReturnStringValueFromJson(doc, "value"));
-            toReturn.setObject(Parser::Nothing());
-
-        } else if (Parser::ReturnStringValueFromJson(doc, "toDo") == "isAttribute"){
-            std::string flag = "false";
-            std::cout<<"Está entrando a la pregunta";
-            Node* iterator = Memory::get_instance()->getInUse().GetHead();
-            while (iterator->GetName() != Parser::ReturnStringValueFromJson(doc, "name")){
-                iterator = iterator->GetNext();
-            }
-            int size = iterator->GetSize();
-            std::cout<<"Encuentra el struct";
-            while (size > 0) {
-                if (iterator->GetType() == "int") {
-                    iterator = iterator->GetNext();
-                    size=-4;
-                    if (iterator->GetName() == Parser::ReturnStringValueFromJson(doc, "attribute")+"_struct"){
-                        flag = "true";
-                    }
-                } else if (iterator->GetType() == "char") {
-                    iterator = iterator->GetNext();
-                    size=-1;
-                    if (iterator->GetName() == Parser::ReturnStringValueFromJson(doc, "attribute")+"_struct"){
-                        flag = "true";
-                    }
-                } else if (iterator->GetType() == "long") {
-                    iterator = iterator->GetNext();
-                    size=-8;
-                    if (iterator->GetName() == Parser::ReturnStringValueFromJson(doc, "attribute")+"_struct"){
-                        flag = "true";
-                    }
-                } else if (iterator->GetType() == "double") {
-                    iterator = iterator->GetNext();
-                    size=-8;
-                    if (iterator->GetName() == Parser::ReturnStringValueFromJson(doc, "attribute")+"_struct"){
-                        flag = "true";
-                    }
-                } else if (iterator->GetType() == "float") {
-                    iterator = iterator->GetNext();
-                    size=-4;
-                    if (iterator->GetName() == Parser::ReturnStringValueFromJson(doc, "attribute")+"_struct"){
-                        flag = "true";
-                    }
-                }
-            }
-            std::cout<<"Responde el mensaje";
-            toReturn.setObject(Parser::CreateJsonObj_ReturnsData(flag));
-
+//
+//            //std::cout<<"El tamaño es: "<<size<<std::endl;
+//
+//
+//        } else if (Parser::ReturnStringValueFromJson(doc, "atoDo") == "fillStruct"){ //hay que quitar lo que hace que devuelva la direccion, porque esto no se ve en la ram view//////////////////////////////
+//
+//            Memory::get_instance()->FillingStruct(Parser::ReturnStringValueFromJson(doc, "type"), "", Parser::ReturnStringValueFromJson(doc, "name") + "_struct");
+//            void *address = Memory::get_instance()->getInUse().GetHead()->GetAddress();
+//            std::stringstream ss;
+//            ss << address;
+//            std::string strAddress = ss.str();
+//            toReturn.setObject(Parser::CreateJsonObj_Address("struct", Parser::ReturnStringValueFromJson(doc, "name"), "", strAddress));
+//
+//            std::cout<<"Dirección: "<<Memory::get_instance()->getInUse().GetHead()->GetAddress()<<std::endl;
+//            toReturn.setObject(Parser::Nothing());
+//        } else if (Parser::ReturnStringValueFromJson(doc, "atoDo") == "modifyStruct") {
+//            Node* iterator = Memory::get_instance()->getInUse().GetHead();
+//            while (iterator->GetName() != Parser::ReturnStringValueFromJson(doc, "toModify")){
+//                iterator = iterator->GetNext();
+//            }
+//            iterator = iterator->GetNext();
+//            while (iterator->GetName() != Parser::ReturnStringValueFromJson(doc, "name")){
+//                iterator = iterator->GetNext();
+//            }
+//            Memory::get_instance()->Rewrite(iterator->GetAddress(), Parser::ReturnStringValueFromJson(doc, "type"), Parser::ReturnStringValueFromJson(doc, "value"));
+//            toReturn.setObject(Parser::Nothing());
+//
+//        } else if (Parser::ReturnStringValueFromJson(doc, "atodo") == "isAttribute"){
+//            std::string flag = "false";
+//            std::cout<<"Está entrando a la pregunta";
+//            Node* iterator = Memory::get_instance()->getInUse().GetHead();
+//            while (iterator->GetName() != Parser::ReturnStringValueFromJson(doc, "name")){
+//                iterator = iterator->GetNext();
+//            }
+//            int size = iterator->GetSize();
+//            std::cout<<"Encuentra el struct";
+//            while (size > 0) {
+//                if (iterator->GetType() == "int") {
+//                    iterator = iterator->GetNext();
+//                    size=-4;
+//                    if (iterator->GetName() == Parser::ReturnStringValueFromJson(doc, "attribute")+"_struct"){
+//                        flag = "true";
+//                    }
+//                } else if (iterator->GetType() == "char") {
+//                    iterator = iterator->GetNext();
+//                    size=-1;
+//                    if (iterator->GetName() == Parser::ReturnStringValueFromJson(doc, "attribute")+"_struct"){
+//                        flag = "true";
+//                    }
+//                } else if (iterator->GetType() == "long") {
+//                    iterator = iterator->GetNext();
+//                    size=-8;
+//                    if (iterator->GetName() == Parser::ReturnStringValueFromJson(doc, "attribute")+"_struct"){
+//                        flag = "true";
+//                    }
+//                } else if (iterator->GetType() == "double") {
+//                    iterator = iterator->GetNext();
+//                    size=-8;
+//                    if (iterator->GetName() == Parser::ReturnStringValueFromJson(doc, "attribute")+"_struct"){
+//                        flag = "true";
+//                    }
+//                } else if (iterator->GetType() == "float") {
+//                    iterator = iterator->GetNext();
+//                    size=-4;
+//                    if (iterator->GetName() == Parser::ReturnStringValueFromJson(doc, "attribute")+"_struct"){
+//                        flag = "true";
+//                    }
+//                }
+//            }
+//            std::cout<<"Responde el mensaje";
+//            toReturn.setObject(Parser::CreateJsonObj_ReturnsData(flag));
+//        toReturn.setObject(Parser::Nothing());
         }
         std::cout<<Parser::ReturnChar(toReturn).c_str()<<std::endl;
         send(clientSockect, Parser::ReturnChar(toReturn).c_str(), Parser::ReturnChar(toReturn).size() + 1, 0);

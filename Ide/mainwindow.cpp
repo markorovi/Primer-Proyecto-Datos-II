@@ -17,6 +17,8 @@
 
 std::string MainWindow::json = "";
 
+/// Método principal del MainWindow
+/// \param parent QWidget
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -48,6 +50,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->ramLiveView->setColumnWidth(2,90);
     ui->ramLiveView->setColumnWidth(3,100);
 
+    QJsonDocument doc;
+    doc.setObject(Parser::Nothing()); //Genera el documento con los rasgos de dentro
+    std::string Json = Parser::ReturnChar(doc); //String to char (to be able to send it through sockets) //Lo pasa a string
+    MainWindow::setJson(Json);
+
 //    for (int i =0; i<5; i++)
 //    {
 //        setValuesRamLiveView("0x999","10","a",2);
@@ -63,13 +70,17 @@ MainWindow::MainWindow(QWidget *parent)
 
 
 }
-
+/// Destructor del método del MainWindow
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
-
+/// Permite mostrar valores en la tabla que contiene los valores de la memoria ram
+/// \param memoryDirection QString dirección de memoria
+/// \param value QString valor de la variable ingresada
+/// \param label QString nombre de la variable ingresada
+/// \param referenceCount QString cantidad de veces que ha sido referenciada la variable ingresada
 void MainWindow::setValuesRamLiveView(QString memoryDirection, QString value,  QString label, int referenceCount)
 {
 
@@ -77,17 +88,10 @@ void MainWindow::setValuesRamLiveView(QString memoryDirection, QString value,  Q
 //    qDebug()<<ui->ramLiveView->rowCount();
 
     for(int i = 0; i<ui->ramLiveView->rowCount(); i++){
-        //qDebug()<<"El elemento"<<i<<"es:"<<ui->ramLiveView->item(i,2)->text();
-        //qDebug()<<"Last: "<<ui->ramLiveView->item(ui->ramLiveView->rowCount()-1,2)->text();
+
         if (ui->ramLiveView->item(i,2)->text()==label){
             aux=i;
-//            qDebug()<<aux;
         }
-
-//        if(ui->ramLiveView->item(ui->ramLiveView->rowCount()-1,2)->text()==label) {
-//            aux = ui->ramLiveView->rowCount()-1;
-//            qDebug()<<"hola";
-//        }
     }
 
 
@@ -105,8 +109,16 @@ void MainWindow::setValuesRamLiveView(QString memoryDirection, QString value,  Q
         ui->ramLiveView->setItem(aux, 2, new QTableWidgetItem(label));
         ui->ramLiveView->setItem(aux, 3, new QTableWidgetItem(QString::number(referenceCount)));
     }
+
+    for(int i = 0; i<ui->ramLiveView->rowCount(); i++){
+
+        if (ui->ramLiveView->item(i,2)->text()==""){
+            ui->ramLiveView->removeRow(i);
+        }
+    }
 }
 
+///Permite abrir archivos de texto al abrir tocar un botón
 void MainWindow::on_actionOpen_triggered()
 {
     QFile file;
@@ -134,6 +146,7 @@ void MainWindow::on_actionOpen_triggered()
 
 }
 
+/// Permite guardar el código escrito al pulsar un botón
 void MainWindow::on_actionSave_as_triggered()
 {
     QFile file;
@@ -160,11 +173,13 @@ void MainWindow::on_actionSave_as_triggered()
     file.close();
 }
 
+///Permite cerrar el programa al pulsar un botón
 void MainWindow::on_actionClose_triggered()
 {
     close();
 }
 
+/// Ejecuta el código escrito al pulsar un botón
 void MainWindow::on_actionRun_triggered()
 {
 
@@ -178,13 +193,13 @@ void MainWindow::on_actionRun_triggered()
         ui->ramLiveView->removeRow(0);
         running=true;
         interpreter.readCode(ui->codeInput->toPlainText());
-        interpreter.showCode();
+        //interpreter.showCode();
         interpreter.interpretCode(line);
 
 
         test->Start();
         line++;
-        if(interpreter.isScope()){
+        if(interpreter.isScope() || QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(),"toDo"))!="nothing"){
             setValuesRamLiveView(QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "address")),
                                  QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "value")),
                                  QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "name")),0);
@@ -193,8 +208,14 @@ void MainWindow::on_actionRun_triggered()
         on_actionStop_triggered();
         on_actionRun_triggered();
     }
+
+    QJsonDocument doc;
+    doc.setObject(Parser::Nothing()); //Genera el documento con los rasgos de dentro
+    std::string Json = Parser::ReturnChar(doc); //String to char (to be able to send it through sockets) //Lo pasa a string
+    MainWindow::setJson(Json);
 }
 
+///Detiene el funcionamiento del código al pulsar un botón
 void MainWindow::on_actionStop_triggered()
 {
     if(running){
@@ -210,6 +231,7 @@ void MainWindow::on_actionStop_triggered()
     }
 }
 
+///Permite leer la siguiente linea del codigo al pulsar un botón
 void MainWindow::on_actionNext_Line_triggered()
 {
     //interpreter.showInAppLog("El programa se está ejecutando");
@@ -227,7 +249,7 @@ void MainWindow::on_actionNext_Line_triggered()
 
 
 
-            if(!interpreter.isFreeingScope()){
+            if(!interpreter.isFreeingScope() || QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(),"toDo"))!="nothing"){
                 setValuesRamLiveView(QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "address")),
                                      QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "value")),
                                      QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "name")),0);
@@ -258,18 +280,26 @@ void MainWindow::on_actionNext_Line_triggered()
             }
 
         } else {
-            interpreter.showInAppLog("Hmmmmmm... algo está mal");
+            interpreter.showInAppLog("El programa ha finalizado");
             on_actionStop_triggered();
         }
 
     }
+    QJsonDocument doc;
+    doc.setObject(Parser::Nothing()); //Genera el documento con los rasgos de dentro
+    std::string Json = Parser::ReturnChar(doc); //String to char (to be able to send it through sockets) //Lo pasa a string
+    MainWindow::setJson(Json);
 
 }
 
+/// Permite a la ventana principal obtener un Json para enviar al servidor por medio del cliente
+/// \return std::string
 std::string MainWindow::getJson() {
     return json;
 }
 
+/// Permite a la ventana principal establecer un Json para enviar al servidor por medio del cliente
+/// \param toSet std::string valor que se va a poner al Json
 void MainWindow::setJson(std::string toSet) {
     json = toSet;
 }

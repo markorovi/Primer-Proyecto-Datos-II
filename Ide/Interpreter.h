@@ -37,11 +37,11 @@ class Interpreter {
         const QStringList &getScopeLabels() const;
         bool isScope() const;
         void toDeclarate(QString, QString, QString);
-        bool find(QString, QString);
         QString isAttribute(QString,QString);
 private:
     bool freeingScope = false;
     bool inScope= false;
+    bool scope = true;
     QStringList scopeLabels;
     QPlainTextEdit *terminal;
     QPlainTextEdit *appLog;
@@ -51,7 +51,6 @@ private:
     QList<QList<QStringList>> structList;
     QList<QStringList> structs;
     QStringList auxStructs;
-    bool scope = true;
     bool inStruct = false;
     Client *client;
 

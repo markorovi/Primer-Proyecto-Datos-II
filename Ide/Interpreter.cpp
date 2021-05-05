@@ -372,7 +372,7 @@ void Interpreter::interpretCode(int line) {
                                             if (inScope) {
                                                 scopeLabels.append(label);
                                             } else if (inStruct) {
-                                                qDebug()<<"Dentor del struct está: ";
+                                                qDebug()<<"Dentro del struct está: ";
                                                 for(int i=0; i<structs.size();i++){
                                                     qDebug()<<structs[i];
                                                 }
@@ -626,6 +626,26 @@ void Interpreter::interpretCode(int line) {
                                         showInAppLog("Error");
 //                                        showInAppLog(aux);
                                     }
+                                } else if(isChar(words[line][3])){
+
+                                    if(whatIs(words[line][4])=="end"){
+                                        qDebug()<<"hola";
+                                        words[line][3].remove("\"");
+
+                                        QString type = words[line][0];
+                                        QString label = words[line][1];
+                                        QString Value = words[line][3];
+
+                                        if(Value.size()<2){
+                                            toDeclarate(type, label, Value);
+
+                                        } else {
+                                            showInAppLog("Error");
+                                        }
+                                    } else {
+                                        showInAppLog("Error");
+                                    }
+
                                 } else {
                                     //Error
                                     showInAppLog("Error");
@@ -649,8 +669,7 @@ void Interpreter::interpretCode(int line) {
 
                     } else if (whatIs(words[line][0]) == "stdKey") {
                         doc.setObject(Parser::Nothing());
-                        std::string Json = Parser::ReturnChar(
-                                doc); //String to char (to be able to send it through sockets) //Lo pasa a string
+                        std::string Json = Parser::ReturnChar(doc); //String to char (to be able to send it through sockets) //Lo pasa a string
                         MainWindow::setJson(Json);
                         //Printear en la terminal
 
@@ -660,11 +679,21 @@ void Interpreter::interpretCode(int line) {
                     }
 
                 } else if ((whatIs(words[line][0]) == "stdKey")) {
+                    doc.setObject(Parser::Nothing());
+                    std::string Json = Parser::ReturnChar(doc); //String to char (to be able to send it through sockets) //Lo pasa a string
+                    MainWindow::setJson(Json);
+
                     if ((whatIs(words[line][1]) == "bracketStart")) {
                         if (words[line][1] == "<<") {
                             if (whatIs(words[line][2]) == "variable") {
                                 if (whatIs(words[line][3]) == "end") {
+
+                                    if(!isNumber(words[line][2])&&!isChar(words[line][2])){
+                                        words[line][2]=getValue(words[line][2]);
+                                    }
+
                                     showInTerminal(words[line][2]);
+
                                 } else {
                                     showInAppLog("Error");
                                 }
@@ -796,6 +825,9 @@ bool Interpreter::isExisting(QString variable) {
     return true;
 }
 
+/// Método que permite determinar si una cadena de texto es un número
+/// \param value QString parametro con un valor
+/// \return bool
 bool Interpreter::isNumber(QString value) {
     bool aux = true;
     bool dotOne = true;
@@ -822,52 +854,71 @@ bool Interpreter::isNumber(QString value) {
 
     return aux;
 }
-
+/// Método que permite determinar si una cadena de texto es un char
+/// \param value QString parametro con un valor
+/// \return bool
 bool Interpreter::isChar(QString value) {
-    bool aux = value.startsWith("\"") && value.endsWith("\"") && value.count("\"") == 2;
+    bool aux = false;
+
+    if(value[0]=="\"" && value[2]=="\"" && value.size()==3){
+        qDebug()<<value;
+        aux = true;
+    }
+
     return aux;
 }
-
+/// Permite al interpreter tener acceso a la terminal
+/// \param terminalOutput QPlainTextEdit terminal del IDE
 void Interpreter::setTerminal(QPlainTextEdit *terminalOutput) {
     terminal = terminalOutput;
 }
-
+/// Permite al interpreter tener acceso al logger
+/// \param newAppLog QPlainTextEdit logger del IDE
 void Interpreter::setAppLog(QPlainTextEdit *newAppLog) {
     appLog = newAppLog;
 }
-
+/// Muestra un mensaje en la terminal
+/// \param msg QString mensaje recibido
 void Interpreter::showInTerminal(QString msg) {
     terminal->appendPlainText(">> " + msg);
 }
-
+/// Muestra un mensaje en el logger
+/// \param msg QString mensaje recibido
 void Interpreter::showInAppLog(QString msg) {
     appLog->appendPlainText(">> " + msg);
 }
-
+/// Libera el scope
 void Interpreter::freeScope() {
     freeingScope = true;
 }
-
+/// Permite saber si hay un scope abierto
+/// \return bool
 bool Interpreter::isScope() const {
     return scope;
 }
-
+/// Permite obtener el estado del scope
+/// \return bool
 bool Interpreter::isFreeingScope() const {
     return freeingScope;
 }
-
+/// Permite saber cuales son las variables declaradas dentro del scope
+/// \return QStringList
 const QStringList &Interpreter::getScopeLabels() const {
     return scopeLabels;
 }
-
+/// Permite liberar scopes
+/// \param freeingScope
 void Interpreter::setFreeingScope(bool freeingScope) {
     Interpreter::freeingScope = freeingScope;
 }
-
+/// Permite al interprete conocer quién es el cliente
+/// \param client
 void Interpreter::setClient(Client *client) {
     Interpreter::client = client;
 }
-
+/// Pregunta al servidor por el valor correspondiente de la variable entrante
+/// \param aux QString Variable que contiene el nombre de la variable declarada
+/// \return
 QString Interpreter::getValue(QString aux) {
     QJsonDocument doc;
     doc.setObject(Parser::CreateJsonObj_Asking(aux.toStdString()));
@@ -880,7 +931,10 @@ QString Interpreter::getValue(QString aux) {
                 QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "value"));
     return QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "value"));
 }
-
+///Permite decirle al servidor que declare variables al conocer sus datos
+/// \param type QString tipo de dato de la variable
+/// \param label QString etiqueta de la variable
+/// \param Value QString valor de la variable
 void Interpreter::toDeclarate(QString type, QString label, QString Value){
     QJsonDocument doc;
     doc.setObject(Parser::CreateJsonObj_NoAddress(type.toStdString(), label.toStdString(), Value.toStdString()));
@@ -888,7 +942,9 @@ void Interpreter::toDeclarate(QString type, QString label, QString Value){
     MainWindow::setJson(Json);
     qDebug() << type << label << Value;
 }
-
+/// Permite detectar si la cadena brindada pertenece al nombre de un struct
+/// \param aux QString cadena de texto con el nombre de la variable
+/// \return bool
 bool Interpreter::isStruct(QString aux) {
 
     for (int i = 0; i < structList.size(); ++i) {
@@ -899,7 +955,9 @@ bool Interpreter::isStruct(QString aux) {
 
     return false;
 }
-
+/// Le pregunta al servidor el tipo del dato introducido
+/// \param aux QString nombre de la variable
+/// \return QString
 QString Interpreter::askFor(QString aux) {
     QJsonDocument doc;
     doc.setObject(Parser::CreateJsonObj_whatType(aux.toStdString()));
@@ -910,21 +968,10 @@ QString Interpreter::askFor(QString aux) {
     return QString::fromStdString(Parser::ReturnStringValueFromJson(Client::getReceived(), "value"));
 }
 
-bool Interpreter::find(QString tipoStruct, QString atribute) {
-
-    for (int i = 0; i < structList.size(); ++i) {
-        if(structList[i][0][0]==tipoStruct){
-
-            for (int j = 0; j < structList[i].size(); ++j) {
-
-            }
-            return true;
-        }
-    }
-
-    return false;
-}
-
+/// Permite determinar si una variable es atributo de una estructura
+/// \param name
+/// \param attribute
+/// \return
 QString Interpreter::isAttribute(QString name, QString attribute) {
     QJsonDocument doc;
     doc.setObject(Parser::CreateJsonObj_isAttribute(name.toStdString(),attribute.toStdString()));
