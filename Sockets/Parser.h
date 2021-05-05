@@ -23,6 +23,7 @@ static QJsonObject CreateJsonObj_ReturnsData(std::string name);
 static QJsonObject CreateJsonObj_NewStructObject(std::string name, std::string integers, std::string doubles, std::string longs, std::string floats, std::string chars);
 static QJsonObject CreateJsonObj_FillStruct(std::string type, std::string toModify, std::string name);
 static QJsonObject CreateJsonObj_ModifyStruct(std::string type, std::string toModify, std::string value, std::string name);
+static QJsonObject CreateJsonObj_isAttribute(std::string name, std::string attribute);
 static QJsonObject Nothing();
 };
 

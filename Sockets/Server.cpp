@@ -144,10 +144,49 @@ void Server::Start() {
                 iterator = iterator->GetNext();
             }
             Memory::get_instance()->Rewrite(iterator->GetAddress(), Parser::ReturnStringValueFromJson(doc, "type"), Parser::ReturnStringValueFromJson(doc, "value"));
+            toReturn.setObject(Parser::Nothing());
 
-
-
-
+        } else if (Parser::ReturnStringValueFromJson(doc, "toDo") == "isAttribute"){
+            std::string flag = "false";
+            Node* iterator = Memory::get_instance()->getInUse().GetHead();
+            while (iterator->GetName() != Parser::ReturnStringValueFromJson(doc, "name")){
+                iterator = iterator->GetNext();
+            }
+            int size = iterator->GetSize();
+            while (size > 0) {
+                if (iterator->GetType() == "int") {
+                    iterator = iterator->GetNext();
+                    size=-4;
+                    if (iterator->GetName() == Parser::ReturnStringValueFromJson(doc, "attribute")){
+                        flag = "true";
+                    }
+                } else if (iterator->GetType() == "char") {
+                    iterator = iterator->GetNext();
+                    size=-1;
+                    if (iterator->GetName() == Parser::ReturnStringValueFromJson(doc, "attribute")){
+                        flag = "true";
+                    }
+                } else if (iterator->GetType() == "long") {
+                    iterator = iterator->GetNext();
+                    size=-8;
+                    if (iterator->GetName() == Parser::ReturnStringValueFromJson(doc, "attribute")){
+                        flag = "true";
+                    }
+                } else if (iterator->GetType() == "double") {
+                    iterator = iterator->GetNext();
+                    size=-8;
+                    if (iterator->GetName() == Parser::ReturnStringValueFromJson(doc, "attribute")){
+                        flag = "true";
+                    }
+                } else if (iterator->GetType() == "float") {
+                    iterator = iterator->GetNext();
+                    size=-4;
+                    if (iterator->GetName() == Parser::ReturnStringValueFromJson(doc, "attribute")){
+                        flag = "true";
+                    }
+                }
+            }
+            toReturn.setObject(Parser::CreateJsonObj_ReturnsData(flag));
 
         }
         std::cout<<Parser::ReturnChar(toReturn).c_str()<<std::endl;

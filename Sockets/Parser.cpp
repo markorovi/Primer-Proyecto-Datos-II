@@ -170,3 +170,11 @@ QJsonObject Parser::CreateJsonObj_whatType(std::string name) {
     obj["name"] = name.c_str();
     return obj;;
 }
+
+QJsonObject Parser::CreateJsonObj_isAttribute(std::string name, std::string attribute) {
+    QJsonObject obj;
+    obj["toDo"] = "isAttribute";
+    obj["name"] = name.c_str();
+    obj["attribute"] = attribute.c_str();
+    return obj;;
+}
