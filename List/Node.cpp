@@ -47,7 +47,7 @@ Node* Node::GetNext() {return this->next;}
 void Node::SetNext(Node *node) {this->next = node;}
 
 /// Getter para tamano del nodo
-/// \return Node*
+/// \return int
 int Node::GetSize() {return this->size;}
 
 /// Setter para el tamano del nodo

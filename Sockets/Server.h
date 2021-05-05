@@ -21,6 +21,10 @@ class Server {
 private:
     char buf[4096];
 public:
+
+    /*!
+     * @brief Se encarga de levantar el servidor el cual estara acargo del el manejo de la memoria
+     */
     void Start();
 };
 

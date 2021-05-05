@@ -20,9 +20,18 @@ private:
     char buf[4096];
     static QJsonDocument received;
 public:
+
+    /*!
+     * @brief Getter para la informacion que se obtiene del socket
+     * @return QJsonDocument
+     */
     static QJsonDocument getReceived();
 
 public:
+
+    /*!
+     * @brief Se encarga de levantar el socket y realizar la recepcion/envio de mensajes
+     */
     void Start();
 };
 
