@@ -27,6 +27,12 @@ void Memory::Show() {
     std::cout<<"\n\n";
 }
 
+void Memory::GeneratingStruct(int size, std::string name) {
+    this->InUse.add_node(&this->head[this->counter], "struct", this->counter, name);
+    this->InUse.GetHead()->SetSize(size);
+    //this->counter+= size;
+}
+
 /// Se encarga de reservar un espacio en el offset para la nueva variable
 /// \param type std::string El tipo de la variable
 /// \param i std::string Lo que la variable almacenara
@@ -78,7 +84,6 @@ void Memory::Using_Memory(std::string type, std::string i,  std::string name) {
             this->counter+= 4;
         }
     }
-
 }
 
 /// Se encarga de reutilizar una posicion en el offset de memoria a ser posible
@@ -198,4 +203,20 @@ void Memory::Need_Memory(std::string type, std::string i, std::string name) {
 /// \return char*
 char *Memory::getHead() const {
     return head;
+}
+
+std::vector<int> Memory::getToRecicle() {
+    return this->to_recicle;
+}
+
+void Memory::FillingStruct(std::string type, std::string i, std::string name) {
+    if (this->to_recicle.empty()){
+        this->Using_Memory(type, i, name);
+    } else{
+        this->counter = this->to_recicle.front();
+        this->to_recicle.clear();
+
+        this->Using_Memory(type, i, name);
+        std::cout<<"aqui 1"<<std::endl;
+
 }

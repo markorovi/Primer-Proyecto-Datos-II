@@ -7,6 +7,9 @@
 #include <sstream>
 #include "../Memory/Memory.h"
 #include "Server.h"
+#include <string>
+#include <iostream>
+
 
 ///Se encarga de levantar el servidor el cual estara acargo de todo el manejo de la memoria
 void Server::Start() {
@@ -72,10 +75,73 @@ void Server::Start() {
         } else if (Parser::ReturnStringValueFromJson(doc, "toDo") == "nothing"){
             toReturn.setObject(Parser::Nothing());
         } else if(Parser::ReturnStringValueFromJson(doc, "toDo") == "asking") {
-            std::cout<<Parser::ReturnStringValueFromJson(doc, "name")<<std::endl;
             std::string value = Memory::get_instance()->getInUse().returnValue(Parser::ReturnStringValueFromJson(doc, "name"), Memory::get_instance()->getInUse().GetHead());
             toReturn.setObject(Parser::CreateJsonObj_Value(value));
             //std::cout<<"VALOR: " + value<<std::endl;
+
+
+
+        } else if (Parser::ReturnStringValueFromJson(doc, "toDo") == "newStruct"){
+            int num;
+            int size;
+            num = std::stoi(Parser::ReturnStringValueFromJson(doc, "integers"));
+            while (num != 0){
+                size += 4;
+                num--;
+            }
+            num = std::stoi(Parser::ReturnStringValueFromJson(doc, "longs"));
+            while (num != 0){
+                size += 8;
+                num--;
+            }
+            num = std::stoi(Parser::ReturnStringValueFromJson(doc, "doubles"));
+            while (num != 0){
+                size += 8;
+                num--;
+            }
+            num = std::stoi(Parser::ReturnStringValueFromJson(doc, "chars"));
+            while (num != 0){
+                size += 1;
+                num--;
+            }
+            num = std::stoi(Parser::ReturnStringValueFromJson(doc, "floats"));
+            while (num != 0){
+                size += 4;
+                num--;
+            }
+            Memory::get_instance()->GeneratingStruct(size, Parser::ReturnStringValueFromJson(doc, "name"));
+            void *address = Memory::get_instance()->getInUse().GetHead()->GetAddress();
+            std::stringstream ss;
+            ss << address;
+            std::string strAddress = ss.str();
+            toReturn.setObject(Parser::CreateJsonObj_Address("struct", Parser::ReturnStringValueFromJson(doc, "name"), "", strAddress));
+
+        } else if (Parser::ReturnStringValueFromJson(doc, "toDo") == "fillStruct"){ //hay que quitar lo que hace que devuelva la direccion, porque esto no se ve en la ram view//////////////////////////////
+
+            Memory::get_instance()->FillingStruct(Parser::ReturnStringValueFromJson(doc, "type"), "", Parser::ReturnStringValueFromJson(doc, "name") + "_struct");
+            void *address = Memory::get_instance()->getInUse().GetHead()->GetAddress();
+            std::stringstream ss;
+            ss << address;
+            std::string strAddress = ss.str();
+            toReturn.setObject(Parser::CreateJsonObj_Address("struct", Parser::ReturnStringValueFromJson(doc, "name"), "", strAddress));
+
+
+            //toReturn.setObject(Parser::Nothing());
+        } else if (Parser::ReturnStringValueFromJson(doc, "toDo") == "modifyStruct") {
+            Node* iterator = Memory::get_instance()->getInUse().GetHead();
+            while (iterator->GetName() != Parser::ReturnStringValueFromJson(doc, "toModify")){
+                iterator = iterator->GetNext();
+            }
+            iterator = iterator->GetNext();
+            while (iterator->GetName() != Parser::ReturnStringValueFromJson(doc, "name")){
+                iterator = iterator->GetNext();
+            }
+            Memory::get_instance()->Rewrite(iterator->GetAddress(), Parser::ReturnStringValueFromJson(doc, "type"), Parser::ReturnStringValueFromJson(doc, "value"));
+
+
+
+
+
         }
         std::cout<<Parser::ReturnChar(toReturn).c_str()<<std::endl;
         send(clientSockect, Parser::ReturnChar(toReturn).c_str(), Parser::ReturnChar(toReturn).size() + 1, 0);

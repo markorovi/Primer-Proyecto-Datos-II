@@ -46,3 +46,11 @@ Node* Node::GetNext() {return this->next;}
 /// \param node
 void Node::SetNext(Node *node) {this->next = node;}
 
+/// Getter para el siguiente nodo
+/// \return Node*
+int Node::GetSize() {return this->size;}
+
+/// Setter para el siguiente nodo
+/// \param node
+void Node::SetSize(int size) {this->size = size;}
+

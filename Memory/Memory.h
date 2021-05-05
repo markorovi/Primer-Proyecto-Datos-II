@@ -18,6 +18,7 @@ private:
     char *head = (char *) malloc(10485760);
 public:
     char *getHead() const;
+    std::vector<int> getToRecicle();
 
 public:
     Linked_List getInUse();
@@ -28,7 +29,8 @@ public:
     void Show();
     void Rewrite(void * address, std::string type, std::string value);
     void Need_Memory(std::string type, std::string i,  std::string name);
-
+    void FillingStruct(std::string type, std::string i,  std::string name);
+    void GeneratingStruct(int size, std::string name);
 };
 
 

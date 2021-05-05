@@ -14,9 +14,12 @@ private:
     Node* next;
     int position;
     std::string name;
+    int size;
 public:
     void SetPosition(int value);
     int GetPosition();
+    void SetSize(int size);
+    int GetSize();
     void SetAddress(void* value);
     void* GetAddress();
     void SetType(std::string type);
